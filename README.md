@@ -1,21 +1,21 @@
 # Inteli - Instituto de Tecnologia e Liderança 
 
 <p align="center">
-<a href= "https://www.inteli.edu.br/"><img src="media/images/inteli.png" alt="Inteli - Instituto de Tecnologia e Liderança" border="0"></a>
+<a href= "https://www.inteli.edu.br/"><img src="https://raw.githubusercontent.com/2023M8T2-Inteli/grupo1/main/docs/static/img/inteli.png" alt="Inteli - Instituto de Tecnologia e Liderança" border="0"></a>
 </p>
 
-# Prototipação de um veículo autônomo
+# Planejamento de hiperconectividade para cidades inteligentes
 
-## NaviGuide
+## Grupo 4
 
 ## :student: Integrantes: 
 - <a href="https://www.linkedin.com/in/amanda-fontes/">Amanda Fontes</a>
-- <a href="https://www.linkedin.com/in/antonioangeloteixeira/">Antônio Angelo</a> 
-- <a href="https://www.linkedin.com/in/pablo-ruan-lana-viana/">Pablo Ruan</a>
-- <a href="https://www.linkedin.com/in/gabriela-rodrigues-matias/">Gabriela Matias</a> 
-- <a href="https://www.linkedin.com/in/jeanrothstein/">Jean Lucas</a>
+- <a href="https://www.linkedin.com/in/antonioangeloteixeira/">Antônio Angelo</a>
+- <a href="https://www.linkedin.com/in/gabriela-rodrigues-matias/">Gabriela Matias</a>
 - <a href="https://www.linkedin.com/in/henriquemarlon/">Henrique Marlon</a>
 - <a href="https://www.linkedin.com/in/henrique-schilder-647b122b0/">Henrique Schilder</a> 
+- <a href="https://www.linkedin.com/in/jeanrothstein/">Jean Lucas</a>
+- <a href="https://www.linkedin.com/in/pablo-ruan-lana-viana/">Pablo Ruan</a>
 - <a href="https://www.linkedin.com/in/vitor-zeferino/">Vitor Zeferino</a>
 
 ## :teacher: Professores:
