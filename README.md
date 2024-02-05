@@ -23,10 +23,10 @@
 - <a href="https://www.linkedin.com/in/rafaelmatsuyama/">Rafael Matsuyama</a>
 ### Instrutores
 - <a href="https://www.linkedin.com/in/rodrigo-mangoni-nicola-537027158/">Rodrigo Mangoni Nicola</a>
-- <a href="https://www.linkedin.com/in/cristinagramani/">Cristina Gramani</a> 
+- <a href="https://www.linkedin.com/in/marcelo-gon%C3%A7alves-phd-a550652/">Marcelo Gonçalves</a> 
 - <a href="https://www.linkedin.com/in/ricardo-jos%C3%A9-missori/">Ricardo José Missori</a> 
-- <a href="https://www.linkedin.com/in/lisane-valdo/">Lisane Valdo</a>
-- <a href="https://www.linkedin.com/in/gui-cestari/">Guilherme Cestari</a> 
+- <a href="https://www.linkedin.com/in/natalia-k-37a62052//">Natalia</a>
+- <a href="https://www.linkedin.com/in/francisco-escobar/">Francisco Escobar</a> 
 
 ## 📝 Descrição
 
