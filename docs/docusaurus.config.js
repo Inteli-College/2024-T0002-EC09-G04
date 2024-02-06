@@ -21,6 +21,10 @@ const config = {
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: `/${projectName}/`,
 
+  projectName: '2024-T0002-EC09-G04',
+  organizationName: 'docs',
+  trailingSlash: false,
+
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   onBrokenLinks: 'throw',
