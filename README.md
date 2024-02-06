@@ -24,13 +24,12 @@
 ### Instrutores
 - <a href="https://www.linkedin.com/in/rodrigo-mangoni-nicola-537027158/">Rodrigo Mangoni Nicola</a>
 - <a href="https://www.linkedin.com/in/marcelo-gon%C3%A7alves-phd-a550652/">Marcelo Gonçalves</a> 
-- <a href="https://www.linkedin.com/in/ricardo-jos%C3%A9-missori/">Ricardo José Missori</a> 
 - <a href="https://www.linkedin.com/in/natalia-k-37a62052//">Natalia</a>
 - <a href="https://www.linkedin.com/in/francisco-escobar/">Francisco Escobar</a> 
 
 ## 📝 Descrição
 
-Em construção...
+O projeto é uma iniciativa inovadora desenvolvida pela Empresa de Tecnologia da Informação e Comunicação do Município de São Paulo - Prodam-SP S.A. Este projeto tem como objetivo principal combater os problemas ambientais urbanos, como a poluição do ar e a degradação do meio ambiente, que afetam negativamente a qualidade de vida dos cidadãos. Utilizando uma abordagem tecnológica avançada, o projeto propõe a implementação de uma rede abrangente de sensores ambientais para monitorar contínua e eficientemente diversos aspectos ambientais, incluindo a qualidade do ar, ruído urbano, radiação solar, luminosidade, umidade do solo e gestão de resíduos.
 
 ## 📁 Estrutura de Pastas
 
@@ -40,9 +39,9 @@ Este repositório contém vários diretórios e arquivos importantes. Aqui está
 
 - `docs`: Diretório que contém todos os documentos relacionados ao projeto.
 
-- `src`: Pasta que contém o código-fonte do projeto. Aqui você encontrará todos os scripts e arquivos de código necessários para executar e entender o funcionamento do projeto.
+- `frontend`: Pasta que contém o código-fonte do projeto relacionado a interface. Aqui você encontrará todos os scripts e arquivos de código necessários para executar e entender o funcionamento do projeto.
 
-- `.gitignore`: Arquivo utilizado para especificar quais arquivos ou diretórios o Git deve ignorar.
+- `backend`: Pasta que contém o código-fonte do projeto relacionado a operações. Aqui você encontrará todos os scripts e arquivos de código necessários para executar e entender o funcionamento do projeto.
 
 
 A estrutura acima é projetada para manter o projeto organizado e fácil de navegar, tanto para desenvolvedores quanto para usuários.
