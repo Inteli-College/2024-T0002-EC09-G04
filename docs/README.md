@@ -8,7 +8,7 @@ Para rodar a documentação localmente, siga os comandos abaixo:
 npm i
 ```
 
-### Compile
+### Compile os arquivos
 
 ```shell
 npm run build
