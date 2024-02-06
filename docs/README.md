@@ -14,7 +14,7 @@ npm i
 npm run build
 ```
 
-### Inicie o servidor:
+### Inicie o servidor
 
 ```shell
 npm start
