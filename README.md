@@ -10,7 +10,6 @@
 
 ## :student: Integrantes: 
 - <a href="https://www.linkedin.com/in/amanda-fontes/">Amanda Fontes</a>
-- <a href="https://www.linkedin.com/in/antonioangeloteixeira/">Antônio Angelo</a>
 - <a href="https://www.linkedin.com/in/gabriela-rodrigues-matias/">Gabriela Matias</a>
 - <a href="https://www.linkedin.com/in/henriquemarlon/">Henrique Marlon</a>
 - <a href="https://www.linkedin.com/in/henrique-schilder-647b122b0/">Henrique Schilder</a> 
