@@ -1,6 +1,6 @@
 ---
 title: Entendimento da Experiência do Usuário
-sidebar_position: 4
+sidebar_position: 1
 slug: /user-experience
 ---
 

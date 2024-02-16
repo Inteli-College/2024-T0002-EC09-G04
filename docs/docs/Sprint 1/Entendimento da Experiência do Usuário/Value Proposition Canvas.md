@@ -1,7 +1,7 @@
 ---
-title: Persona
-sidebar_position: 2
-slug: /persona
+title: Canvas de Proposta de Valor
+sidebar_position: 3
+slug: /canvas
 ---
 
 # Persona
