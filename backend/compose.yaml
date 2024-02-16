@@ -1,0 +1,20 @@
+services:
+  broker:
+    image: eclipse-mosquitto:latest
+    ports:
+      - 1883:1883
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
+  publisher:
+    build:
+      context: ./publisher
+      dockerfile: Dockerfile
+    depends_on:
+      - broker
+  subscriber:
+    build:
+      context: ./subscriber
+      dockerfile: Dockerfile
+    depends_on:
+      - broker
+      - publisher
