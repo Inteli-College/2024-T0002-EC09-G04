@@ -41,10 +41,10 @@ A estratégia TAM-SAM-SOM é uma abordagem de marketing que divide o mercado em 
 **Estimativa do SOM:**
 - **20% do SAM: R$ 748.666,43.**
 
-**Cidades em potencial:**
-- **Todas as 32 regiões administrativas de São Paulo.**
+**Areas em potencial:**
+- **Todas as 32 regiões administrativas da cidade de São Paulo.**
 
 Priorização de áreas com maior índice de poluição, problemas de gestão de resíduos e demanda da população. Exemplo: Cidade Tiradentes, Jardim Ângela, Jardim Keralux.
 
 **Custo de implementação:**
-- **Estimativa média por região administrativa: R$ 437.500.**
+- **Estimativa média por CIDADE: R$ 437.500.**
