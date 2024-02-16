@@ -31,7 +31,7 @@ O TAM para o projeto EcoVigilância em São Paulo representa o mercado total de 
 
 ## SAM (Serviceable Addressable Market):
 
-O SAM representa a porção do TAM que a Prodam pode alcançar em São Paulo, considerando:
+- O SAM representa a porção do TAM que a Prodam pode alcançar em São Paulo, considerando:
     - Foco em áreas com maior necessidade de monitoramento ambiental.
     - Parcerias com empresas e instituições relevantes.
     - Capacidade de entrega de projetos de forma eficiente e eficaz.
@@ -41,7 +41,7 @@ O SAM representa a porção do TAM que a Prodam pode alcançar em São Paulo, co
 
 ## SOM (Share of Market):
 
-O SOM representa a fatia do SAM que a Prodam pretende conquistar em São Paulo, considerando:
+- O SOM representa a fatia do SAM que a Prodam pretende conquistar em São Paulo, considerando:
     - Experiência da Prodam em projetos de tecnologia da informação para o governo.
     - Reputação da Prodam como empresa confiável e comprometida com a qualidade.
     - Capacidade de trabalhar em parceria com outras entidades públicas e privadas.
