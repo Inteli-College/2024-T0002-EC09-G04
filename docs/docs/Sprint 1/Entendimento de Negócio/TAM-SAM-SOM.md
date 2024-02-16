@@ -3,6 +3,7 @@ title: TAM-SAM-SOM
 sidebar_position: 1
 slug: /tam-sam-som
 ---
+## TAM-SAM-SOM
 A estratégia TAM-SAM-SOM é uma abordagem de marketing que divide o mercado em três camadas distintas: o TAM (Total Addressable Market), que representa o mercado total teórico; o SAM (Serviceable Addressable Market), que delimita o mercado acessível com base em critérios específicos; e o SOM (Serviceable Obtainable Market), que é a fatia do mercado que a empresa efetivamente pretende alcançar com seus recursos e estratégias. Essa divisão ajuda as empresas a entenderem o potencial de mercado, identificar oportunidades realistas de crescimento e alocar recursos de maneira mais eficiente para atingir seus objetivos.
 
 ## TAM (Total Addressable Market):
