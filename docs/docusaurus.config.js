@@ -13,7 +13,7 @@ const projectName = 'docs';
 const config = {
   title: 'Grupo 4 | Inteli City',
   tagline: 'Planejamento de hiperconectividade para cidades inteligentes',
-  favicon: 'icons/inteli.svg',
+  favicon: 'icons/inteli_logo.png',
 
   // Set the production url of your site here
   url: `https://${organizationName}.github.io`,
@@ -63,7 +63,7 @@ const config = {
       title: 'Grupo4 | Inteli City',
       logo: {
         alt: 'logo',
-        src: 'icons/inteli.svg',
+        src: 'icons/inteli_logo.png',
       },
       items: [
         {
