@@ -1,7 +1,7 @@
 ---
-title: Persona
-sidebar_position: 2
-slug: /persona
+title: Identidade Visual
+sidebar_position: 1
+slug: /id
 ---
 
 # Persona
