@@ -2,7 +2,7 @@ package main
 
 import (
 	"sync"
-	"github.com/Inteli-College/2024-T0002-EC09-G04/ativ01/pkg/station"
+	"github.com/Inteli-College/2024-T0002-EC09-G04/pkg/station"
 )
 
 
