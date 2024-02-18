@@ -6,6 +6,9 @@
 
 # Planejamento de hiperconectividade para cidades inteligentes
 
+## Link - Documentação de Projeto:
+https://inteli-college.github.io/2024-T0002-EC09-G04/
+
 ## Grupo 4
 
 ## :student: Integrantes: 
