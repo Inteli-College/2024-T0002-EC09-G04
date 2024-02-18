@@ -14,7 +14,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: 'backend/**'
+        working-directory: './backend/**'
 
     steps:
       - uses: actions/checkout@v4
