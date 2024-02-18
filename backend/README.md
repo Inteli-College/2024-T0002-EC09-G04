@@ -4,6 +4,8 @@ O código contido nesse recorte do projeto representa o sistema de simulação e
 
 wrefwjjkjkbq
 
+
+lwk
 > [!IMPORTANT]
 > Antes de seguir os comando abaixo, confira se a sua máquina contém os requerimentos [necessários](https://docs.docker.com/desktop/install/ubuntu/). Para uma melhor interação entre no workspace do diretório backend.
 
