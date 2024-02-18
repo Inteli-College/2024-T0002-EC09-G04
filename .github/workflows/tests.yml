@@ -28,5 +28,5 @@ jobs:
       - name: Test all packages
         run: go test ./...
       - name: Teardown Local Broker
-        run: docker compose -f ./compose.yaml down -d broker
+        run: docker compose -f ./compose.yaml down broker
 
