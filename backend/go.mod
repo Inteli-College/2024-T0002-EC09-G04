@@ -1,4 +1,4 @@
-module main
+module github.com/Inteli-College/2024-T0002-EC09-G04
 
 go 1.21.6
 
