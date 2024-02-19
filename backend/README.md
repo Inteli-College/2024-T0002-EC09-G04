@@ -1,6 +1,7 @@
 # Backend
 
-O código contido nesse recorte do projeto representa o sistema de simulação e futuramente também vai abarcar as API's requeridas pelo sistema. 
+O código contido nesse recorte do projeto representa o sistema de simulação e futuramente também vai abarcar as API's requeridas pelo sistema. Esse projeto foi construído conforme o [golang-standarts](https://github.com/golang-standards/project-layout). [^1]
+
 
 ## Como rodar o sistema:
 
@@ -47,7 +48,7 @@ make run
 
 ###### Output:
 
-```json
+```shell
 broker-1      | 1708301841: New client connected from 172.22.0.3:39954 as station-2805345190559206082 (p2, c1, k30).
 broker-1      | 1708301841: New connection from 172.22.0.4:51230 on port 1891.
 broker-1      | 1708301841: New client connected from 172.22.0.4:51230 as subscriber (p2, c1, k30).
@@ -73,4 +74,4 @@ make coverage
 > [!NOTE]
 >  - Esse comando está criando a partir do arquivo `coverage_sheet.md` uma visualização da cobertura de testes nos principais arquivos Go.
 
-[^1]: A estrutura de pastas escolhida para esse projeto está de acordo com as convenções e padrões utilizados pela comunidade de desenvolvedores Golang. Para mais informações acesse o [link](https://github.com/golang-standards/project-layout)
+[^1]: A estrutura de pastas escolhida para esse projeto está de acordo com as convenções e padrões utilizados pela comunidade de desenvolvedores Golang.
