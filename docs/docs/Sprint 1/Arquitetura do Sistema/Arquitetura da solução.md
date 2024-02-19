@@ -1,19 +1,14 @@
 ---
-title: Arquitetura - Versão Inicial
+title: Arquitetura da solução
 sidebar_position: 1
-slug: /arquit1
+slug: /architecture
 ---
-
-# Arquitetura do Projeto - Versão Inicial
-
 ![Arquitetura - Versão Inicial](/img/arquitetura1.png)
 
 ## Camada de Segurança:
----------------------
-Abriga todo o projeto. 
+Abriga todo o projeto, a proporção que se refere a todas as validações, redes, testes e outros métodos de segurança que serão implementados.
 
 ## Sistema de Geração de Informações:
------------------------------------
 Responsável pela geração e processamento de dados sensoriais
 - Dados Sensoriais
 - Sensores de Qualidade do Ar (CO2, CO, NO2, MP10, MP2,5)
@@ -30,7 +25,6 @@ Gerencia a troca de dados utilizando o protocolo MQTT
 - Captação dos Dados (MQTT)
 
 ## Sistema de Serviço (Backend):
-------------------------------
 Responsável pelo servidor e pela lógica de negócios
 - Servidor
 - Armazenamento de Dados Sensoriais
@@ -40,13 +34,11 @@ Responsável pelo servidor e pela lógica de negócios
 - Sistema de Testes Unitários
 
 ## Sistema de Armazenamento e Gestão de Dados em Cloud:
------------------------------------------------------
 Responsável pelo armazenamento e gerenciamento de dados na nuvem
 - Banco de Dados não Relacional
 - Serviço de Gerenciamento de Dados
 
-## Interface de Interação do Usuário (Dashboard):
-------------------------------------------------
+## Interface de Interação do Usuário:
 Interface para interação do usuário com o sistema
 - Sistema de Autenticação
 - Níveis de Usuários

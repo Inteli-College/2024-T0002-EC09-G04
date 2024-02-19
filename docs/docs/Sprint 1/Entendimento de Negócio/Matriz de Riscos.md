@@ -1,10 +1,10 @@
 ---
-title: Análise de Riscos
+title: Matriz de Riscos
 sidebar_position: 5
 slug: /risk-analisys
 ---
 
-![Riscos](../../../static/img/risk_matrix.png)
+![Matriz de riscos](../../../static/img/risk_matrix.png)
 
 ## Estratégias de Mitigação de Riscos
 

@@ -1,14 +1,13 @@
 ---
 title: Análise PESTEL
 sidebar_position: 3
-slug: /analise-pestel
+slug: /pestel-analysis
 ---
+# Análise PESTEL
 
 A análise PESTEL é uma ferramenta estratégica utilizada para avaliar o ambiente externo no qual uma empresa ou projeto está inserido. O acrônimo PESTEL representa seis categorias de fatores externos que podem influenciar o sucesso ou fracasso de um empreendimento. Assim, os fatores estão descritos abaixo com uma análise dos pontos que devem ser levados em conta para este projeto em parceria com a Prodam.
 
 Dessa forma, a análise contida abaixo foi feita pelo grupo como uma forma de mapear o cenário no qual o produto vai se introduzir, buscando melhorar a tomada de decisões por parte dos stakeholders.
-
-
 
 # 1. Político (Political):
 

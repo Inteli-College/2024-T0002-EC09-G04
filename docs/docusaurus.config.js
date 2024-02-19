@@ -7,11 +7,10 @@
 import { lightCodeTheme, darkCodeTheme } from 'prism-react-renderer';
 
 const organizationName = '2024-T0002-EC09-G04';
-const projectName = 'docs';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Grupo 4 | Inteli City',
+  title: 'Grupo 4 - Orbe City',
   tagline: 'Planejamento de hiperconectividade para cidades inteligentes',
   favicon: 'icons/inteli_logo.png',
 
@@ -60,7 +59,7 @@ const config = {
     // Replace with your project's social card
     image: 'img/m9-social-card.jpg',
     navbar: {
-      title: 'Grupo4 | Inteli City',
+      title: 'Grupo4 | Orbe City',
       logo: {
         alt: 'logo',
         src: 'icons/inteli_logo.png',
@@ -76,7 +75,7 @@ const config = {
     },
     footer: {
       style: 'dark',
-      copyright: `Copyright © ${new Date().getFullYear()} Grupo 4 | Inteli City`,
+      copyright: `Copyright © ${new Date().getFullYear()} Grupo 4 | Orbe City`,
     },
     prism: {
       theme: lightCodeTheme,
