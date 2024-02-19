@@ -17,7 +17,6 @@ Responsável pela geração e processamento de dados sensoriais
 - Gerenciamento de Filas
 
 ## Sistema de Consumo dos Dados (MQTT)
---------------------------------------
 Gerencia a troca de dados utilizando o protocolo MQTT
 - Broker
 - Publisher
