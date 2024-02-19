@@ -1,15 +1,18 @@
 # Backend
 
-O código contido nesse recorte do projeto representa o sistema de simulação e futuramente também vai abarcar as API's requeridas pelo sistema. Esse projeto foi construído conforme o [golang-standarts](https://github.com/golang-standards/project-layout). [^1]
+O código contido neste recorte do projeto representa o sistema de simulação e, futuramente, também abrangerá as APIs requeridas pelo sistema. Este projeto foi construído conforme as [golang-standards](https://github.com/golang-standards/project-layout) [^1].
 
+## Dependências:
+
+Antes de continuar, é necessário instalar as dependências para a execução dos comandos abaixo. Acesse o [link](https://docs.docker.com/desktop/install/ubuntu/).
 
 ## Como rodar o sistema:
 
-Abaixo, as possíveis interações e as instruções de como realizá-las.
+Abaixo estão as possíveis interações e as instruções de como realizá-las.
 
 #### Rodar testes:
 
-Aqui, todos os comandos necessários estão sendo abstraídos por um arquivo Makelife, caso você tenha curiosidade para saber o que o comando abaixo faz, basta conferir [aqui](https://github.com/Inteli-College/2024-T0002-EC09-G04/blob/main/backend/Makefile#L7).
+Aqui, todos os comandos necessários estão sendo abstraídos por um arquivo Makefile. Se você tiver curiosidade para saber o que o comando abaixo faz, basta conferir [aqui](https://github.com/Inteli-College/2024-T0002-EC09-G04/blob/main/backend/Makefile#L7).
 
 ###### Comando:
 
@@ -38,11 +41,11 @@ ok      github.com/Inteli-College/2024-T0002-EC09-G04/pkg/station       2.011s  
 
 #### Rodar a simulação:
 
-Mais uma vez, todos os comandos necessários estão sendo abstraídos por um arquivo Makelife, caso você tenha curiosidade para saber o que o comando abaixo faz, basta conferir [aqui](https://github.com/Inteli-College/2024-T0002-EC09-G04/blob/main/backend/Makefile#L15C2-L15C7).
+Mais uma vez, todos os comandos necessários estão sendo abstraídos por um arquivo Makefile. Se você tiver curiosidade para saber o que o comando abaixo faz, basta conferir [aqui](https://github.com/Inteli-College/2024-T0002-EC09-G04/blob/main/backend/Makefile#L15C2-L15C7).
 
 ###### Comando:
 
-```Bash
+```bash
 make run
 ```
 
@@ -56,15 +59,15 @@ api-test-1    | Received: {"location":"{\"latitude\":36.000000,\"longitude\":16.
 ```
 
 > [!NOTE]
->  - Esse comando está subindo todos os serviços presentes no arquivo compose.yml. São eles, o broker local, a simulação e a api-test que esta sendo usada, por hora apenas para mostrar o log do que esta sendo transmitido pela simulação
+>  - Este comando está subindo todos os serviços presentes no arquivo compose.yml. São eles, o broker local, a simulação e a api-test que está sendo usada, por hora apenas para mostrar o log do que está sendo transmitido pela simulação.
 
-#### Rodar a visualização da cobertura de testes
+#### Rodar a visualização da cobertura de testes:
 
-Novamente, todos os comandos necessários estão sendo abstraídos por um arquivo Makelife, caso você tenha curiosidade para saber o que o comando abaixo faz, basta conferir [aqui](https://github.com/Inteli-College/2024-T0002-EC09-G04/blob/main/backend/Makefile#L21).
+Novamente, todos os comandos necessários estão sendo abstraídos por um arquivo Makefile. Se você tiver curiosidade para saber o que o comando abaixo faz, basta conferir [aqui](https://github.com/Inteli-College/2024-T0002-EC09-G04/blob/main/backend/Makefile#L21).
 
 ###### Comando:
 
-```Bash
+```bash
 make coverage 
 ```
 
@@ -72,6 +75,6 @@ make coverage
 
 
 > [!NOTE]
->  - Esse comando está criando a partir do arquivo `coverage_sheet.md` uma visualização da cobertura de testes nos principais arquivos Go.
+>  - Este comando está criando, a partir do arquivo `coverage_sheet.md`, uma visualização da cobertura de testes nos principais arquivos Go.
 
-[^1]: A estrutura de pastas escolhida para esse projeto está de acordo com as convenções e padrões utilizados pela comunidade de desenvolvedores Golang.
+[^1]: A estrutura de pastas escolhida para este projeto está de acordo com as convenções e padrões utilizados pela comunidade de desenvolvedores Golang.
