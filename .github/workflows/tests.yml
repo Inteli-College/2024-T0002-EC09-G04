@@ -1,0 +1,32 @@
+name: Tests for Backend
+
+on:
+  push:
+    branches:
+      - 'dev'
+    paths:
+      - 'backend/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        shell: bash
+        working-directory: 'backend/'
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: 'stable'
+      - name: Get dependencies
+        run: go mod tidy
+      - name: Setup Local Broker
+        run: docker compose -f ./compose.yaml up -d broker
+      - name: Test all packages
+        run: go test ./...
+      - name: Teardown Local Broker
+        run: docker compose -f ./compose.yaml down broker
+
