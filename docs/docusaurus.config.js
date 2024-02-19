@@ -10,7 +10,7 @@ const organizationName = '2024-T0002-EC09-G04';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Grupo 4 - Orbe City',
+  title: 'Grupo 4 - Orbit City',
   tagline: 'Planejamento de hiperconectividade para cidades inteligentes',
   favicon: 'icons/inteli_logo.png',
 
@@ -59,7 +59,7 @@ const config = {
     // Replace with your project's social card
     image: 'img/m9-social-card.jpg',
     navbar: {
-      title: 'Grupo4 | Orbe City',
+      title: 'Grupo4 | Orbit City',
       logo: {
         alt: 'logo',
         src: 'icons/inteli_logo.png',
@@ -75,7 +75,7 @@ const config = {
     },
     footer: {
       style: 'dark',
-      copyright: `Copyright © ${new Date().getFullYear()} Grupo 4 | Orbe City`,
+      copyright: `Copyright © ${new Date().getFullYear()} Grupo 4 | Orbit City`,
     },
     prism: {
       theme: lightCodeTheme,
