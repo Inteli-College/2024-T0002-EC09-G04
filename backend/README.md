@@ -6,7 +6,7 @@ O código contido neste recorte do projeto representa o sistema de simulação e
 
 Antes de continuar, é necessário instalar as dependências para a execução dos comandos abaixo. Acesse o [link](https://docs.docker.com/desktop/install/ubuntu/).
 
-## Como rodar o sistema:
+## Interagindo com o sistema:
 
 Abaixo estão as possíveis interações e as instruções de como realizá-las.
 
@@ -14,13 +14,13 @@ Abaixo estão as possíveis interações e as instruções de como realizá-las.
 
 Aqui, todos os comandos necessários estão sendo abstraídos por um arquivo Makefile. Se você tiver curiosidade para saber o que o comando abaixo faz, basta conferir [aqui](https://github.com/Inteli-College/2024-T0002-EC09-G04/blob/main/backend/Makefile#L7).
 
-###### Comando:
+##### Comando:
 
 ```shell
 make test
 ```
 
-###### Output:
+##### Output:
 
 ```shell
 [+] Running 1/1
@@ -43,13 +43,13 @@ ok      github.com/Inteli-College/2024-T0002-EC09-G04/pkg/station       2.011s  
 
 Mais uma vez, todos os comandos necessários estão sendo abstraídos por um arquivo Makefile. Se você tiver curiosidade para saber o que o comando abaixo faz, basta conferir [aqui](https://github.com/Inteli-College/2024-T0002-EC09-G04/blob/main/backend/Makefile#L15C2-L15C7).
 
-###### Comando:
+##### Comando:
 
 ```bash
 make run
 ```
 
-###### Output:
+##### Output:
 
 ```shell
 broker-1      | 1708301841: New client connected from 172.22.0.3:39954 as station-2805345190559206082 (p2, c1, k30).
@@ -65,13 +65,13 @@ api-test-1    | Received: {"location":"{\"latitude\":36.000000,\"longitude\":16.
 
 Novamente, todos os comandos necessários estão sendo abstraídos por um arquivo Makefile. Se você tiver curiosidade para saber o que o comando abaixo faz, basta conferir [aqui](https://github.com/Inteli-College/2024-T0002-EC09-G04/blob/main/backend/Makefile#L21).
 
-###### Comando:
+##### Comando:
 
 ```bash
 make coverage 
 ```
 
-###### Output:
+##### Output:
 ![output_coverage](https://github.com/Inteli-College/2024-T0002-EC09-G04/assets/89201795/59e8654d-26bc-4e6c-990a-d4c823f38973)
 
 > [!NOTE]
