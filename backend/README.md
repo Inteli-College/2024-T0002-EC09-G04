@@ -24,7 +24,7 @@ make test
 
 ```shell
 [+] Running 1/1
- ✔ Container backend-broker-1  Started                                                                                                          0.0s 
+✔ Container backend-broker-1  Started                                                                                                          0.0s 
 Running the tests
 ?       github.com/Inteli-College/2024-T0002-EC09-G04/cmd/api-test      [no test files]
 ?       github.com/Inteli-College/2024-T0002-EC09-G04/cmd/simulation    [no test files]
@@ -32,8 +32,8 @@ ok      github.com/Inteli-College/2024-T0002-EC09-G04/internal/gas      0.003s  
 ok      github.com/Inteli-College/2024-T0002-EC09-G04/internal/rad_lum  0.003s  coverage: 100.0% of statements
 ok      github.com/Inteli-College/2024-T0002-EC09-G04/pkg/station       2.011s  coverage: 88.5% of statements
 [+] Running 2/2
- ✔ Container backend-broker-1  Removed                                                                                                          0.2s 
- ✔ Network backend_default     Removed  
+✔ Container backend-broker-1  Removed                                                                                                          0.2s 
+✔ Network backend_default     Removed  
 ```
 
 > [!NOTE]
