@@ -24,7 +24,7 @@ O projeto Orbit City concentra-se na implementação de uma plataforma de monito
             <a href="https://www.linkedin.com/in/gabriela-rodrigues-matias/">Gabriela Matias</a>
         </li>
         <li>
-            <a href="https://www.linkedin.com/in/henriquemarlon/">Henrique Marlon Santos</a>
+            <a href="https://www.linkedin.com/in/henriquemarlon/">Henrique Marlon</a>
         </li>
         <li>
             <a href="https://www.linkedin.com/in/henriqueschilder/">Henrique Schilder</a>

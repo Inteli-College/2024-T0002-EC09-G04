@@ -1,7 +1,7 @@
 ---
 title: Análise Financeira
 sidebar_position: 2
-slug: /analise-financeira
+slug: /financial-analysis
 ---
 
 Neste relatório, apresentaremos uma análise financeira detalhada do projeto. O sistema será analisado em diferentes fases, desde o desenvolvimento até a análise de receita futura, incluindo os custos associados a cada etapa. Com isso, objetivamos fornecer um panorama completo do investimento necessário para a implementação da solução proposta.
@@ -15,15 +15,15 @@ Neste relatório, apresentaremos uma análise financeira detalhada do projeto. O
 
 #### Referenciais:
 
-  - A área do Estado de São Paulo corresponde a 1521 km².
+  - A área do Estado de São Paulo corresponde a 248,219 km².
   - A média salarial de um Engenheiro Elétrico é R$ 8.253,10.
   - A média salarial de um Engenheiro de Computação é R$ 8.479,39.
   - A média salarial de um Engenheiro de Software é R$ 7.000,00.
   - A média salarial de um técnico em TI é R$ 1.729,00.
   - A Bolsa-auxílio média para estágio em Engenharia de Computação é R$ 1.157,00.
   - A Bolsa-auxílio média para estágio em Engenharia Elétrica é R$ 1.278,00.
-  - Edital para licitações do Finep/MCTI datado de 2022 ([acesse aqui](http://www.finep.gov.br/chamadas-publicas/chamadapublica/683)).
-  - Contratações realizadas pelo IPT - Instituto de Pesquisas Tecnológicas ([acesse aqui](https://suprimentos.ipt.br/Contrato)).
+  - Edital para licitações do Finep/MCTI datado de 2022.
+  - Contratações realizadas pelo IPT - Instituto de Pesquisas Tecnológicas.
   - A fabricação dos componentes definidos na etapa de pesquisas será nacionalizada.
   - O tempo para a execução do projeto deverá ser de 12 meses.
 

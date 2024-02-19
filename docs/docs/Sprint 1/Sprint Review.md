@@ -15,6 +15,6 @@ Durante a primeira sprint, nossa atenção esteve voltada para uma compreensão 
 7. **Arquitetura:** Planejamento e discussão sobre a estrutura e design da solução.
 8. **Próximos Passos:** Definição das etapas e ações a serem tomadas no futuro próximo.
 
-## Apresentação:
+## Apresentação
 
 <iframe style={{ display: 'block', margin: 'auto', width: '100%', height: '50vh', }} src="https://slides.com/pabloviana/deck-b60713/embed" frameborder="0" allowFullScreen> </iframe>

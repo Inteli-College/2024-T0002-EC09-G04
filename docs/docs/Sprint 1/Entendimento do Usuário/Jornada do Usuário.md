@@ -1,7 +1,7 @@
 ---
 title: Jornada do Usuário
 sidebar_position: 4
-slug: /jornada-do-usuario
+slug: /user-journey
 ---
 
 Uma vez desenvolvidas as Personas contempladas pela nossa solução, foram elaboradas suas respectivas jornadas no que concerne ao processo de interação entre o usuário e o produto final. Abaixo, pode ser visualizada a jornada do usuário construída para Marcos, um gestor público que trabalha com monitoramento ambiental. Marcos, nesse cenário, representa um dos públicos aos quais desejamos atender: os setores públicos que utilizam dados para a criação de pautas sustentáveis.
