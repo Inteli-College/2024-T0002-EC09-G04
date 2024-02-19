@@ -50,7 +50,9 @@ Neste documento, vamos detalhar o planejamento de testes unitários para o proje
 
 ### Testes de CSRF (Cross-Site Request Forgery)
 
-Verificar se o servidor está protegido contra ataques CSRF, garantindo que todas as solicitações estejam acompanhadas de tokens de autenticação válidos. Esses testes unitários ajudarão a garantir a qualidade e segurança do sistema EcoVigilância, permitindo uma implementação robusta e confiável.
+- Verificar se o servidor está protegido contra ataques CSRF, garantindo que todas as solicitações estejam acompanhadas de tokens de autenticação válidos. 
+
+Esses testes unitários ajudarão a garantir a qualidade e segurança do sistema EcoVigilância, permitindo uma implementação robusta e confiável.
 
 ## Apêndice
 
