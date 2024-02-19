@@ -9,7 +9,7 @@
 ## Link - Documentação de Projeto:
 https://inteli-college.github.io/2024-T0002-EC09-G04/
 
-## Grupo 4
+## Grupo 4 - Os Sentinelas
 
 ## :student: Integrantes: 
 - <a href="https://www.linkedin.com/in/amanda-fontes/">Amanda Fontes</a>
@@ -46,9 +46,7 @@ Este repositório contém vários diretórios e arquivos importantes. Aqui está
 
 - `backend`: Pasta que contém o código-fonte do projeto relacionado a operações. Aqui você encontrará todos os scripts e arquivos de código necessários para executar e entender o funcionamento do projeto.
 
-
 A estrutura acima é projetada para manter o projeto organizado e fácil de navegar, tanto para desenvolvedores quanto para usuários.
-
 
 ## 📋 Licença/License
 

@@ -66,7 +66,7 @@ const config = {
       },
       items: [
         {
-          to: "https://github.com/cartesi/docs/",
+          to: "https://github.com/Inteli-College/2024-T0002-EC09-G04",
           position: "right",
           className: "header-github-link",
           "aria-label": "GitHub repository",

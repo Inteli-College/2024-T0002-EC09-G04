@@ -1,6 +1,6 @@
 ---
 title: Identidade Visual
-sidebar_position: 1
+sidebar_position: 2
 slug: /visual-identity-reference
 ---
 
