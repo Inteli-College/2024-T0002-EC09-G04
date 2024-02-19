@@ -72,7 +72,7 @@ make coverage
 ```
 
 ###### Output:
-
+![output_coverage](https://github.com/Inteli-College/2024-T0002-EC09-G04/assets/89201795/59e8654d-26bc-4e6c-990a-d4c823f38973)
 
 > [!NOTE]
 >  - Este comando está criando, a partir do arquivo `coverage_sheet.md`, uma visualização da cobertura de testes nos principais arquivos Go.
