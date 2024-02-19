@@ -4,6 +4,8 @@ sidebar_position: 1
 slug: /financial-analysis-reference
 ---
 
+## Referências utilizadas
+
 **Quero Bolsa:** Sobre a média salarial de um Engenheiro da Computação (https://querobolsa.com.br/cursos-e-faculdades/engenharia-de-computacao/quanto-ganha-engenheiro-de-computacao-salario);
 
 **Ampli:** Sobre a média salarial de um Engenheiro Eletrico (https://blog.ampli.com.br/guia-de-profissoes/engenharia-eletrica-salario/);
