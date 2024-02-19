@@ -1,7 +1,7 @@
 ---
-title: Requisitos Funcionais e Não Funcionais
-sidebar_position: 8
-slug: /requisitos
+title: Levantamento de Requisitos
+sidebar_position: 2
+slug: /requirements-gathering
 ---
 
 Para garantir que o projeto atenda às necessidades do cliente, identificadas durante uma entrevista de levantamento de requisitos em sala de aula, os requisitos foram divididos em duas categorias principais: funcionais e não funcionais. Essa divisão foi motivada pela complexidade do projeto, que demanda tanto a implementação de funcionalidades específicas conforme os requisitos mínimos estabelecidos quanto o cumprimento de métricas de desempenho. Dentro dessas categorias, os requisitos funcionais descrevem o que o sistema deve realizar, enquanto os não funcionais estabelecem as métricas de desempenho a serem alcançadas pelos requisitos funcionais. Cada requisito foi ainda classificado como "obrigatório" ou "desejável", permitindo à equipe de desenvolvimento estabelecer uma ordem de prioridade para sua implementação.

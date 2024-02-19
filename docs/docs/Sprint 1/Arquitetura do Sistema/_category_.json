@@ -1,0 +1,7 @@
+{
+  "label": "Arquitetura do sistema",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Esta seção contempla a arquitetura e os componentes do sistema Orbit City, que é um sistema de integração de dados de sensores para avaliação e monitoramento. O sistema é composto por várias camadas, cada uma desempenhando um papel específico na coleta, processamento, armazenamento e apresentação de dados ambientais."}
+}

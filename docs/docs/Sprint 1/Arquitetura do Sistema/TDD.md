@@ -1,10 +1,8 @@
 ---
-title: Planejamento de Testes Unitários
-sidebar_position: 1
-slug: /unitary_tests
+title: Test-Driven Development
+sidebar_position: 3
+slug: /tdd
 ---
-
-# Sistemas de Testes do Projeto
 
 Neste documento, vamos detalhar o planejamento de testes unitários para o projeto EcoVigilância, focando no sistema de broker MQTT, no servidor e na segurança das aplicações. Os testes serão desenvolvidos utilizando a linguagem Go e abordarão diversas áreas críticas do sistema para garantir sua qualidade e robustez.
 
