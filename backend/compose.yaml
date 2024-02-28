@@ -8,6 +8,15 @@
 # database or a cache. For examples, see the Awesome Compose repository:
 # https://github.com/docker/awesome-compose
 services:
+
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - "5672:5672"  # Porta para conexão AMQP
+      - "15672:15672"  # Porta para o painel de controle da RabbitMQ
+    volumes:
+      - .:/src # Volume para armazenar dados da RabbitMQ
+
   broker:
     image: eclipse-mosquitto:latest
     ports:
