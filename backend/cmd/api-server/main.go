@@ -7,7 +7,7 @@ import (
 	"syscall"
 
 	"github.com/eclipse/paho.mqtt.golang"
-	"github.com/Inteli-College/2024-T0002-EC09-G04/blob/main/backend/pkg/station"
+	"github.com/Inteli-College/2024-T0002-EC09-G04/backend/pkg/station"
 )
 
 func onMessageReceived(client mqtt.Client, msg mqtt.Message) {

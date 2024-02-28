@@ -12,7 +12,6 @@ services:
     image: eclipse-mosquitto:latest
     ports:
       - 1883:1883
-      - 1891:1891
     volumes:
       - ./config/mosquitto.conf:/mosquitto/config/mosquitto.conf
   simulation:
