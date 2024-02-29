@@ -3,20 +3,16 @@ package main
 import (
 	"encoding/json"
 	"database/sql"
-	"fmt"
 	"log"
-	"os"
 
-	_ "github.com/lib/pq"
-	"github.com/streadway/amqp"
+	amqp "github.com/rabbitmq/amqp091-go"
 	"github.com/Inteli-College/2024-T0002-EC09-G04/backend/internal/gas"
 	"github.com/Inteli-College/2024-T0002-EC09-G04/backend/internal/rad_lum"
-
 )
 
 const (
 	amqpURI        = "amqp://guest:guest@rabbitmq:5672/"
-	postgreSQLInfo = "host=database-metabase.cxic0so62a43.us-east-1.rds.amazonaws.com user=postgres password=admin1234 dbname=postgres sslmode=disable"
+	postgreSQLInfo = "host=database-stations.cxic0so62a43.us-east-1.rds.amazonaws.com user=postgres password=admin1234 dbname=postgres sslmode=disable"
 	queueName      = "stations_queue"
 )
 
@@ -48,9 +44,9 @@ func main() {
 
 	msgs, err := ch.Consume(
 		q.Name,
-		"",true
-		true, //autoAck=false para confirmação manual
-		false,
+		"",
+		true,
+		false, //autoAck=false para confirmação manual
 		false,
 		false,
 		nil,
@@ -70,7 +66,7 @@ func main() {
 			var gasData gas.Payload
 			if err := json.Unmarshal(d.Body, &gasData); err == nil {
 				// Insira os dados na tabela Gas
-				_, err := db.Exec("INSERT INTO Gas (CO2, CO, NO2, MP10, MP25) VALUES ($1, $2, $3, $4, $5)", gasData.CO2, gasData.CO, gasData.NO2, gasData.MP10, gasData.MP25)
+				_, err := db.Exec("INSERT INTO gas (CO2, CO, NO2, MP10, MP25) VALUES ($1, $2, $3, $4, $5)", gasData.CO2, gasData.CO, gasData.NO2, gasData.MP10, gasData.MP25)
 				if err != nil {
 					log.Printf("Error inserting Gas into DB: %v", err)
 					continue
@@ -82,7 +78,7 @@ func main() {
 			var radLumData rad_lum.Payload
 			if err := json.Unmarshal(d.Body, &radLumData); err == nil {
 				// Insira os dados na tabela Rad_lum
-				_, err := db.Exec("INSERT INTO Rad_lum (ET, LI, SR) VALUES ($1, $2, $3)", radLumData.ET, radLumData.LI, radLumData.SR)
+				_, err := db.Exec("INSERT INTO rad_lum (ET, LI, SR) VALUES ($1, $2, $3)", radLumData.ET, radLumData.LI, radLumData.SR)
 				if err != nil {
 					log.Printf("Error inserting RadLum into DB: %v", err)
 					continue
