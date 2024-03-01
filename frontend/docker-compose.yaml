@@ -9,5 +9,6 @@ services:
       MB_DB_USER: postgres
       MB_DB_PASS: meta1234
       MB_DB_HOST: database-metabase.cxic0so62a43.us-east-1.rds.amazonaws.com
+      MB_BREAKOUT_BIN_WIDTH: 0.01
     ports:
       - "12345:3000"
