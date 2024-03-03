@@ -14,7 +14,7 @@ func main() {
 		wg.Add(1)
 		go func() {
 			defer wg.Done()
-			station.Start("tcp://broker:1883")
+			station.Start("ssl://908447a66faf43129ef280ff434012e6.s1.eu.hivemq.cloud:8883/mqtt:1883")
 		}()
 	}
 	wg.Wait()

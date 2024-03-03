@@ -14,22 +14,29 @@ services:
     ports:
       - "5672:5672"  # Porta para conexão AMQP
       - "15672:15672"  # Porta para o painel de controle da RabbitMQ
+    healthcheck:
+      test: rabbitmq-diagnostics check_port_connectivity
+      interval: 2s
+      timeout: 2s
+      retries: 20
     volumes:
       - .:/src # Volume para armazenar dados da RabbitMQ
 
-  broker:
-    image: eclipse-mosquitto:latest
-    ports:
-      - 1883:1883
-    volumes:
-      - ./config/mosquitto.conf:/mosquitto/config/mosquitto.conf
+  # broker:
+  #   image: eclipse-mosquitto:latest
+  #   ports:
+  #     - 1883:1883
+  #   volumes:
+  #     - ./config/mosquitto.conf:/mosquitto/config/mosquitto.conf
 
   simulation:
     build:
       context: .
       dockerfile: Dockerfile.simulation
     depends_on:
-      - broker
+      rabbitmq:
+          condition: service_healthy
+      
     volumes:
       - .:/src
   api-test:
@@ -37,7 +44,10 @@ services:
       context: .
       dockerfile: Dockerfile.api-test
     depends_on:
-      - simulation
+      rabbitmq:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
     volumes:
       - .:/src
 
@@ -48,6 +58,12 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: admin1234
       POSTGRES_DB: postgres
+      POSTGRES_HOST_AUTH_METHOD: trust
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
     ports:
       - "5432:5432"
     volumes:

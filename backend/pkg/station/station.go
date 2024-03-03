@@ -50,7 +50,7 @@ func GenerateLocation() Location {
 }
 
 func ConnectMQTT(seed rand.Source, url string) MQTT.Client {
-	opts := MQTT.NewClientOptions().AddBroker(url)
+	opts := MQTT.NewClientOptions().AddBroker(url).SetUsername("inteli").SetPassword("@Inteli123")
 	opts.SetClientID(fmt.Sprintf("station-%d", seed.Int63()))
 	client := MQTT.NewClient(opts)
 	if session := client.Connect(); session.Wait() && session.Error() != nil {

@@ -7,7 +7,6 @@ import (
 	"fmt"
 	"log"
 	"time"
-
 	MQTT "github.com/eclipse/paho.mqtt.golang"
 	amqp "github.com/rabbitmq/amqp091-go"
 	_ "github.com/lib/pq" // Import do driver PostgreSQL
@@ -15,7 +14,6 @@ import (
 
 // Estrutura para armazenar os dados da mensagem MQTT
 type GasData struct {
-	IDEstacao int     `json:"id_estacao"`
 	CO2       float64 `json:"CO2"`
 	CO        float64 `json:"CO"`
 	NO2       float64 `json:"NO2"`
@@ -37,9 +35,8 @@ func failOnError(err error, msg string) {
 
 func insertGasData(data GasData) error {
 	// Abrir conexão com o banco de dados PostgreSQL
-	connStr := "user=postgres password=admin1234 dbname=postgres sslmode=disable"
 
-	db, err := sql.Open("postgres", connStr)
+	db, err := sql.Open("postgres", "postgresql://postgres:admin1234@postgres:5432/postgres?sslmode=disable")
 	if err != nil {
 		fmt.Println("Erro ao conectar ao banco de dados:", err)
 		return err // Corrigido para retornar o erro
@@ -47,14 +44,14 @@ func insertGasData(data GasData) error {
 	defer db.Close()
 
 	// Preparar a declaração SQL
-	stmt, err := db.Prepare("INSERT INTO Gas (id_estacao, CO2, CO, NO2, MP10, MP25) VALUES ($1, $2, $3, $4, $5, $6)")
+	stmt, err := db.Prepare("INSERT INTO Gas (co2, co, no2, mp10, mp25) VALUES ($1, $2, $3, $4, $5)")
 	if err != nil {
 		return err
 	}
 	defer stmt.Close()
 
 	// Executar a declaração SQL com os valores fornecidos
-	_, err = stmt.Exec(data.IDEstacao, data.CO2, data.CO, data.NO2, data.MP10, data.MP25)
+	_, err = stmt.Exec(data.CO2, data.CO, data.NO2, data.MP10, data.MP25)
 	if err != nil {
 		return err
 	}
