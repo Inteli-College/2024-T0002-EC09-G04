@@ -53,6 +53,8 @@ O código consiste em várias funções e tipos de dados para processar e enviar
    - A função `sendToRabbitMQ` é responsável por estabelecer uma conexão com o RabbitMQ e enviar a mensagem para uma fila chamada `stations_queue`.
    - Após enviar a mensagem, o programa aguarda por mensagens na fila `stations_queue`. Quando uma mensagem é recebida, ela é processada e os dados são inseridos no banco de dados PostgreSQL.
 
+![Sistema de Mensageria](../../../static/img/arq_sys.png)
+
 3. **Integração com Database:**
    - O código utiliza a biblioteca `database/sql` para interagir com o banco de dados PostgreSQL.
    - A função `insertGasAndRadLumData` insere os dados de gás e radiação/luminosidade no banco de dados.
@@ -60,6 +62,25 @@ O código consiste em várias funções e tipos de dados para processar e enviar
    - Em seguida, prepara e executa as consultas SQL necessárias para inserir os dados nas tabelas `Gas` e `Rad_Lum`.
    - Os dados de gás são inseridos na tabela `Gas`, enquanto os dados de radiação/luminosidade são inseridos na tabela `Rad_Lum`.
 
+
+### Principal Componente - Consumer
+
+Um dos componentes do back-end do sistema é caracterizado por agir como um consumidor dos dados produzidos. Uma vez que os dados recebidos pelo broker são enfileirados pelo RabbitMQ, o consumer estabelece conexão com o RabbitMQ, consome os dados da fila, desenfileirando-os e, por fim, popula o banco de dados PostgreSQL instanciado no RDS.
+
+#### Arquitetura e Fluxo de Dados
+
+1. **Recebimento de Mensagens MQTT**: Inicializa uma conexão MQTT e se inscreve em um tópico específico para receber mensagens de dados de estações.
+2. **Envio para RabbitMQ**: As mensagens MQTT recebidas são enviadas para uma fila no RabbitMQ.
+3. **Consumo e Processamento de Mensagens**: O aplicativo consome mensagens da fila RabbitMQ, processa os dados JSON e insere os registros no banco de dados PostgreSQL.
+
+
+#### Funções
+
+- `messagePubHandler`: Função para lidar com mensagens MQTT recebidas.
+- `failOnError`: Auxiliar para tratamento de erros.
+- `insertGasData`: Insere dados no banco de dados PostgreSQL.
+- `sendToRabbitMQ`: Envia mensagens recebidas para uma fila no RabbitMQ.
+- `main`: Inicializa a conexão MQTT, configura o tratamento de mensagens e se inscreve em um tópico.
 
 ## Execução
 Para executar todo sistema de backend, incluindo banco de dados e sistema de API para o armazenamento dos dados, basta acessar a pasta raiz do sistema e rodar o seguinte comando: 
