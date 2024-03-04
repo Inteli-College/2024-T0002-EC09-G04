@@ -39,7 +39,7 @@ services:
       
     volumes:
       - .:/src
-  api-test:
+  api:
     build:
       context: .
       dockerfile: Dockerfile.api-test
