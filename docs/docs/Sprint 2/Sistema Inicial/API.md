@@ -1,7 +1,7 @@
 ---
-title: Consumer
+title: API de Integração
 sidebar_position: 2
-slug: /consumer
+slug: /api
 ---
 
 Um dos componentes do back-end do sistema é caracterizado por agir como um consumidor dos dados produzidos. Uma vez que os dados recebidos pelo broker são enfileirados pelo RabbitMQ, o consumer estabelece conexão com o RabbitMQ, consome os dados da fila, desenfileirando-os e, por fim, popula o banco de dados PostgreSQL instanciado no RDS.

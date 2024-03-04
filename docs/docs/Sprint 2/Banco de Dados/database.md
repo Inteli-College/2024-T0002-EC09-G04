@@ -1,3 +1,9 @@
+---
+title: Banco de Dados
+sidebar_position: 3
+slug: /database
+---
+
 # Banco de Dados 
 
 ## Introdução
@@ -69,6 +75,25 @@ O modelo lógico do banco de dados oferece uma representação organizada e efic
 
 ![Modelo_logico](../../../assets/modelo_logico.jpeg)
 
+## Banco de Dados da Aplicação
+
+O banco de dados da aplicação do Metabase é usado para armazenar diversas informações necessárias para o funcionamento da própria aplicação. Isso inclui configurações, dados de usuários, logs, histórico de consultas e outras informações relacionadas ao funcionamento do Metabase como um todo.
+
+Para isso, criamos um endpoint de um Banco de Dados Relacional no RDS da Amazon. Apenas para o armazenamento e configuração da interface do metabase se manter constante para podermos trabalhar na aplicação. 
+
+### Funcionamento
+
+1. Armazenamento de Configurações: O banco de dados armazena configurações da aplicação, como preferências do usuário, configurações de conexão com fontes de dados, configurações de visualização e outras opções de personalização.
+
+2. Gestão de Usuários: Informações sobre os usuários registrados, incluindo nome, e-mail, permissões de acesso e outras informações relevantes, são armazenadas no banco de dados da aplicação.
+
+3. Histórico de Consultas: O Metabase registra o histórico de consultas realizadas pelos usuários, armazenando informações sobre consultas executadas, resultados obtidos e outros dados relacionados.
+
+4. Logs e Monitoramento: Logs de atividades, erros, alertas e outras mensagens de registro são armazenados no banco de dados da aplicação para fins de monitoramento, depuração e auditoria.
+
+5. Cache e Metadados de Consulta: O Metabase pode armazenar em cache resultados de consultas e metadados sobre as fontes de dados para melhorar o desempenho e a eficiência das consultas subsequentes.
+
 ## Conclusão 
 
 A estrutura do banco de dados inicial foi projetada para armazenar eficientemente uma grande quantidade de dados, permitindo uma análise abrangente e ação rápida em resposta para integração com o sistema.
+
