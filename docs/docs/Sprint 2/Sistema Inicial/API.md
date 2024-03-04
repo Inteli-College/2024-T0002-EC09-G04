@@ -53,7 +53,7 @@ O código consiste em várias funções e tipos de dados para processar e enviar
    - A função `sendToRabbitMQ` é responsável por estabelecer uma conexão com o RabbitMQ e enviar a mensagem para uma fila chamada `stations_queue`.
    - Após enviar a mensagem, o programa aguarda por mensagens na fila `stations_queue`. Quando uma mensagem é recebida, ela é processada e os dados são inseridos no banco de dados PostgreSQL.
 
-![Sistema de Mensageria](../../../static/img/arq_sys.png)
+![Sistema de Mensageria](../../../static/img/mensageria2.png)
 
 3. **Integração com Database:**
    - O código utiliza a biblioteca `database/sql` para interagir com o banco de dados PostgreSQL.

@@ -17,4 +17,4 @@ Durante a primeira sprint, nossa atenção esteve voltada para uma compreensão 
 
 ## Apresentação
 
-<iframe style={{ display: 'block', margin: 'auto', width: '100%', height: '50vh', }} src="https://slides.com/pabloviana/deck-b60713/embed" frameborder="0" allowFullScreen> </iframe>
+<iframe style={{ display: 'block', margin: 'auto', width: '100%', height: '50vh', }}  src="https://slides.com/gabrielamatias/deck-d84d35/embed" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>

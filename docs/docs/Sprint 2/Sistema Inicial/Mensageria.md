@@ -34,6 +34,9 @@ slug: /menssager
    - O consumo de mensagens é realizado pelos consumidores de mensagens, que se conectam ao RabbitMQ e recebem mensagens de filas específicas.
    - Os consumidores podem ser configurados para processar as mensagens de acordo com a demanda do aplicativo, realizando operações como processamento de dados, geração de relatórios, etc.
 
+   ![Sistema de Mensageria](../../../static/img/mensageria1.png)
+
+
 3. **Garantia de Entrega e Persistência:**
    - O RabbitMQ oferece garantias de entrega de mensagens, o que significa que as mensagens publicadas em uma fila serão entregues a pelo menos um consumidor.
    - As mensagens podem ser persistidas em disco para garantir que não sejam perdidas em caso de falha ou reinicialização do RabbitMQ.
@@ -45,3 +48,5 @@ slug: /menssager
 - Para acessar o dashboard, abra um navegador da web e navegue para o endereço: `http://localhost:15672`.
 - Você será solicitado a fazer login. O nome de usuário padrão é `guest` e a senha padrão também é `guest`.
 - Após fazer login, você poderá visualizar informações sobre as filas, conexões, trocas, entre outros aspectos do servidor RabbitMQ.
+
+![Sistema de Mensageria](../../../static/img/mensageria2.png)
