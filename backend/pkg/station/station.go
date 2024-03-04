@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 	MQTT "github.com/eclipse/paho.mqtt.golang"
-	"github.com/Inteli-College/2024-T0002-EC09-G04/internal/gas"
-	"github.com/Inteli-College/2024-T0002-EC09-G04/internal/rad_lum"
+	"github.com/Inteli-College/2024-T0002-EC09-G04/backend/internal/gas"
+	"github.com/Inteli-College/2024-T0002-EC09-G04/backend/internal/rad_lum"
 	"math"
 	"math/rand"
 	"time"
@@ -50,7 +50,7 @@ func GenerateLocation() Location {
 }
 
 func ConnectMQTT(seed rand.Source, url string) MQTT.Client {
-	opts := MQTT.NewClientOptions().AddBroker(url)
+	opts := MQTT.NewClientOptions().AddBroker(url).SetUsername("inteli").SetPassword("@Inteli123")
 	opts.SetClientID(fmt.Sprintf("station-%d", seed.Int63()))
 	client := MQTT.NewClient(opts)
 	if session := client.Connect(); session.Wait() && session.Error() != nil {

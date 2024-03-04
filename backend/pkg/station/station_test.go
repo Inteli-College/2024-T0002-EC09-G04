@@ -20,7 +20,7 @@ func TestGenerateLocation(t *testing.T) {
 }
 
 func TestConnectMQTT(t *testing.T) {
-	client := ConnectMQTT(rand.NewSource(time.Now().UnixNano()), "tcp://localhost:1891")
+	client := ConnectMQTT(rand.NewSource(time.Now().UnixNano()), "tcp://localhost:1883")
 	defer client.Disconnect(500)
 	if !client.IsConnected() {
 		t.Errorf("Unable to connect to MQTT broker\x1b[0m")
@@ -34,7 +34,7 @@ func TestMessageTransmission(t *testing.T) {
 		receipts = append(receipts, fmt.Sprintf("New message on topic %s: %s", msg.Topic(), msg.Payload()))
 	}
 
-	opts := MQTT.NewClientOptions().AddBroker("tcp://localhost:1891")
+	opts := MQTT.NewClientOptions().AddBroker("tcp://localhost:1883")
 	opts.SetClientID("test")
 	opts.SetDefaultPublishHandler(handler)
 
@@ -48,7 +48,7 @@ func TestMessageTransmission(t *testing.T) {
 	done := make(chan bool)
 
 	go func() {
-		Start("tcp://localhost:1891")
+		Start("tcp://localhost:1883")
 		done <- true
 	}()
 
