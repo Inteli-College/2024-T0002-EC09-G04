@@ -1,0 +1,7 @@
+{
+    "label": "Banco de Dados",
+    "position": 2,
+    "link": {
+      "type": "generated-index",
+      "description": "Nesta seção vamos desecrever um pouco da tecnologia de banco de dados usada inicialmente para o projeto nessa sprint. "  }
+  }
