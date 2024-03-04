@@ -42,7 +42,7 @@ Por meio da criação de uma aplicação com interface dashboard onde as informa
 
 6. Continuação das Campanhas de Marketing: Após o lançamento, manter as campanhas de marketing e comunicação para promover o uso contínuo da plataforma. Destacar casos de sucesso e incentivar a participação ativa dos cidadãos e das secretarias, garantindo a sustentabilidade e relevância contínua da iniciativa.
 
-![Cronograma](../../../images/cronograma_pc.png)
+![Cronograma](../../../assets/cronograma_pc.png)
 
 ## Conclusão
 

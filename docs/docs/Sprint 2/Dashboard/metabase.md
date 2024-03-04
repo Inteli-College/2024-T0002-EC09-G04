@@ -1,5 +1,5 @@
 ---
-title: Dashboard Metabase
+title: Interface - Dashboard
 sidebar_position: 2
 slug: /metabase-dashboard
 ---
@@ -30,7 +30,7 @@ O segundo gráfico visa mostrar a média de gases em diferentes regiões de São
 Similarmente, o terceiro gráfico tem o objetivo de mostrar a poluição luminosa e a radiação em diferentes regiões de São Paulo, também para auxiliar na tomada de decisões estratégicas.
 
 
-![Dashboard1_maps](../../static/img/dashboard1.jpeg)
+![Dashboard1_maps](../../../static/img/dashboard1.jpeg)
 
 
 # Dashboard 2: Sumarização dos dados
@@ -39,7 +39,7 @@ Na segunda aba, intitulada "Sumarização dos Dados", são apresentadas mais tr�
 
 O segundo gráfico apresenta um comparativo entre os gases monitorados em cada estação. Essa visualização ajuda a identificar as estações mais preocupantes em relação a cada gás, possibilitando a adoção de medidas corretivas, como reflorestamento em áreas com alta concentração de CO2.
 
-![Dashboard1_maps](../../static/img/dashboard2.jpeg)
+![Dashboard1_maps](../../../static/img/dashboard2.jpeg)
 
 
 Por fim, o último gráfico é uma série temporal que demonstra a variação dos diferentes tipos de poluição ao longo do tempo. Essa visualização é útil para entender como os dados foram afetados por mudanças ao longo do tempo, como aconteceu durante a pandemia, por exemplo.
@@ -47,4 +47,4 @@ Por fim, o último gráfico é uma série temporal que demonstra a variação do
 Esses dashboards foram projetados para fornecer insights valiosos aos gestores da Prodam, ajudando-os a tomar decisões informadas e aprimorar a eficácia das operações relacionadas à cidade inteligente em São Paulo.
 
 
-![Dashboard1_maps](../../static/img/dashboard2.1.jpeg)
+![Dashboard1_maps](../../../static/img/dashboard2.1.jpeg)
