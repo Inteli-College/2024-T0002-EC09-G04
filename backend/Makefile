@@ -15,9 +15,13 @@ test: broker
 .PHONY: run
 run:
 	@docker compose \
-		-f ./compose.yaml \
-		up
+		-f ./build/compose.yaml \
+		up --build
 
 .PHONY: coverage
 coverage: test
-	@go tool cover -html=coverage_sheet.md
+	@go tool cover -html=./utils/coverage_sheet.md
+
+.PHONY: env
+env: ./config/.env.tmpl
+	cp ./config/.env.tmpl ./config/.env

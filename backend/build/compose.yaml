@@ -1,0 +1,58 @@
+# Comments are provided throughout this file to help you get started.
+# If you need more help, visit the Docker compose reference guide at
+# https://docs.docker.com/go/compose-spec-reference/
+
+# Here the instructions define your application as a service called "server".
+# This service is built from the Dockerfile in the current directory.
+# You can add other services your application may depend on here, such as a
+# database or a cache. For examples, see the Awesome Compose repository:
+# https://github.com/docker/awesome-compose
+services:
+  postgres:
+    platform: linux/amd64
+    image: postgres
+    restart: always
+    hostname: postgres
+    container_name: postgres
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    ports:
+      - "5432:5432"
+    volumes:
+      - ../tools/migrations.sql:/docker-entrypoint-initdb.d/migrations.sql
+      - postgres:/var/lib/postgresql/data
+  simulation:
+    container_name: simulation
+    hostname: simulation
+    restart: always
+    env_file:
+      - ../config/.env
+    build:
+      context: ..
+      dockerfile: build/Dockerfile.simulation
+    depends_on:
+      postgres:
+        condition: service_healthy
+  app:
+    container_name: app
+    hostname: app
+    restart: always
+    env_file:
+      - ../config/.env
+    build:
+      context: ..
+      dockerfile: build/Dockerfile.app
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+volumes:
+  postgres:
