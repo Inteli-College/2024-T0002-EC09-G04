@@ -1,9 +1,3 @@
-.PHONY:
-broker:
-	@docker compose \
-		-f ./compose.yaml \
-		up -d broker
-
 .PHONY: test
 test: broker
 	@echo "Running the tests"
@@ -16,12 +10,19 @@ test: broker
 run:
 	@docker compose \
 		-f ./build/compose.yaml \
-		up --build
+		--env-file ./config/.env \
+		up simulation app metabase --build
+
+.PHONY: migrations
+migrations:
+	@docker compose \
+		-f ./build/compose.yaml \
+		up migrations --build
 
 .PHONY: coverage
 coverage: test
 	@go tool cover -html=./utils/coverage_sheet.md
 
 .PHONY: env
-env: ./config/.env.tmpl
-	cp ./config/.env.tmpl ./config/.env
+env: ./config/.env.develop.tmpl
+	cp ./config/.env.develop.tmpl ./config/.env

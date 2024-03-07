@@ -2,7 +2,7 @@ package repository
 
 import (
 	"context"
-	"github.com/Inteli-College/2024-T0002-EC09-G04/backend/internal/domain/entity"
+	"github.com/henriquemarlon/ENG-COMP-M9/P01-04/internal/domain/entity"
 	"go.mongodb.org/mongo-driver/mongo"
 	"log"
 )
@@ -11,7 +11,7 @@ type SensorLogRepositoryMongo struct {
 	Collection *mongo.Collection
 }
 
-func NewSensorLogRepositoryMongo(client *mongo.Client, dbName, collection, logsCollection string) *SensorRepositoryMongo {
+func NewSensorLogRepositoryMongo(client *mongo.Client, dbName string, collection string) *SensorRepositoryMongo {
 	sensorsColl := client.Database(dbName).Collection(collection)
 	return &SensorRepositoryMongo{
 		Collection: sensorsColl,
@@ -19,7 +19,7 @@ func NewSensorLogRepositoryMongo(client *mongo.Client, dbName, collection, logsC
 }
 
 func (s *SensorRepositoryMongo) CreateSensorLog(sensorLog *entity.Log) error {
-	_, err := s.Collection.InsertOne(context.TODO(), sensorLog)
-	log.Printf("Inserting log into the MongoDB collection")
+	result, err := s.Collection.InsertOne(context.TODO(), sensorLog)
+	log.Printf("Inserting log into the MongoDB collection: %s", result)
 	return err
 }

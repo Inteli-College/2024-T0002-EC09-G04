@@ -4,7 +4,7 @@ import (
 	"context"
 	"log"
 
-	"github.com/Inteli-College/2024-T0002-EC09-G04/backend/internal/domain/entity"
+	"github.com/henriquemarlon/ENG-COMP-M9/P01-04/internal/domain/entity"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 )
@@ -13,7 +13,7 @@ type AlertRepositoryMongo struct {
 	Collection *mongo.Collection
 }
 
-func NewAlertRepositoryMongo(client *mongo.Client, dbName, collectionName string) *AlertRepositoryMongo {
+func NewAlertRepositoryMongo(client *mongo.Client, dbName string, collectionName string) *AlertRepositoryMongo {
 	collection := client.Database(dbName).Collection(collectionName)
 	return &AlertRepositoryMongo{
 		Collection: collection,

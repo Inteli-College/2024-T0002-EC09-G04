@@ -3,7 +3,7 @@ package web
 import (
 	"encoding/json"
 	"net/http"
-	"github.com/Inteli-College/2024-T0002-EC09-G04/backend/internal/usecase"
+	"github.com/henriquemarlon/ENG-COMP-M9/P01-04/internal/usecase"
 )
 
 type AlertHandlers struct {
