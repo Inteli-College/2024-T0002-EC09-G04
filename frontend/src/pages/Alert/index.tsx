@@ -1,7 +1,8 @@
 import React from 'react';
-import Input from '../components/LoginInput';
+import Input from '../../components/LoginInput/LoginInput';
+import '../../app/globals.css';
 
-const LoginPage: React.FC = () => {
+export default function Login(){
   return (
     <div className="flex h-screen justify-center items-center bg-custom-blue">
       <div className="flex flex-col gap-4">
@@ -12,4 +13,3 @@ const LoginPage: React.FC = () => {
   );
 };
 
-export default LoginPage;
