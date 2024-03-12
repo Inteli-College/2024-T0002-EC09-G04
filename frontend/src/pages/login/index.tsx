@@ -2,7 +2,7 @@ import React from 'react';
 import Input from '../../components/LoginInput/LoginInput';
 import '../../app/globals.css';
 
-export default function Login(){
+export default function login(){
   return (
     <div className="flex h-screen justify-center items-center bg-custom-blue">
       <div className="flex flex-col gap-4">
