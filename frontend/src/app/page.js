@@ -1,9 +1,16 @@
+import React from "react";
 import Image from "next/image";
 import styles from "./page.module.css";
-import HomePage from '@/views/homepage/HomePage';
+import  RootLayout  from './layout';
+import HomePage from '../views/homepage/HomePage';
+import LoginPage from  '../views/loginpage/LoginPage';
 
-export default function Home() {
+function Home() {
   return (
-    <HomePage/>
+    <RootLayout>
+      <LoginPage/>
+    </RootLayout>
   );
 }
+
+export default Home;

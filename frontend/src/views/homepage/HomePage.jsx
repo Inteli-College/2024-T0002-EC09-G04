@@ -1,9 +1,13 @@
 import React from 'react';
 import { Form, Input, Button, Checkbox } from 'antd';
-import LoginForm from '../../components/LoginForm/LoginForm';
 
-export default function HomePage() {
+const HomePage = () => {
   return (
-    <LoginForm />
+    <div style={{backgroundColor:'white', height: '100vh'}}>
+      <h1>Home</h1>
+
+    </div>
   );
 };
+
+export default HomePage;
