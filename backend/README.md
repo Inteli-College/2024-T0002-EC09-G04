@@ -31,7 +31,7 @@ cp ./config/.env.develop.tmpl ./config/.env
 ```
 
 > [!NOTE]
-> Antes de preencher o arquivo `.env` é necessário criar os serviços de cloud presentes nas seção [#Dependências e Serviços](https://github.com/henriquemarlon/hipercongo/edit/main/README.md#depend%C3%AAncias-e-servi%C3%A7os)
+> Antes de preencher o arquivo `.env` é necessário criar os serviços de cloud presentes nas seção [#Dependências e Serviços](https://github.com/Inteli-College/2024-T0002-EC09-G04/tree/main/backend#depend%C3%AAncias-e-servi%C3%A7os)
 
 ### Rodar as migrações:
 As migrações, referem-se ao conjunto "queries" criadas com o objetivo de trazer agilidade ao processo de desevolvimento, que criam sensores no banco de dados que por sua vez servirão para contruir a simulação. 
@@ -54,7 +54,7 @@ migrations exited with code 0
 
 ### Rodar testes:
 
-Aqui, todos os comandos necessários estão sendo abstraídos por um arquivo Makefile. Se você tiver curiosidade para saber o que o comando abaixo faz, basta conferir [aqui]().
+Aqui, todos os comandos necessários estão sendo abstraídos por um arquivo Makefile. Se você tiver curiosidade para saber o que o comando abaixo faz, basta conferir [aqui](https://github.com/Inteli-College/2024-T0002-EC09-G04/blob/main/backend/Makefile#L1).
 
 #### Comando:
 
@@ -99,7 +99,7 @@ ok      github.com/Inteli-College/2024-T0002-EC09-G04/backend/test       152.771
 
 ### Rodar a visualização da cobertura de testes:
 
-Novamente, todos os comandos necessários estão sendo abstraídos por um arquivo Makefile. Se você tiver curiosidade para saber o que o comando abaixo faz, basta conferir [aqui]().
+Novamente, todos os comandos necessários estão sendo abstraídos por um arquivo Makefile. Se você tiver curiosidade para saber o que o comando abaixo faz, basta conferir [aqui](https://github.com/Inteli-College/2024-T0002-EC09-G04/blob/main/backend/Makefile#L31).
 
 #### Comando:
 
@@ -108,7 +108,7 @@ make coverage
 ```
 
 #### Output:
-![output_coverage](https://github.com/henriquemarlon/hipercongo/assets/89201795/95767c00-44dd-4852-9d63-956e9947c4c6)
+![output_coverage](https://github.com/Inteli-College/2024-T0002-EC09-G04/assets/89201795/00c0ecc5-525f-4ccc-880f-272638852300)
 
 > [!NOTE]
 >  - Este comando está criando, a partir do arquivo `coverage_sheet.md`, uma visualização da cobertura de testes nos principais arquivos Go.
@@ -591,7 +591,7 @@ func (s *SensorRepositoryMongo) FindAllSensors() ([]*entity.Sensor, error) {
 
 O Metabase é uma ferramenta de análise e visualização de dados de código aberto. Ele permite que usuários explorem, visualizem e compartilhem insights a partir de conjuntos de dados, sem a necessidade de conhecimento avançado em SQL ou programação. O Metabase facilita a criação de painéis interativos e consultas personalizadas, tornando a análise de dados mais acessível para uma variedade de usuários. Nesse projeto, ele é utilizado para a visualização das entidades presentes no banco de dados, criando gráficos, mapas e outros insights. Abaixo uma visão geral do dashboard criado: 
 
-![image](https://github.com/henriquemarlon/hipercongo/assets/89201795/077ca06b-59d9-483b-9d9f-7969dcf851b8)
+![metabase](https://github.com/Inteli-College/2024-T0002-EC09-G04/assets/89201795/10f484b4-0362-48f4-8689-833d9fc6c661)
 
 ## Desenvolvimento Orientado a Testes
 A adoção do TDD (Desenvolvimento Orientado a Testes) é uma prática que oferece inúmeros benefícios no processo de desenvolvimento de software. Além de proporcionar feedback imediato sobre as novas funcionalidades, como mencionado anteriormente, o TDD promove a criação de um código mais limpo. Isso ocorre porque os desenvolvedores escrevem códigos simples, focados na passagem dos testes, resultando em uma base de código mais clara e fácil de manter. Essa abordagem não apenas acelera o ciclo de desenvolvimento, mas também contribui para a sustentabilidade e qualidade a longo prazo do software. Segue abaixo uma breve explicação de como esse projeto implementa isso.
@@ -698,7 +698,7 @@ func TestNewAlert(t *testing.T) {
 ```
 
 ### Testes de integração:
-Os testes de integração até agora implementados, tem como objetivo avaliar os seguintes pontos: QoS ( Se a mensagem é transmitida dentro do sistema com o QoS definido inicialmente ), Frequência de envio das mensagens ( As mensagens estão sendo enviadas na frequência definida, com uma margem de erro razoável? ), Integridade das mensagens ( A estrutura as mensagens se modifica durante a o processo transmissão? ). Para encontrar mais detalhes sobre a implementação dos testes de integração, acesse o [arquivo](https://github.com/henriquemarlon/hipercongo/blob/main/test/integration_mqtt_test.go).
+Os testes de integração até agora implementados, tem como objetivo avaliar os seguintes pontos: QoS ( Se a mensagem é transmitida dentro do sistema com o QoS definido inicialmente ), Frequência de envio das mensagens ( As mensagens estão sendo enviadas na frequência definida, com uma margem de erro razoável? ), Integridade das mensagens ( A estrutura as mensagens se modifica durante a o processo transmissão? ). Para encontrar mais detalhes sobre a implementação dos testes de integração, acesse o [arquivo](https://github.com/Inteli-College/2024-T0002-EC09-G04/blob/main/backend/test/integration_mqtt_test.go).
 
 ## Demonstração do Sistema
 
