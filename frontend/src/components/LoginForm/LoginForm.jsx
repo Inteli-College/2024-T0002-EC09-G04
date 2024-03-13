@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Input, Checkbox, Button } from "antd";
 import FormItem from "antd/lib/form/FormItem";
 import InputPassword from "antd/lib/input/Password";
-import Title from "antd/lib/typography/title";
+
 
 const LoginForm = ({onFinish, onFinishFailed}) =>{
   return (
@@ -24,7 +24,7 @@ const LoginForm = ({onFinish, onFinishFailed}) =>{
     onFinishFailed={onFinishFailed}
     autoComplete="off"
   >
-    <Title level={5}>Email:</Title>
+    <h5 level={5}>Email:</h5>
     <FormItem
       name="Email"
       rules={[
@@ -36,7 +36,7 @@ const LoginForm = ({onFinish, onFinishFailed}) =>{
     >
       <Input />
     </FormItem>
-    <Title level={5}>Senha:</Title>
+    <h5 level={5}>Senha:</h5>
     <FormItem
       name="password"
       rules={[
