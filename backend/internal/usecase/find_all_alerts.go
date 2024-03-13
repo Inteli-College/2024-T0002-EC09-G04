@@ -1,8 +1,9 @@
 package usecase
 
 import (
-	"github.com/Inteli-College/2024-T0002-EC09-G04/backend/internal/domain/entity"
 	"time"
+
+	"github.com/Inteli-College/2024-T0002-EC09-G04/backend/internal/domain/entity"
 )
 
 type FindAllAlertsUseCase struct {
@@ -10,6 +11,7 @@ type FindAllAlertsUseCase struct {
 }
 
 type FindAlertsOutputDTO struct {
+	ID        string    `json:"_id"`
 	Option    string    `json:"option"`
 	Latitude  float64   `json:"latitude"`
 	Longitude float64   `json:"longitude"`
@@ -28,6 +30,7 @@ func (f *FindAllAlertsUseCase) Execute() ([]FindAlertsOutputDTO, error) {
 	var output []FindAlertsOutputDTO
 	for _, alert := range alerts {
 		output = append(output, FindAlertsOutputDTO{
+			ID:        alert.ID,
 			Option:    alert.Option,
 			Latitude:  alert.Latitude,
 			Longitude: alert.Longitude,

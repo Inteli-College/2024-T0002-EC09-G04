@@ -1,27 +1,37 @@
-.PHONY:
-broker:
-	@docker compose \
-		-f ./compose.yaml \
-		up -d broker
-
-.PHONY: test
-test: broker
+.PHONY: tests
+tests:
 	@echo "Running the tests"
-	@go test ./... -coverprofile=coverage_sheet.md
 	@docker compose \
-		-f ./compose.yaml \
-		down broker
+		-f ./build/compose.yaml \
+		up simulation --build -d
+	@go test ./... -coverprofile=./tools/coverage_sheet.md -v
+	@docker compose \
+		-f ./build/compose.yaml \
+		down simulation
 
 .PHONY: run
 run:
 	@docker compose \
 		-f ./build/compose.yaml \
-		up --build
+		--env-file ./config/.env \
+		up simulation app metabase --build
+
+.PHONY: migrations
+migrations:
+	@docker compose \
+		-f ./build/compose.yaml \
+		up migrations --build
+
+.PHONY: metabase
+metabase:
+	@docker compose \
+		-f ./build/compose.yaml \
+		up metabase --build
 
 .PHONY: coverage
 coverage: test
-	@go tool cover -html=./utils/coverage_sheet.md
+	@go tool cover -html=./tools/coverage_sheet.md
 
 .PHONY: env
-env: ./config/.env.tmpl
-	cp ./config/.env.tmpl ./config/.env
+env: ./config/.env.develop.tmpl
+	cp ./config/.env.develop.tmpl ./config/.env

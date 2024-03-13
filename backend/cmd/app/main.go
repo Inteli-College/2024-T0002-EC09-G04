@@ -1,27 +1,40 @@
 package main
 
 import (
-	"database/sql"
+	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/Inteli-College/2024-T0002-EC09-G04/backend/internal/infra/kafka"
-	"github.com/Inteli-College/2024-T0002-EC09-G04/backend/internal/infra/repository"
-	"github.com/Inteli-College/2024-T0002-EC09-G04/backend/internal/infra/web"
-	"github.com/Inteli-College/2024-T0002-EC09-G04/backend/internal/usecase"
-	ckafka "github.com/confluentinc/confluent-kafka-go/v2/kafka"
-	"github.com/go-chi/chi/v5"
-	_ "github.com/lib/pq"
 	"log"
 	"net/http"
 	"os"
+
+	"github.com/Inteli-College/2024-T0002-EC09-G04/backend/internal/usecase"
+	ckafka "github.com/confluentinc/confluent-kafka-go/v2/kafka"
+	"github.com/go-chi/chi/v5"
+	"github.com/Inteli-College/2024-T0002-EC09-G04/backend/internal/infra/kafka"
+	"github.com/Inteli-College/2024-T0002-EC09-G04/backend/internal/infra/repository"
+	"github.com/Inteli-College/2024-T0002-EC09-G04/backend/internal/infra/web"
+	_ "github.com/lib/pq"
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 func main() {
-	db, err := sql.Open("postgres", fmt.Sprintf("postgresql://%s:%s@%s/%s?sslmode=disable", os.Getenv("DATABASE_USERNAME"), os.Getenv("DATABASE_PASSWORD"), os.Getenv("DATABASE_HOST"), os.Getenv("DATABASE_NAME")))
+	options := options.Client().ApplyURI(
+		fmt.Sprintf("mongodb+srv://%s:%s@%s/?retryWrites=true&w=majority&appName=%s",
+			os.Getenv("MONGODB_ATLAS_USERNAME"),
+			os.Getenv("MONGODB_ATLAS_PASSWORD"),
+			os.Getenv("MONGODB_ATLAS_CLUSTER_HOSTNAME"),
+			os.Getenv("MONGODB_ATLAS_APP_NAME")))
+	client, err := mongo.Connect(context.TODO(), options)
 	if err != nil {
-		log.Fatalf("Failed to connect to PostgreSQL: %v", err)
+		log.Fatal(err)
 	}
-	defer db.Close()
+
+	err = client.Ping(context.TODO(), nil)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	msgChan := make(chan *ckafka.Message)
 
@@ -43,12 +56,13 @@ func main() {
 		}
 	}()
 
-	sensorsRepository := repository.NewSensorRepositoryPostgres(db)
-	createSensorLogUseCase := usecase.NewCreateSensorLogUseCase(sensorsRepository)
+	sensorsLogRepository := repository.NewSensorLogRepositoryMongo(client, "mongodb", "sensors_log")
+	createSensorLogUseCase := usecase.NewCreateSensorLogUseCase(sensorsLogRepository)
+	sensorsRepository := repository.NewSensorRepositoryMongo(client, "mongodb", "sensors")
 	createSensorUseCase := usecase.NewCreateSensorUseCase(sensorsRepository)
 	sensorHandlers := web.NewSensorHandlers(createSensorUseCase)
 
-	alertRepository := repository.NewAlertRepositoryPostgres(db)
+	alertRepository := repository.NewAlertRepositoryMongo(client, "mongodb", "alerts")
 	createAlertUseCase := usecase.NewCreateAlertUseCase(alertRepository)
 	findAllAlertsUseCase := usecase.NewFindAllAlertsUseCase(alertRepository)
 	alertHandlers := web.NewAlertHandlers(createAlertUseCase, findAllAlertsUseCase)
@@ -66,7 +80,7 @@ func main() {
 		if err != nil {
 			log.Fatalf("Failed to unmarshal JSON: %v", err)
 		}
-		_, err = createSensorLogUseCase.Execute(dto)
+		err = createSensorLogUseCase.Execute(dto)
 		if err != nil {
 			log.Fatalf("Failed to create sensor log: %v", err)
 		}

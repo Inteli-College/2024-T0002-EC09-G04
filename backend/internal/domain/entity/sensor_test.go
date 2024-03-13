@@ -2,6 +2,7 @@ package entity
 
 import (
 	"testing"
+	"time"
 )
 
 func TestEntropy(t *testing.T) {
@@ -12,7 +13,7 @@ func TestEntropy(t *testing.T) {
 }
 
 func TestNewSensor(t *testing.T) {
-	sensor := NewSensor("name", 0, 0)
+	sensor := NewSensor("name", 0, 0, map[string]Param{"key": {Min: 0, Max: 100, Factor: 0.5}})
 	if sensor.Name != "name" {
 		t.Errorf("Name should be name")
 	}
@@ -24,4 +25,27 @@ func TestNewSensor(t *testing.T) {
 	}
 }
 
-//TODO: add test for NewSensorPayload()
+func TestNewSensorPayload(t *testing.T) {
+	sensorPayload, _ := NewSensorPayload("id", map[string]Param{"key": {Min: 0, Max: 100, Factor: 0.5}}, time.Now())
+	if sensorPayload.Sensor_ID != "id" {
+			t.Errorf("Sensor_ID should be id")
+	}
+	if value, ok := sensorPayload.Data["key"].(float64); ok {
+			if !(value <= 180 && value >= 0) {
+					t.Errorf("Invalid value for Data['key'], expected outside the range %v and %v, got %v", 0, 100, value)
+			}
+	} else {
+			t.Errorf("Invalid type for Data['key']")
+	}
+}
+
+
+//TODO: add test for NewSensorPayload() with invalid params
+
+//TODO: add test for NewSensorPayload() with invalid sensor_id
+
+//TODO: add test for NewSensorPayload() with invalid data
+
+//TODO: add test for NewSensorPayload() testing confidence interval
+
+//TODO: add test for NewSensorPayload() with invalid timestamp

@@ -1,8 +1,10 @@
 package usecase
 
 import (
-	"github.com/Inteli-College/2024-T0002-EC09-G04/backend/internal/domain/entity"
 	"time"
+
+	"github.com/Inteli-College/2024-T0002-EC09-G04/backend/internal/domain/entity"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
 type CreateAlertUseCase struct {
@@ -16,11 +18,11 @@ type CreateAlertInputDTO struct {
 }
 
 type CreateAlertOutputDTO struct {
-	ID        string    `json:"id"`
-	Latitude  float64   `json:"latitude"`
-	Longitude float64   `json:"longitude"`
-	Option    string    `json:"option"`
-	Timestamp time.Time `json:"timestamp"`
+	ID        primitive.ObjectID `json:"_id"`
+	Latitude  float64            `json:"latitude"`
+	Longitude float64            `json:"longitude"`
+	Option    string             `json:"option"`
+	Timestamp time.Time          `json:"timestamp"`
 }
 
 func NewCreateAlertUseCase(alertRepository entity.AlertRepository) *CreateAlertUseCase {
@@ -29,12 +31,12 @@ func NewCreateAlertUseCase(alertRepository entity.AlertRepository) *CreateAlertU
 
 func (c *CreateAlertUseCase) Execute(input CreateAlertInputDTO) (*CreateAlertOutputDTO, error) {
 	alert := entity.NewAlert(input.Latitude, input.Longitude, input.Option)
-	err := c.AlertRepository.CreateAlert(alert)
+	id, err := c.AlertRepository.CreateAlert(alert)
 	if err != nil {
 		return nil, err
 	}
 	return &CreateAlertOutputDTO{
-		ID:        alert.ID,
+		ID:        id.InsertedID.(primitive.ObjectID),
 		Latitude:  alert.Latitude,
 		Longitude: alert.Longitude,
 		Option:    alert.Option,

@@ -1,17 +1,19 @@
 package entity
 
-import "time"
+import (
+	"time"
+)
 
 type LogRepository interface {
-	Transmit(data *Log) error
+	Publish(data *Log) error
 }
 
 type Log struct {
-	ID        string    `json:"id"`
-	Data      string    `json:"data"`
-	Timestamp time.Time `json:"timestamp"`
+	Sensor_ID string                 `json:"sensor_id"`
+	Data      map[string]interface{} `json:"data"`
+	Timestamp time.Time              `json:"timestamp"`
 }
 
-func NewLog(id string, data string) *Log {
-	return &Log{ID: id, Data: data, Timestamp: time.Now()}
+func NewLog(id string, data map[string]interface{}, timestamp time.Time) *Log {
+	return &Log{Sensor_ID: id, Data: data, Timestamp: timestamp}
 }

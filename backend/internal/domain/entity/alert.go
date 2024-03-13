@@ -1,17 +1,17 @@
 package entity
 
 import (
-	"github.com/google/uuid"
 	"time"
+	"go.mongodb.org/mongo-driver/mongo"
 )
 
 type AlertRepository interface {
-	CreateAlert(data *Alert) error
+	CreateAlert(data *Alert) (*mongo.InsertOneResult, error)
 	FindAllAlerts() ([]*Alert, error)
 }
 
 type Alert struct {
-	ID        string    `json:"id"`
+	ID        string    `json:"_id"`
 	Latitude  float64   `json:"latitude"`
 	Longitude float64   `json:"longitude"`
 	Option    string    `json:"option"`
@@ -19,5 +19,5 @@ type Alert struct {
 }
 
 func NewAlert(latitude float64, longitude float64, option string) *Alert {
-	return &Alert{ID: uuid.New().String(), Latitude: latitude, Longitude: longitude, Option: option, Timestamp: time.Now()}
+	return &Alert{Latitude: latitude, Longitude: longitude, Option: option, Timestamp: time.Now()}
 }
