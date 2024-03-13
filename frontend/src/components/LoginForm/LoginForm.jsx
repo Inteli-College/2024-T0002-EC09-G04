@@ -48,7 +48,6 @@ const LoginForm = ({onFinish, onFinishFailed}) =>{
     >
       <InputPassword />
     </FormItem>
-
     <FormItem
       name="remember"
       valuePropName="checked"

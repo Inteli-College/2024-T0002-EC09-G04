@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Col, Row } from "antd";
-import LoginForm from '@/components/LoginForm/LoginForm';
+import SignUpForm from '@/components/SignUpForm/SignUpForm';
 
 import logo from '../../assets/img/id_visual.png';
 
@@ -32,15 +32,25 @@ function validatePassword(_, value){
   return Promise.resolve();
 };
 
-const LoginPage = ({ onFinish, onFinishFailed, validatePassword}) => {
+const validateConfirmPassword = (_, value, callback) => {
+  const { getFieldValue } = form;
+
+  if (value && value !== getFieldValue('password')) {
+    callback('As senhas não são iguais!');
+  } else {
+    callback();
+  }
+};
+
+const SignUpPage = ({ onFinish, onFinishFailed, validatePassword, validateConfirmPassword}) => {
   return (
     <Row justify='center'>
-      <Col span={16}>
+      <Col span={12}>
         <Image width={100} src={logo}/>
-        <LoginForm onFinish={onFinish} onFinishFailed={onFinishFailed}/>
+          <SignUpForm onFinish={onFinish} onFinishFailed={onFinishFailed} validatePassword={validatePassword} validateConfirmPassword={validateConfirmPassword}/>
       </Col>
     </Row>
   );
 };
 
-export default LoginPage;
+export default SignUpPage;

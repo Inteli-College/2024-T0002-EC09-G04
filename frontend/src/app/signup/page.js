@@ -1,10 +1,10 @@
 import React from "react";
-import LoginPage from  '../../views/loginpage/LoginPage';
+import SignUpPage from  '../../views/signuppage/SignUpPage';
 
-function Login() {
+function SignUp() {
   return (
-      <LoginPage/>
+      <SignUpPage/>
   );
 }
 
-export default Login;
+export default SignUp;
