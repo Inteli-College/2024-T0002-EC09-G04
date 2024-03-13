@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function sensor() {
   return (
-    <div className='bg-black'>
+    <div className=''>
         <SensorComponent/>
     </div>
   );
