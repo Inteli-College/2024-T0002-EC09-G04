@@ -14,6 +14,10 @@ test.describe('Signin', () => {
         const passwordInput = await page.waitForSelector('input[id="password"]');
         expect(passwordInput).not.toBeNull();
     });
+    test('checkbox should be visible', async ({ page }) => {
+        const checkbox = await page.waitForSelector('input[type="checkbox"]');
+        expect(checkbox).not.toBeNull();
+    });
     test('login button should be visible', async ({ page }) => {
         const loginButton = await page.waitForSelector('button[type="submit"]');
         expect(loginButton).not.toBeNull();
