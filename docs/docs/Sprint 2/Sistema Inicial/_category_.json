@@ -1,0 +1,8 @@
+{
+    "label": "Sistema Inicial",
+    "position": 2,
+    "link": {
+      "type": "generated-index",
+      "description": "Durante esta sprint, direcionamos nossos esforços para desenvolver um prototipo inicial da simulação do sistema IoT gerando dados aleatorios de sensores e mandando-os enfileirados para um broker via MQTT e utilizando de um consumer para desinfileirá-los e armazena-los em um banco de dados. Além disso, trabalhamos no desenvolvimento de uma análise de impacto éticos sobre as tecnologias usadas e o impacto social do projeto."
+    }
+  }
