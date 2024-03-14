@@ -7,10 +7,10 @@ import (
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
-	"github.com/Inteli-College/2024-T0002-EC09-G04@56-pd---auth/backend/P&D/models_auth"
+	"github.com/Inteli-College/2024-T0002-EC09-G04/backend/PD_auth/models_auth"
 )
 
-var users []models.User
+var users []models_auth.User
 
 var jwtKey = []byte("aodjfeowjedsoj134trefdsas234t")
 
@@ -37,7 +37,7 @@ func generateToken(username string) (string, error) {
 
 
 func SignupHandler(w http.ResponseWriter, r *http.Request) {
-	var user models.User
+	var user models_auth.User
 	_ = json.NewDecoder(r.Body).Decode(&user)
 	users = append(users, user)
 	json.NewEncoder(w).Encode(user)
@@ -60,7 +60,6 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Autenticação básica de exemplo
 	if creds.Username != "jean" || creds.Password != "socorro" {
-		if err != nil 
 		http.Error(w, "Credenciais inválidas", http.StatusUnauthorized)
 		return
 	}
