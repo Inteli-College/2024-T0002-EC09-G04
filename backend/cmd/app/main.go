@@ -61,7 +61,7 @@ func main() {
 	sensorsRepository := repository.NewSensorRepositoryMongo(client, "mongodb", "sensors")
 	createSensorUseCase := usecase.NewCreateSensorUseCase(sensorsRepository)
 	sensorHandlers := web.NewSensorHandlers(createSensorUseCase)
-
+	
 	alertRepository := repository.NewAlertRepositoryMongo(client, "mongodb", "alerts")
 	createAlertUseCase := usecase.NewCreateAlertUseCase(alertRepository)
 	findAllAlertsUseCase := usecase.NewFindAllAlertsUseCase(alertRepository)
