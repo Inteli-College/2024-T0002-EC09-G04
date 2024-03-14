@@ -22,6 +22,7 @@ const LoginForm = ({ onFinish, onFinishFailed }) => {
     >
       <h4>Email:</h4>
       <FormItem
+      id="Email"
         name="Email"
         rules={[
           {
@@ -34,6 +35,7 @@ const LoginForm = ({ onFinish, onFinishFailed }) => {
       </FormItem>
       <h4>Senha:</h4>
       <FormItem
+      id="password"
         name="password"
         rules={[
           {
@@ -50,7 +52,7 @@ const LoginForm = ({ onFinish, onFinishFailed }) => {
           span: 16,
         }}
       >
-        <Button type="primary" htmlType="submit" width='full' style={{ width: 650 }}>
+        <Button type="primary" id="submit" htmlType="submit" width='full' style={{ width: 650 }}>
           Submit
         </Button>
       </FormItem>

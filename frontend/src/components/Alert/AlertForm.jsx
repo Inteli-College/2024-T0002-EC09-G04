@@ -93,7 +93,7 @@ const LoginForm = ({onFinish, onFinishFailed}) =>{
         span: 16,
       }}
     >
-      <Button type="primary" htmlType="submit" style={{ width: '100%', backgroundColor: '#FFA13A !important', color: 'white' }}>
+      <Button type="primary" id="submit" htmlType="submit" style={{ width: '100%', backgroundColor: '#FFA13A !important', color: 'white' }}>
         Enviar Alerta !
       </Button>
     </FormItem>
