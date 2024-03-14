@@ -50,7 +50,7 @@ const LoginForm = ({onFinish, onFinishFailed}) =>{
       <Input style={{ width: '100%' }} />
     </FormItem>
 
-    <p>Qual o tipo de acidente ? </p>
+    <p>Qual o tipo de alerta ? </p>
     <FormItem
       name="Acidente"
       rules={[

@@ -13,7 +13,7 @@ function onFinishFailed(errorInfo) {
   console.log('Failed:', errorInfo);
 };
 
-function validatePassword(_, value){
+function validatePassword(_, value) {
   // Verifica se a senha tem pelo menos uma letra maiúscula, uma letra minúscula e um número
   const upperCaseRegex = /[A-Z]/;
   const lowerCaseRegex = /[a-z]/;
@@ -42,15 +42,26 @@ const validateConfirmPassword = (_, value, callback) => {
   }
 };
 
-const SignUpPage = ({ onFinish, onFinishFailed, validatePassword, validateConfirmPassword}) => {
+const SignUpPage = ({
+  onFinish,
+  onFinishFailed,
+  validatePassword,
+  validateConfirmPassword
+}) => {
   return (
-    <Row justify='center'>
-      <Col span={12}>
-        <Image width={100} src={logo}/>
-          <SignUpForm onFinish={onFinish} onFinishFailed={onFinishFailed} validatePassword={validatePassword} validateConfirmPassword={validateConfirmPassword}/>
+    <div style={{ backgroundColor: '#2E329B', height: '100vh', padding: '10%' }}>
+      <Col>
       </Col>
-    </Row>
+      <Col>
+        <Row justify='center'>
+          <Image width={100} src={logo} alt="Logo Projeto" />
+        </Row>
+        <Row justify='center'>
+          <SignUpForm onFinish={onFinish} onFinishFailed={onFinishFailed} validatePassword={validatePassword} validateConfirmPassword={validateConfirmPassword} />
+        </Row>
+        <p style={{textAlign:'center', color:'white'}}>Já possui cadastro? <a href='/login'>Faça o Login.</a></p>
+      </Col>
+    </div>
   );
 };
-
 export default SignUpPage;

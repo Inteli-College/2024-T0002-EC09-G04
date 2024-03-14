@@ -1,73 +1,64 @@
 import React from 'react';
-import { Form, Input, Checkbox, Button } from "antd";
+import { Form, Input, Checkbox, Button, Row, Col } from "antd";
 import FormItem from "antd/lib/form/FormItem";
 import InputPassword from "antd/lib/input/Password";
 
 
-const LoginForm = ({onFinish, onFinishFailed}) =>{
+const LoginForm = ({ onFinish, onFinishFailed }) => {
   return (
+    <Col span={10}>
     <Form
-    name="basic"
-    labelCol={{
-      span: 8,
-    }}
-    wrapperCol={{
-      span: 16,
-    }}
-    style={{
-      maxWidth: 600,
-    }}
-    initialValues={{
-      remember: true,
-    }}
-    onFinish={onFinish}
-    onFinishFailed={onFinishFailed}
-    autoComplete="off"
-  >
-    <h5 level={5}>Email:</h5>
-    <FormItem
-      name="Email"
-      rules={[
-        {
-          required: true,
-          message: 'Por favor insira seu email!',
-        },
-      ]}
-    >
-      <Input />
-    </FormItem>
-    <h5 level={5}>Senha:</h5>
-    <FormItem
-      name="password"
-      rules={[
-        {
-          required: true,
-          message: 'Por favor digite sua senha!',
-        },
-      ]}
-    >
-      <InputPassword />
-    </FormItem>
-    <FormItem
-      name="remember"
-      valuePropName="checked"
-      wrapperCol={{
-        span: 16,
+      style={{
+        color:'white',
+        fontFamily: "'Poppins', sans-serif",  
       }}
-    >
-      <Checkbox>Remember me</Checkbox>
-    </FormItem>
-
-    <FormItem
-      wrapperCol={{
-        span: 16,
+      name="basic"
+      initialValues={{
+        remember: true,
       }}
+      onFinish={onFinish}
+      onFinishFailed={onFinishFailed}
+      autoComplete="off"
     >
-      <Button type="primary" htmlType="submit" width='full'  style={{ width: '100%' }}>
-        Submit
-      </Button>
-    </FormItem>
-  </Form>
+      <h4>Email:</h4>
+      <FormItem
+        name="Email"
+        rules={[
+          {
+            required: true,
+            message: 'Por favor insira seu email!',
+          },
+        ]}
+      >
+        <Input />
+      </FormItem>
+      <h4>Senha:</h4>
+      <FormItem
+        name="password"
+        rules={[
+          {
+            required: true,
+            message: 'Por favor digite sua senha!',
+          },
+        ]}
+      >
+        <InputPassword />
+      </FormItem>
+      <Row justify='center'>
+      <FormItem
+        wrapperCol={{
+          span: 16,
+        }}
+      >
+        <Button type="primary" htmlType="submit" width='full' style={{ width: 650 }}>
+          Submit
+        </Button>
+      </FormItem>
+      </Row>
+      <p style={{textAlign:'center'}}>Esqueceu a Senha? <a>Resetar</a></p>
+        <p style={{textAlign:'center'}}>Ainda não tem seus acessos? <a href='/signup'>Cadastre-se</a></p>
+    </Form>
+    </Col>
   );
 };
 

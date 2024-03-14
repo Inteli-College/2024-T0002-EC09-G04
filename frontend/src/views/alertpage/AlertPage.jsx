@@ -14,7 +14,6 @@ const AlertPage = ({ onFinish, onFinishFailed }) => {
                 marginBottom: '1rem', 
                 position: 'relative',
                 width: '70%',
-                zIndex: 1, 
                 color: '#2E329B'
             }}>
                 Contribua com nossos dados

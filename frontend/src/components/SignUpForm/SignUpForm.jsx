@@ -7,6 +7,7 @@ const SignUpForm = ({ onFinish, onFinishFailed, validateConfirmPassword, validat
   return (
     <Form
       name="basic"
+      style={{color:'white'}}
       initialValues={{
         remember: true,
       }}
@@ -14,7 +15,7 @@ const SignUpForm = ({ onFinish, onFinishFailed, validateConfirmPassword, validat
       onFinishFailed={onFinishFailed}
       autoComplete="off"
     >
-      <h5 level={5}>Email:</h5>
+      <h4>Email:</h4>
       <FormItem
         style={{width: '99%'}}
         name="email"
@@ -29,10 +30,10 @@ const SignUpForm = ({ onFinish, onFinishFailed, validateConfirmPassword, validat
       </FormItem>
       <Row>
         <Col span={12}>
-          <h5 level={5}>Senha:</h5>
+          <h4 level={5}>Senha:</h4>
         </Col>
         <Col>
-          <h5 level={5}>Confirme sua senha:</h5>
+          <h4 level={5}>Confirme sua senha:</h4>
         </Col>
       </Row>
       <Row>
@@ -70,21 +71,11 @@ const SignUpForm = ({ onFinish, onFinishFailed, validateConfirmPassword, validat
         </Col>
       </Row>
       <FormItem
-        name="remember"
-        valuePropName="checked"
         wrapperCol={{
           span: 16,
         }}
       >
-        <Checkbox>Remember me</Checkbox>
-      </FormItem>
-
-      <FormItem
-        wrapperCol={{
-          span: 16,
-        }}
-      >
-        <Button type="primary" htmlType="submit" width="full" style={{ width: '100%' }}>
+        <Button type="primary" htmlType="submit" width="full" style={{ width: 650 }}>
           Submit
         </Button>
       </FormItem>
