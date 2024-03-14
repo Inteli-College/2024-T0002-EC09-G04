@@ -34,7 +34,7 @@ const LoginForm = ({onFinish, onFinishFailed}) =>{
         },
       ]}
     >
-      <Input style={{ width: '100%' }} />
+      <Input name="Latitude" style={{ width: '100%' }} />
     </FormItem>
 
     <p>Indique sua Longitude:</p>
@@ -47,7 +47,7 @@ const LoginForm = ({onFinish, onFinishFailed}) =>{
         },
       ]}
     >
-      <Input style={{ width: '100%' }} />
+      <Input name="Longitude" style={{ width: '100%' }} />
     </FormItem>
 
     <p>Qual o tipo de alerta ? </p>
