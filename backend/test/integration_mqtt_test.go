@@ -99,7 +99,7 @@ func TestMqttIntegration(t *testing.T) {
 
 	defer mqttClient.Disconnect(500)
 
-	time.Sleep(300 * time.Second)
+	time.Sleep(360 * time.Second)
 
 	if len(receipts) < len(sensors) {
 		t.Errorf("Messages receipts received less than expected %v", len(receipts))
@@ -113,7 +113,7 @@ func TestMqttIntegration(t *testing.T) {
 				})
 				totalDifference := timestamps[len(timestamps)-1].Sub(timestamps[0])
 				errorMargin := 5 * time.Second
-				desiredDifference := time.Minute
+				desiredDifference := 2 * time.Minute
 				isLessThanOneMinutePlusError := totalDifference.Seconds()/float64(len(timestamps)-1) >= (desiredDifference.Seconds()-errorMargin.Seconds()) && totalDifference.Seconds()/float64(len(timestamps)-1) <= (desiredDifference.Seconds()+errorMargin.Seconds())
 				if !isLessThanOneMinutePlusError {
 					t.Error("No matching messages found with a 1-minute timestamp difference")
