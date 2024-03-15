@@ -62,4 +62,3 @@ func NewSensorPayload(id string, params map[string]Param, timestamp time.Time) (
 	}
 	return &SensorPayload{Sensor_ID: id, Data: entropyValues, Timestamp: timestamp}, nil
 }
-

@@ -32,11 +32,11 @@ func TestNewSensorPayload(t *testing.T) {
 		t.Errorf("Sensor_ID should be id")
 	}
 	if value, ok := sensorPayload.Data["key"].(float64); ok {
-			if !(value <= 180 && value >= 0) {
-					t.Errorf("Invalid value for Data['key'], expected outside the range %v and %v, got %v", 0, 100, value)
-			}
+		if !(value <= 180 && value >= 0) {
+			t.Errorf("Invalid value for Data['key'], expected outside the range %v and %v, got %v", 0, 100, value)
+		}
 	} else {
-			t.Errorf("Invalid type for Data['key']")
+		t.Errorf("Invalid type for Data['key']")
 	}
 }
 
@@ -72,7 +72,7 @@ func TestNewSensorInvalidId(t *testing.T) {
 
 func TestNewSensorPayloadConfidenceInterval(t *testing.T) {
 	params := map[string]Param{
-		"key": {Min: 10, Max: 30, Factor: 1.5},
+		"key": {Min: 10, Max: 10, Factor: 1.5},
 	}
 	timestamp := time.Now()
 
@@ -89,7 +89,7 @@ func TestNewSensorPayloadConfidenceInterval(t *testing.T) {
 
 		numValues := float64(param.Max - param.Min + 1)
 		mean := float64(param.Min) + (numValues-1)/2
-		stdDev := math.Sqrt(numValues*numValues - 1) / 12 
+		stdDev := math.Sqrt(numValues*numValues-1) / 12
 		confidenceFactor := stdDev / math.Sqrt(numValues)
 		lowerBound := mean - param.Factor*confidenceFactor
 		upperBound := mean + param.Factor*confidenceFactor
@@ -99,7 +99,6 @@ func TestNewSensorPayloadConfidenceInterval(t *testing.T) {
 		}
 	}
 }
-
 
 //TODO: add test for NewSensorPayload() with invalid params
 
