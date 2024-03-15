@@ -5,7 +5,7 @@ import LoginPage from  '../views/loginpage/LoginPage';
 
 function Home() {
   return (
-  <h1>Uhul</h1>
+    <HomePage/>
   );
 }
 
