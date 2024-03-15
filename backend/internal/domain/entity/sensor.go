@@ -1,9 +1,11 @@
 package entity
 
 import (
+	"errors"
 	"math"
 	"math/rand"
 	"time"
+
 	"go.mongodb.org/mongo-driver/mongo"
 	"gonum.org/v1/gonum/stat"
 )
@@ -44,6 +46,9 @@ func NewSensor(name string, latitude float64, longitude float64, params map[stri
 }
 
 func NewSensorPayload(id string, params map[string]Param, timestamp time.Time) (*SensorPayload, error) {
+	if id == "" {
+        return nil, errors.New("sensor ID cannot be empty")
+    }
 	entropyValues := make(map[string]interface{})
 	for key, interval := range params {
 		intervalValues := make([]float64, int(interval.Max-interval.Min)+1)
@@ -57,3 +62,4 @@ func NewSensorPayload(id string, params map[string]Param, timestamp time.Time) (
 	}
 	return &SensorPayload{Sensor_ID: id, Data: entropyValues, Timestamp: timestamp}, nil
 }
+
