@@ -13,6 +13,7 @@ jobs:
       run:
         shell: bash
         working-directory: 'backend/'
+        
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
