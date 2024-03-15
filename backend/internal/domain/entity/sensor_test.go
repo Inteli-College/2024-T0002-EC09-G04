@@ -1,7 +1,6 @@
 package entity
 
 import (
-	"math"
 	"testing"
 	"time"
 )
@@ -72,7 +71,7 @@ func TestNewSensorInvalidId(t *testing.T) {
 
 func TestNewSensorPayloadConfidenceInterval(t *testing.T) {
 	params := map[string]Param{
-		"key": {Min: 10, Max: 10, Factor: 1.5},
+		"key": {Min: 10, Max: 12, Factor: 1.96},
 	}
 	timestamp := time.Now()
 
@@ -87,25 +86,13 @@ func TestNewSensorPayloadConfidenceInterval(t *testing.T) {
 			t.Fatalf("Generated value for %s is not a float64", key)
 		}
 
-		numValues := float64(param.Max - param.Min + 1)
-		mean := float64(param.Min) + (numValues-1)/2
-		stdDev := math.Sqrt(numValues*numValues-1) / 12
-		confidenceFactor := stdDev / math.Sqrt(numValues)
-		lowerBound := mean - param.Factor*confidenceFactor
-		upperBound := mean + param.Factor*confidenceFactor
+		mean := float64(param.Min+param.Max) / 2
+		stdDev := (float64(param.Max-param.Min) / 2) / param.Factor
+		confidenceIntervalLower := mean - (param.Factor * stdDev)
+		confidenceIntervalUpper := mean + (param.Factor * stdDev)
 
-		if value < lowerBound || value > upperBound {
-			t.Errorf("Value for %s (%v) is outside the confidence interval [%v, %v]", key, value, lowerBound, upperBound)
+		if value < confidenceIntervalLower || value > confidenceIntervalUpper {
+			t.Errorf("Value for %s (%v) is outside the confidence interval [%v, %v]", key, value, confidenceIntervalLower, confidenceIntervalUpper)
 		}
 	}
 }
-
-//TODO: add test for NewSensorPayload() with invalid params
-
-//TODO: add test for NewSensorPayload() with invalid sensor_id
-
-//TODO: add test for NewSensorPayload() with invalid data
-
-//TODO: add test for NewSensorPayload() testing confidence interval
-
-//TODO: add test for NewSensorPayload() with invalid timestamp
