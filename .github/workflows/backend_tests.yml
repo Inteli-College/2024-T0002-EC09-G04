@@ -6,6 +6,7 @@ on:
       - 'dev'
     paths:
       - 'backend/**'
+      - '.github/workflows/backend_tests.yml'
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -13,7 +14,7 @@ jobs:
       run:
         shell: bash
         working-directory: 'backend/'
-        
+
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
