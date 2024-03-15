@@ -15,9 +15,9 @@ const Alert = () => {
 
       // Cria um objeto com os dados no formato esperado pelo backend
       const data = {
-        latitude: Latitude,
-        longitude: Longitude,
-        option: Acidente,
+        "latitude": parseFloat(Latitude),
+        "longitude": parseFloat(Longitude),
+        "option": Acidente,
       };
 
       // Envia os dados para o backend usando Axios
