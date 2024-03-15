@@ -13,7 +13,7 @@ function onFinishFailed(errorInfo) {
   console.log('Failed:', errorInfo);
 };
 
-function validatePassword(_, value){
+function validatePassword(_, value) {
   // Verifica se a senha tem pelo menos uma letra maiúscula, uma letra minúscula e um número
   const upperCaseRegex = /[A-Z]/;
   const lowerCaseRegex = /[a-z]/;
@@ -32,14 +32,26 @@ function validatePassword(_, value){
   return Promise.resolve();
 };
 
-const LoginPage = ({ onFinish, onFinishFailed, validatePassword}) => {
+const LoginPage = ({ onFinish, onFinishFailed, validatePassword }) => {
   return (
-    <Row justify='center'>
-      <Col span={16}>
-        <Image width={100} src={logo}/>
-        <LoginForm onFinish={onFinish} onFinishFailed={onFinishFailed}/>
+    <>
+    <div style={{ 
+      backgroundColor: '#2E329B', 
+      height: '90vh',
+      padding: '5%',
+      }}>
+      <Col>
       </Col>
-    </Row>
+      <Col>
+        <Row justify='center'>
+          <Image width={100} src={logo} alt="Logo Projeto" />
+        </Row>
+        <Row justify='center' style={{ marginBottom: '10%' }}>
+          <LoginForm onFinish={onFinish} onFinishFailed={onFinishFailed} />
+        </Row>
+      </Col>
+    </div>
+    </>
   );
 };
 

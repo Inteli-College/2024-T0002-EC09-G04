@@ -34,7 +34,7 @@ const Alert = ({onFinish, onFinishFailed}) =>{
         },
       ]}
     >
-      <Input style={{ width: '100%' }} />
+      <Input name="Latitude" style={{ width: '100%' }} />
     </FormItem>
 
     <p>Indique sua Longitude:</p>
@@ -47,10 +47,10 @@ const Alert = ({onFinish, onFinishFailed}) =>{
         },
       ]}
     >
-      <Input style={{ width: '100%' }} />
+      <Input name="Longitude" style={{ width: '100%' }} />
     </FormItem>
 
-    <p>Qual o tipo de acidente ? </p>
+    <p>Qual o tipo de alerta ? </p>
     <FormItem
       name="Acidente"
       rules={[
@@ -93,7 +93,7 @@ const Alert = ({onFinish, onFinishFailed}) =>{
         span: 16,
       }}
     >
-      <Button type="primary" htmlType="submit" style={{ width: '100%', backgroundColor: '#FFA13A !important', color: 'white' }}>
+      <Button type="primary" id="submit" htmlType="submit" style={{ width: '100%', backgroundColor: '#FFA13A !important', color: 'white' }}>
         Enviar Alerta !
       </Button>
     </FormItem>
