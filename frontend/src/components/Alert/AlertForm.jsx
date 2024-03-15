@@ -3,7 +3,7 @@ import { Form, Input, Button, Select } from "antd";
 import FormItem from "antd/lib/form/FormItem";
 
 
-const LoginForm = ({onFinish, onFinishFailed}) =>{
+const Alert = ({onFinish, onFinishFailed}) =>{
   return (
     <Form
     name="basic"
@@ -101,4 +101,4 @@ const LoginForm = ({onFinish, onFinishFailed}) =>{
   );
 };
 
-export default LoginForm;
+export default Alert;

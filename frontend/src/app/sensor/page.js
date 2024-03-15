@@ -1,5 +1,5 @@
 import React from "react";
-import SensorPage from  '../../views/SensorPage/SensorPage'
+import SensorPage from  '../../views/sensorPage/SensorPage'
 
 function Sensor() {
   return (
