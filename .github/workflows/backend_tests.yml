@@ -24,4 +24,4 @@ jobs:
       - name: Get dependencies
         run: go mod tidy
       - name: Run backend test suite
-        run: cd backend && make tests
+        run: make tests
