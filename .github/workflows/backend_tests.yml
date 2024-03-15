@@ -23,10 +23,5 @@ jobs:
           go-version: 'stable'
       - name: Get dependencies
         run: go mod tidy
-      - name: Setup Local Broker
-        run: docker compose -f ./compose.yaml up -d broker
-      - name: Test all packages
-        run: go test ./...
-      - name: Teardown Local Broker
-        run: docker compose -f ./compose.yaml down broker
-
+      - name: Run backend test suite
+        run: cd backend && make tests
