@@ -11,6 +11,26 @@ slug: /PeD
 
 No contexto do desenvolvimento de uma plataforma para simulação de sensores IoT para ecovigilância em cidades inteligentes, a questão da autenticação e autorização desempenha um papel crucial. Para que haja um acesso mais seguro dos usuários à plataforma com dashboards da aplicação com dados dos sensores de ecovigilância na cidade de São Paulo, tecnologias como "JWT" e "OAuth 2.0" para autenticação e autorização, além de fornecer insights valiosos para tomadores de decisão e autoridades municipais, garantem que apenas usuários autorizados, como colaboradores e administradores, tenham acesso aos dados sensíveis e possam interagir com certas funcionalidades da aplicação.
 
+## Garantia da Confidencialidade
+
+A confidencialidade é um dos princípios fundamentais da segurança da informação e da triade CIA (Confidentiality, Integrity, Availability). Garantir a confidencialidade significa proteger as informações contra acesso não autorizado.
+
+- Tokenização Segura: Tanto JWT quanto OAuth 2.0 oferecem métodos seguros de tokenização para autenticação e autorização. Os tokens JWT são assinados digitalmente pelo servidor, enquanto os tokens OAuth 2.0 são emitidos pelo provedor de serviços de autorização após a autenticação bem-sucedida do usuário.
+
+- Informações Sensíveis nos Tokens: Tanto os tokens JWT quanto os tokens OAuth 2.0 contêm informações sobre o usuário, como ID, nome de usuário e quaisquer outros dados relevantes. Essas informações são criptografadas e podem ser transmitidas de forma segura entre o cliente e o servidor.
+
+- Armazenamento no Cliente: Os tokens JWT e OAuth 2.0 são armazenados no cliente (geralmente em localStorage ou cookies) e enviados junto com cada solicitação subsequente ao servidor. Como os tokens são criptografados e assinados, eles não podem ser facilmente adulterados ou acessados por terceiros.
+
+### Melhoria de Segurança
+
+Além de garantir a confidencialidade das informações, a implementação de autenticação com JWT e OAuth 2.0 em uma aplicação em Go traz outras melhorias de segurança:
+
+- Prevenção de Acesso Não Autorizado: Tanto JWT quanto OAuth 2.0 impedem o acesso não autorizado aos recursos protegidos da aplicação. Apenas usuários autenticados com tokens válidos têm permissão para acessar determinadas rotas e funcionalidades.
+
+- Redução de Vulnerabilidades de Sessão: Ao usar tokens JWT e OAuth 2.0, a aplicação não precisa armazenar sessões no servidor, o que reduz a exposição a vulnerabilidades de gerenciamento de sessão.
+
+- Maior Escalabilidade: A autenticação baseada em tokens JWT e OAuth 2.0 é escalável e independente de estado, permitindo que a aplicação atenda a um grande número de solicitações simultâneas de forma eficiente.
+
 ## JSON  Web Tokens (JWTs)
 
 JSON Web Tokens (JWT) é um padrão aberto de mercado (RFC 7519) que define um formato compacto e autossuficiente para transmitir informações entre partes como um objeto JSON. Esse recurso é amplamente utilizado para autenticação e troca segura de informações entre sistemas.
@@ -37,7 +57,7 @@ O OAuth 2.0 envolve vários fluxos de autorização, como o fluxo de autorizaç�
 
 ### Complexidade de Implementação
 
-A implementação de OAuth 2.0 pode ser mais complexa em comparação com JWT devido à variedade de fluxos de autorização e à necessidade de interação com o servidor de autorização. É necessário configurar e gerenciar um servidor de autorização que lide com solicitações de autorização, emissão de tokens e consentimento do usuário.
+A implementação de OAuth 2.0 pode ser mais simples em comparação com JWT devido à variedade de fluxos de autorização e à necessidade de interação com o servidor de autorização. É necessário configurar e gerenciar um servidor de autorização que lide com solicitações de autorização, emissão de tokens e consentimento do usuário.
 
 ### Métodos e Funções Associadas
 
@@ -83,10 +103,37 @@ Este pacote contém manipuladores de requisição para autenticação de usuári
 - **Geração de Token JWT**: A função generateToken é responsável por gerar um token JWT válido após a autenticação bem-sucedida de um usuário.
 - **Rotas de Autenticação**: As rotas de autenticação fornecem endpoints para registro, login e obtenção de usuários. Elas são protegidas pelo middleware de verificação de token JWT, garantindo que apenas usuários autenticados possam acessá-las.
 
+## Testes
+
+**Teste `TestSignupHandler`:**
+
+Este teste verifica o funcionamento do manipulador SignupHandler, que é responsável por registrar novos usuários na aplicação.
+
+- **Funcionalidades Testadas:**
+    - Cria um usuário de teste com nome de usuário e senha.
+    - Converte o usuário em formato JSON para enviar na requisição HTTP.
+    - Faz uma requisição POST ao endpoint `/signup` da API, passando o usuário como corpo da requisição.
+    - Verifica se o código de status da resposta é `http.StatusOK`.
+    - Verifica se o corpo da resposta contém o usuário registrado com sucesso.
+
+**Teste `TestLoginHandler`:**
+
+Este teste verifica o funcionamento do manipulador LoginHandler, responsável por autenticar os usuários e gerar tokens JWT válidos.
+
+- **Funcionalidades Testadas:**
+    - Cria um corpo de requisição com as credenciais de usuário (nome de usuário e senha) no formato JSON.
+    - Faz uma requisição POST ao endpoint /login da API, passando as credenciais como corpo da requisição.
+    - Verifica se o código de status da resposta é http.StatusOK.
+    - Verifica se o tipo de conteúdo da resposta é application/json.
+    - Verifica se há um token JWT válido na resposta.
+
 ## Conclusão
 
+Em conclusão, a implementação de autenticação com JWT (JSON Web Tokens) e OAuth 2.0 em uma aplicação em Go oferece uma maneira segura e eficiente de garantir a confidencialidade das informações, além de melhorar a segurança geral do sistema.
 
+Ao usar tokens JWT, podemos autenticar usuários de forma eficaz, garantindo que apenas usuários autorizados tenham acesso aos recursos protegidos da aplicação. Além disso, os tokens JWT permitem transmitir informações de forma segura entre o cliente e o servidor, contribuindo para a integridade e autenticidade dos dados.
 
+Por outro lado, o OAuth 2.0 proporciona uma estrutura robusta para autorização, permitindo delegar acesso a recursos protegidos em nome dos usuários. Com o OAuth 2.0, podemos garantir que apenas aplicativos confiáveis tenham acesso aos dados do usuário, proporcionando uma camada adicional de segurança.
 
 
 
