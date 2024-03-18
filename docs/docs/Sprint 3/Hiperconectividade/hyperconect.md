@@ -35,11 +35,14 @@ Instalar sensores de qualidade do ar, câmeras de segurança inteligentes, quios
 - Redes e Comunicação:
 Implementar redes Wi-Fi gratuitas e infraestrutura de rede 5G para suportar a conectividade de dispositivos e sistemas em todo o parque.
 
+![Planejamento](../../../static/img/planejamento.png)
 
 ## 4. Integração de Acessibilidade e Hiperconectividade
 ### Propostas de Melhoria:
 - Sensores no chão para orientação de pessoas com deficiência visual, emitindo sinais sonoros e táteis para guiar o caminho.
 - Desenvolvimento de aplicativos e quiosques com interfaces de usuário adaptativas, incluindo ajustes para contraste, tamanho de texto e compatibilidade com leitores de tela.
+
+![Acessibilidade](../../../static/img/acessibilidade.png)
 
 ## 5. Reflexão Final
 A implementação de tecnologias de hiperconectividade no Parque Ibirapuera, alinhada com práticas de acessibilidade, tem o potencial de transformar significativamente a experiência dos visitantes, tornando o parque um modelo de inclusão e sustentabilidade. Esse planejamento enfatiza a importância de considerar as necessidades de todos os usuários desde o início do design, promovendo uma cidade mais inclusiva. As principais lições aprendidas incluem a necessidade de integração contínua entre tecnologia e design inclusivo, e como a hiperconectividade pode ser uma ferramenta poderosa para melhorar a acessibilidade em espaços públicos.
