@@ -14,12 +14,12 @@ const SensorForm = () => {
       const data = 
         {
           "name": name,
-          "latitude": latitude,
-          "longitude": longitude,
+          "latitude": parseFloat(latitude),
+          "longitude": parseFloat(longitude),
           "params": {
             "co2": {
-              "min": max,
-              "max": min,
+              "min": parseFloat(min),
+              "max": parseFloat(max),
               "z": 0
             },
             "co":{
@@ -53,7 +53,7 @@ const SensorForm = () => {
       console.log(data.params)
       const response = await axios.post('http://localhost:8080/sensors', data);
 
-      if (response.status === 200) {
+      if (response.status === 201) {
         setSuccessMessage('Sensor criado com sucesso!');
       }
     } catch (error) {
