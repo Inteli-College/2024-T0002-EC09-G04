@@ -7,7 +7,7 @@ slug: /PeD
 
 # P&D - Autenticação e desenvolvimento com JWT(JSON Web Token)
 
-## Introdução:
+## Introdução
 
 No contexto do desenvolvimento de uma plataforma para simulação de sensores IoT para ecovigilância em cidades inteligentes, a questão da autenticação e autorização desempenha um papel crucial. Para que haja um acesso mais seguro dos usuários à plataforma com dashboards da aplicação com dados dos sensores de ecovigilância na cidade de São Paulo, tecnologias como "JWT" e "OAuth 2.0" para autenticação e autorização, além de fornecer insights valiosos para tomadores de decisão e autoridades municipais, garantem que apenas usuários autorizados, como colaboradores e administradores, tenham acesso aos dados sensíveis e possam interagir com certas funcionalidades da aplicação.
 
