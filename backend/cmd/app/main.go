@@ -16,6 +16,7 @@ import (
 	"github.com/Inteli-College/2024-T0002-EC09-G04/backend/internal/infra/web"
 	_ "github.com/lib/pq"
 	"go.mongodb.org/mongo-driver/mongo"
+	"github.com/rs/cors"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
@@ -67,8 +68,16 @@ func main() {
 	findAllAlertsUseCase := usecase.NewFindAllAlertsUseCase(alertRepository)
 	alertHandlers := web.NewAlertHandlers(createAlertUseCase, findAllAlertsUseCase)
 
+	corsOptions := cors.New(cors.Options{
+		AllowedOrigins:   []string{"*"}, // Permitir todas as origens
+		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+		AllowedHeaders:   []string{"*"},
+		AllowCredentials: true,
+	})
+
 	//TODO: this is the best way to do this? need to refactor or find another way to start the server
 	router := chi.NewRouter()
+	router.Use(corsOptions.Handler) // Use o middleware CORS
 	router.Get("/alerts", alertHandlers.FindAllAlertsHandler)
 	router.Post("/alerts", alertHandlers.CreateAlertHandler)
 	router.Post("/sensors", sensorHandlers.CreateSensorHandler)

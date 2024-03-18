@@ -6,11 +6,10 @@ on:
       - 'dev'
     paths:
       - 'backend/**'
-
+      - '.github/workflows/backend_tests.yml'
 jobs:
   test:
     runs-on: ubuntu-latest
-
     defaults:
       run:
         shell: bash
@@ -24,4 +23,4 @@ jobs:
       - name: Get dependencies
         run: go mod tidy
       - name: Run backend test suite
-        run: cd backend && make tests
+        run: make tests

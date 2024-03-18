@@ -1,0 +1,8 @@
+{
+    "label": "Banco de Dados",
+    "position": 3,
+    "link": {
+      "type": "generated-index",
+      "description": "Durante essa sprint, dedicamos nosso esforço a garantir que o sistema funcione corretamente. Para isso, realizamos testes no frontend e no backend, além da mensageria."
+    }
+  }
