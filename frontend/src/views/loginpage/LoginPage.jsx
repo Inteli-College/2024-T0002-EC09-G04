@@ -37,8 +37,8 @@ const LoginPage = ({ onFinish, onFinishFailed, validatePassword }) => {
     <>
     <div style={{ 
       backgroundColor: '#2E329B', 
-      height: '90vh',
-      padding: '5%',
+      height: '100vh',
+      padding: '10%',
       }}>
       <Col>
       </Col>
