@@ -78,9 +78,11 @@ func main() {
 	//TODO: this is the best way to do this? need to refactor or find another way to start the server
 	router := chi.NewRouter()
 	router.Use(corsOptions.Handler) // Use o middleware CORS
-	router.Get("/alerts", alertHandlers.FindAllAlertsHandler)
+	router.Get("/sensors", sensorHandlers.CreateSensorHandler)
+	router.Get("/alerts", alertHandlers.CreateAlertHandler)
 	router.Post("/alerts", alertHandlers.CreateAlertHandler)
 	router.Post("/sensors", sensorHandlers.CreateSensorHandler)
+
 	go http.ListenAndServe(":8080", router)
 
 	for msg := range msgChan {
