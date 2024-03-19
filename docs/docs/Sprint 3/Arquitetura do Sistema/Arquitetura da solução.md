@@ -39,39 +39,7 @@ Interface para interação do usuário com o sistema
 
 ## Diagrama UML
 
-1. **Sistema de Simulação de Sensores:**
-   - Responsável por simular dados dos sensores de qualidade do ar, luminosidade e radiação solar.
-   - Utiliza a tecnologia Docker para encapsulamento e distribuição de aplicativos.
-
-2. **Sistema de Consumo MQTT:**
-   - Broker MQTT responsável por receber e encaminhar dados.
-   - Subscriber MQTT para captação de dados.
-   - Integração entre broker e fila para gerenciamento de mensagens.
-
-3. **Sistema de Mensageria:**
-   - Utiliza Kafka para gerenciar filas e replicação de banco de dados.
-   - Integração entre broker e fila para comunicação eficiente.
-
-4. **Sistema de Serviço Backend:**
-   - Servidor para processamento de dados.
-   - Consumer Kafka para consumo de dados da fila.
-   - APIs para manipulação e processamento dos dados.
-   - Conexão com MongoDB Atlas para armazenamento.
-
-5. **Sistema de Armazenamento de Dados do Sistema:**
-   - Banco de dados não relacional para armazenamento de logs da simulação, alertas e dados dos sensores.
-
-6. **Sistema de Armazenamento de Dados do Metabase:**
-   - Banco de dados relacional para armazenamento de dados da aplicação.
-   - Serviço para persistência de dados.
-
-7. **Interface de Visualização de Dados:**
-   - Interface de visualização e business intelligence.
-
-8. **Interface de Interação do Usuário:**
-   - Dashboard interativo para níveis de usuários.
-   - Fórum de contribuição da comunidade.
-   - Área de informações e orientações.
+![UML Diagram (1)](https://github.com/Inteli-College/2024-T0002-EC09-G04/assets/99187952/6337aac8-bb48-408b-92ca-4c19cfcaa4f2)
 
 ## Fluxo de Dados:
 
