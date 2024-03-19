@@ -38,3 +38,45 @@ Interface para interação do usuário com o sistema
 - Área de Informações e Orientações
 
 ## Diagrama UML
+
+1. **Sistema de Simulação de Sensores:**
+   - Responsável por simular dados dos sensores de qualidade do ar, luminosidade e radiação solar.
+   - Utiliza a tecnologia Docker para encapsulamento e distribuição de aplicativos.
+
+2. **Sistema de Consumo MQTT:**
+   - Broker MQTT responsável por receber e encaminhar dados.
+   - Subscriber MQTT para captação de dados.
+   - Integração entre broker e fila para gerenciamento de mensagens.
+
+3. **Sistema de Mensageria:**
+   - Utiliza Kafka para gerenciar filas e replicação de banco de dados.
+   - Integração entre broker e fila para comunicação eficiente.
+
+4. **Sistema de Serviço Backend:**
+   - Servidor para processamento de dados.
+   - Consumer Kafka para consumo de dados da fila.
+   - APIs para manipulação e processamento dos dados.
+   - Conexão com MongoDB Atlas para armazenamento.
+
+5. **Sistema de Armazenamento de Dados do Sistema:**
+   - Banco de dados não relacional para armazenamento de logs da simulação, alertas e dados dos sensores.
+
+6. **Sistema de Armazenamento de Dados do Metabase:**
+   - Banco de dados relacional para armazenamento de dados da aplicação.
+   - Serviço para persistência de dados.
+
+7. **Interface de Visualização de Dados:**
+   - Interface de visualização e business intelligence.
+
+8. **Interface de Interação do Usuário:**
+   - Dashboard interativo para níveis de usuários.
+   - Fórum de contribuição da comunidade.
+   - Área de informações e orientações.
+
+## Fluxo de Dados:
+
+1. O Sistema de Simulação de Sensores gera dados dos sensores.
+2. Os dados são consumidos pelo Sistema de Consumo MQTT, que os encaminha para o Sistema de Mensageria.
+3. O Sistema de Mensageria gerencia as filas de dados utilizando Kafka e replica os dados no banco de dados.
+4. O Sistema de Serviço Backend consome os dados do banco, os processa e os armazena no MongoDB.
+5. As interfaces de visualização e interação acessam os dados armazenados para apresentação ao usuário.
