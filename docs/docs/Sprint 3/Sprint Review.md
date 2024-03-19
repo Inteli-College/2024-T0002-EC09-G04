@@ -1,6 +1,6 @@
 ---
 title: Sprint Review
-sidebar_position: 1
+sidebar_position: 4
 slug: /sprint-review3
 ---
 
