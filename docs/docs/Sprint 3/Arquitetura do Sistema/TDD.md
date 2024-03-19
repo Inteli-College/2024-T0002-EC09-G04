@@ -75,6 +75,157 @@ make coverage
 - Este comando está criando, a partir do arquivo `coverage_sheet.md`, uma visualização da cobertura de testes nos principais arquivos Go.
 :::
 
+### Testes unitários:
+
+O teste TestEntropy avalia se a função Entropy retorna valores dentro do intervalo esperado. O teste TestNewSensor verifica a criação correta de um Sensor. O teste TestNewSensorPayload assegura que a criação de um SensorPayload inicialize corretamente os atributos e que os valores estejam nos intervalos adequados. Há também planos futuros (TODO) para adicionar testes que lidem com casos específicos e parâmetros inválidos.
+
+```golang
+package entity
+
+import (
+	"testing"
+	"time"
+)
+
+func TestEntropy(t *testing.T) {
+	entropy := Entropy([]float64{0, 100})
+	if entropy <= 0 && entropy >= 100 {
+		t.Errorf("Entropy should be between 0 and 100")
+	}
+}
+
+func TestNewSensor(t *testing.T) {
+	sensor := NewSensor("name", 0, 0, map[string]Param{"key": {Min: 0, Max: 100, Factor: 0.5}})
+	if sensor.Name != "name" {
+		t.Errorf("Name should be name")
+	}
+	if sensor.Latitude != 0 {
+		t.Errorf("Latitude should be 0")
+	}
+	if sensor.Longitude != 0 {
+		t.Errorf("Longitude should be 0")
+	}
+}
+
+func TestNewSensorPayload(t *testing.T) {
+	sensorPayload, _ := NewSensorPayload("id", map[string]Param{"key": {Min: 0, Max: 100, Factor: 0.5}}, time.Now())
+	if sensorPayload.Sensor_ID != "id" {
+		t.Errorf("Sensor_ID should be id")
+	}
+	if value, ok := sensorPayload.Data["key"].(float64); ok {
+		if !(value <= 180 && value >= 0) {
+			t.Errorf("Invalid value for Data['key'], expected outside the range %v and %v, got %v", 0, 100, value)
+		}
+	} else {
+		t.Errorf("Invalid type for Data['key']")
+	}
+}
+
+func TestNewSensorPayloadParams(t *testing.T) {
+	_, err := NewSensorPayload("id", map[string]Param{"key": {Min: 0, Max: 100, Factor: 0.5}}, time.Now())
+	if err != nil {
+		t.Errorf("Error should be nil")
+	}
+}
+
+func TestNewSensorPayloadTimestamp(t *testing.T) {
+	sensorPayload, _ := NewSensorPayload("id", map[string]Param{"key": {Min: 0, Max: 100, Factor: 0.5}}, time.Now())
+	if sensorPayload.Timestamp.IsZero() {
+		t.Errorf("Timestamp should not be zero")
+	}
+
+	if sensorPayload.Timestamp.After(time.Now()) {
+		t.Errorf("Timestamp should be before now")
+	}
+
+	if sensorPayload.Timestamp.Before(time.Now().Add(-time.Minute * 10)) {
+		t.Errorf("Timestamp should be within the last 10 minutes")
+	}
+
+}
+
+func TestNewSensorInvalidId(t *testing.T) {
+	_, err := NewSensorPayload("", map[string]Param{"key": {Min: 0, Max: 100, Factor: 0.5}}, time.Now())
+	if err == nil {
+		t.Errorf("Error should not be nil")
+	}
+}
+
+func TestNewSensorPayloadConfidenceInterval(t *testing.T) {
+	params := map[string]Param{
+		"key": {Min: 10, Max: 12, Factor: 1.96},
+	}
+	timestamp := time.Now()
+
+	payload, err := NewSensorPayload("sensorID", params, timestamp)
+	if err != nil {
+		t.Fatalf("Failed to generate sensor payload: %v", err)
+	}
+
+	for key, param := range params {
+		value, ok := payload.Data[key].(float64)
+		if !ok {
+			t.Fatalf("Generated value for %s is not a float64", key)
+		}
+
+		mean := float64(param.Min+param.Max) / 2
+		stdDev := (float64(param.Max-param.Min) / 2) / param.Factor
+		confidenceIntervalLower := mean - (param.Factor * stdDev)
+		confidenceIntervalUpper := mean + (param.Factor * stdDev)
+
+		if value < confidenceIntervalLower || value > confidenceIntervalUpper {
+			t.Errorf("Value for %s (%v) is outside the confidence interval [%v, %v]", key, value, confidenceIntervalLower, confidenceIntervalUpper)
+		}
+	}
+}
+```
+Este teste avalia a função NewLog do pacote entity. Ele cria uma instância de Log com valores específicos e, em seguida, verifica se os atributos Sensor_ID e Data são inicializados corretamente. Se algum desses valores não estiver de acordo com as expectativas, o teste emite uma mensagem de erro indicando a discrepância. O teste tem como objetivo assegurar que a função de criação de logs esteja produzindo objetos com os valores desejados.
+
+```golang
+package entity
+
+import (
+	"testing"
+	"time"
+)
+
+func TestNewLog(t *testing.T) {
+	log := NewLog("id", map[string]interface{}{"key": "value"}, time.Now())
+	if log.Sensor_ID != "id" {
+		t.Errorf("Sensor_ID should be id")
+	}
+	if log.Data["key"] != "value" {
+		t.Errorf("Data should be value")
+	}
+}
+```
+
+Este teste verifica a função NewAlert do pacote entity. Ele cria uma instância de Alert com valores específicos e, em seguida, verifica se os atributos Latitude, Longitude e Option são inicializados corretamente. Se algum desses valores não estiver de acordo com as expectativas, o teste emite uma mensagem de erro indicando a discrepância. O teste tem o objetivo de garantir que a função de criação de alertas esteja produzindo objetos com os valores desejados.
+
+```golang
+package entity
+
+import (
+	"testing"
+)
+
+func TestNewAlert(t *testing.T) {
+	alert := NewAlert(0, 0, "")
+	if alert.Latitude != 0 {
+		t.Errorf("Latitude should be 0")
+	}
+	if alert.Longitude != 0 {
+		t.Errorf("Longitude should be 0")
+	}
+	if alert.Option != "" {
+		t.Errorf("Option should be empty")
+	}
+}
+```
+
+### Testes de integração:
+Os testes de integração até agora implementados, tem como objetivo avaliar os seguintes pontos: QoS ( Se a mensagem é transmitida dentro do sistema com o QoS definido inicialmente ), Frequência de envio das mensagens ( As mensagens estão sendo enviadas na frequência definida, com uma margem de erro razoável? ), Integridade das mensagens ( A estrutura as mensagens se modifica durante a o processo transmissão? ). Para encontrar mais detalhes sobre a implementação dos testes de integração, acesse o [arquivo](https://github.com/Inteli-College/2024-T0002-EC09-G04/blob/main/backend/test/integration_mqtt_test.go).
+
 ### Apêndice
 
 Testes automatizados são essenciais no desenvolvimento de software, integrados com ferramentas de CI/CD para proporcionar uma abordagem consistente e eficiente. Essa prática permite identificar rapidamente problemas, reduzir erros e acelerar o ciclo de entrega, resultando em software de maior qualidade e lançamentos mais rápidos e confiáveis. Implementamos uma primeira versão dessa estrategia, para mais detalhes acesse o [workflow de testes](https://github.com/Inteli-College/2024-T0002-EC09-G04/blob/main/.github/workflows/tests.yml) do Github Actions.
