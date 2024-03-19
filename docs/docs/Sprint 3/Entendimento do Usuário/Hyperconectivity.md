@@ -1,7 +1,7 @@
 ---
 title: Hiperconectividade e Acessibilidade
 sidebar_position: 1
-slug: /hipercongo
+slug: /hyperconectivity
 ---
 
 # Proposta de Planejamento de Hiperconectividade

@@ -1,11 +1,8 @@
 ---
-title: P&D - Tecnologias de Autenticação
-sidebar_position: 3
-slug: /PeD
+title: Autenticação do Sistema
+sidebar_position: 1
+slug: /autenticação
 ---
-
-
-# P&D - Autenticação e desenvolvimento com JWT(JSON Web Token)
 
 ## Introdução
 

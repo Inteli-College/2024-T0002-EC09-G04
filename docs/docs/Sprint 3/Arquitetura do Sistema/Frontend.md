@@ -1,10 +1,8 @@
 ---
-title: Aprimoramento da Interface
-sidebar_position: 4
+title: Frontend
+sidebar_position: 3
 slug: /frontend
 ---
-
-# Aprimoramento da Interface - Frontend 
 
 ## Introdução
 
