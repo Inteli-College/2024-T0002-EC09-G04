@@ -5,7 +5,7 @@ import (
 	  "os"
 	  "github.com/gin-gonic/gin"
 	  "github.com/joho/godotenv"
-	  congnitoClient "github.com/jeanroths/OAuth_2.0_P-D_local/cognitoClient"
+	  congnitoClient "2024-T0002-EC09-G04/backend/OAuth_2.0_P-D_local/cognitoClient"
 	  "errors"
 	  "net/http"
     "strings"
