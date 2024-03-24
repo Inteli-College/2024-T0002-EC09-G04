@@ -1,9 +1,9 @@
-module github.com/jeanroths/OAuth_2.0_P-D_local
+module github.com/2024-T0002-EC09-G04/backend/PeD-Cognito
 
 go 1.22.0
 
 require (
-	github.com/aws/aws-sdk-go v1.51.5
+	github.com/aws/aws-sdk-go v1.51.6
 	github.com/gin-gonic/gin v1.9.1
 	github.com/google/uuid v1.6.0
 	github.com/joho/godotenv v1.5.1
