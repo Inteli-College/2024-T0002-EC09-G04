@@ -91,6 +91,7 @@ func GetUserByToken(c *gin.Context, cognito congnitoClient.CognitoInterface) (*U
   return user, nil
 }
 
+// Não está implementado ainda, erro de chain providers AWS
 func UpdatePassword(c *gin.Context, cognito congnitoClient.CognitoInterface) error {
   token := strings.TrimPrefix(c.GetHeader("Authorization"), "Bearer ")
   if token == "" {
@@ -155,6 +156,7 @@ r.GET("user", func(context *gin.Context) {
   context.JSON(http.StatusOK, gin.H{"user": user})
 })
 
+//Rota não funcional ainda, erro chain providers
 r.PATCH("user/password", func(context *gin.Context) {
   err := UpdatePassword(context, cognitoClient)
   if err != nil {
