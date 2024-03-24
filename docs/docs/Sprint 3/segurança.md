@@ -70,10 +70,55 @@ O resultado obtido foi a listagem de todos os usuários e suas senhas, como pode
 
 ![security5](../../static/img/security5.png)
 
-### Conclusão
-
-A atividade nos permitiu entender a importância de se preocupar com a segurança de um sistema, e como é importante realizar testes de segurança para garantir que o sistema não esteja vulnerável a ataques. Através dos testes realizados, foi possível observar o quão fácil é explorar um sistema desprotegido, e como devemos focar nossos esforços em garantir que o sistema esteja seguro.
 
 ## Possíveis vulnerabilidades e ataques ao sistema
 
-No caso de uma autenticação com senhas simples ou com padrões facilmente decifráveis, o sistema fica exposto à vulnerabilidades como ataques que ferem a confidencialidade, disponbilidade ou integridade do sistema. A fim de mitigar possíveis falhas ou situações que comprometem a aplicação, métodos como
+No caso de uma autenticação com senhas simples ou com padrões facilmente decifráveis, o sistema fica exposto à vulnerabilidades como ataques que ferem a confidencialidade, disponbilidade ou integridade do sistema. A fim de mitigar possíveis falhas ou situações que comprometem a aplicação, métodos como a autenticação via OAuth 2.0, JWT (JSON Web Tokens) e AWS Cognito oferecem camadas adicionais de segurança.
+
+## Autenticação via OAuth 2.0
+
+O OAuth 2.0 é um protocolo de autorização amplamente adotado que permite a delegação segura de acesso a recursos protegidos sem a necessidade de compartilhar senhas. Ao implementar OAuth 2.0, o sistema pode aproveitar os fluxos de autorização padrão, como o fluxo de concessão de código de autorização e o fluxo implícito, que garantem uma comunicação segura entre os clientes e o servidor de autorização.
+
+### Mitigação de vulnerabilidades
+
+- **Proteção contra ataques de injeção de SQL**: 
+
+Como o OAuth 2.0 não requer o compartilhamento direto de senhas entre clientes e servidores, os ataques de injeção de SQL que exploram vulnerabilidades em senhas armazenadas são mitigados. Em vez disso, os tokens de acesso são utilizados para autorização, reduzindo significativamente a exposição a esses ataques.
+
+- **Segurança na gestão de tokens:** 
+
+O OAuth 2.0 utiliza tokens de acesso com prazos de validade limitados e escopos definidos, o que reduz a janela de oportunidade para possíveis ataques. Além disso, as implementações de OAuth 2.0 geralmente incluem mecanismos robustos de revogação de tokens em caso de comprometimento.
+
+## Autenticação via JWT (JSON Web Tokens)
+
+Os tokens JWT oferecem uma maneira eficiente e segura de transmitir informações de autenticação entre o cliente e o servidor. Ao usar JWT para autenticação, o sistema pode garantir a integridade e autenticidade dos dados do usuário, além de mitigar ataques comuns, como a interceptação de tokens.
+
+### Mitigação de vulnerabilidades
+
+- **Prevenção de ataques de interceptação de tokens:** 
+
+Os tokens JWT são assinados digitalmente pelo servidor, garantindo que qualquer tentativa de alteração nos dados seja detectada. Isso protege contra ataques de interceptação de tokens, nos quais um invasor tenta modificar os tokens durante a transmissão.
+
+
+- **Redução de vulnerabilidades de gerenciamento de sessão:** 
+
+Ao contrário das sessões tradicionais, que são armazenadas no servidor, os tokens JWT são autocontidos e podem ser validados sem a necessidade de acesso ao armazenamento do servidor. Isso reduz a exposição a vulnerabilidades de gerenciamento de sessão, como a sessão fixa ou a falha de sessão.
+
+## Autenticação via AWS Cognito
+
+O AWS Cognito é um serviço de autenticação totalmente gerenciado fornecido pela Amazon Web Services (AWS), que oferece uma maneira simplificada de adicionar autenticação, autorização e gerenciamento de usuários às aplicações web e móveis. Ao utilizar o AWS Cognito, o sistema pode aproveitar a infraestrutura segura e escalável da AWS para proteger as informações dos usuários
+
+### Mitigação de vulnerabilidades
+
+- **Segurança na gestão de identidade:** 
+
+O AWS Cognito oferece recursos avançados de segurança, como autenticação multifator (MFA), que adiciona uma camada adicional de proteção às contas dos usuários. Além disso, o AWS Cognito suporta integração com provedores de identidade externos, como o Google, Facebook e Amazon, para autenticação federada.
+
+- **Proteção contra ataques de força bruta:** 
+
+O AWS Cognito inclui recursos integrados de proteção contra ataques de força bruta, como limites de tentativas de login e bloqueio de contas após um número especificado de tentativas fracassadas. Isso ajuda a mitigar ataques de força bruta que visam adivinhar as credenciais dos usuários.
+
+## Conclusão
+
+A atividade nos permitiu entender a importância de se preocupar com a segurança de um sistema, e como é importante realizar testes de segurança para garantir que o sistema não esteja vulnerável a ataques. Através dos testes realizados, foi possível observar o quão fácil é explorar um sistema desprotegido, e como devemos focar nossos esforços em garantir que o sistema esteja seguro.
+Além disso, a utilização de métodos avançados de autenticação, como OAuth 2.0, JWT e AWS Cognito, podem ajudar a mitigar várias vulnerabilidades comuns associadas à autenticação tradicional com senhas simples. Ao adotar essas tecnologias, o sistema pode garantir a confidencialidade, integridade e disponibilidade dos dados do usuário, protegendo contra uma variedade de ataques maliciosos. É fundamental priorizar a segurança da autenticação ao projetar e desenvolver sistemas web, especialmente aqueles que lidam com informações sensíveis dos usuários.
