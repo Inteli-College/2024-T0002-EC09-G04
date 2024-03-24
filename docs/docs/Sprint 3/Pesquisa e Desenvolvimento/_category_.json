@@ -1,6 +1,6 @@
 {
     "label": "Pesquisa e Desenvolvimento",
-    "position": 3,
+    "position": 4,
     "link": {
       "type": "generated-index",
       "description": "Durante esta sprint, direcionamos nossos esforços para desenvolver um prototipo inicial de metódos de autenticação do usuário com a aplicação sendo desenvolvida. A pesquisa inicial foi feita prototipando uma autenticação simples com JWT e a análise do impacto na segurança da aplicação e da implentação desta no projeto comparando-a com outras tecnologias que podem se adaptar também ao projeto. "
