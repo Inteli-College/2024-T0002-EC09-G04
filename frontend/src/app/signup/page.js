@@ -1,7 +1,7 @@
 import React from "react";
 import SignUpPage from  '../../views/signuppage/SignUpPage';
 
-function SignUp() {
+function SignUp(){
   return (
       <SignUpPage/>
   );
