@@ -23,8 +23,6 @@ const SensorPage = ({ onFinish, onFinishFailed }) => {
                 </Col>
                 <Col span={12}>
                     <h1 className='font-bold text-2xl font-mono	my-4 text-custom-purple'>Adicione Novos Sensores</h1>
-                    <MapComponent onLocationSelect={handleLocationSelect} />
-                    <p>Latitude: {location.lat}, Longitude: {location.lng}</p>
                     <SensorForm onFinish={onFinish} onFinishFailed={onFinishFailed}/>
                 </Col>
             </Row>

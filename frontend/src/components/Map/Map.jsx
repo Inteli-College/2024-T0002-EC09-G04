@@ -4,7 +4,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
 const customIcon = new L.Icon({
-    iconUrl: '/pino.png',
+    iconUrl:'/pino.png',
     iconSize: [35, 35], // Tamanho do ícone em pixels
     iconAnchor: [17, 35], // Ponto do ícone que corresponderá à localização do marcador
     popupAnchor: [0, -35], // Onde a popup será ancorada em relação ao ícone
@@ -26,7 +26,6 @@ const MapComponent = ({ onLocationSelect }) => {
       click(e) {
         setPosition(e.latlng);
         onLocationSelect(e.latlng);
-        map.flyTo(e.latlng, map.getZoom());
       },
     });
 
