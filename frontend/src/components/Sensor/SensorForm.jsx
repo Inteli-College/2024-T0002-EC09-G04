@@ -1,25 +1,34 @@
 import React, { useState } from 'react';
-import { Form, Input, Button } from "antd";
+import { Form, Input, Button, Select } from "antd";
 import axios from 'axios';
 import FormItem from "antd/lib/form/FormItem";
-import MapComponent from '@/components/Map/Map';
+import dynamic from 'next/dynamic';
+
+const MapComponentWithNoSSR = dynamic(() => import('@/components/Map/Map'), {
+  ssr: false, // Desativa a renderização do lado do servidor para este componente
+});
 
 const SensorForm = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const [showMap, setShowMap] = useState(false);
 
   const [location, setLocation] = useState({ lat: -23.55052, lng: -46.633308 });
-    
+
+  const [latitude, setLatitude] = useState('');
+  const [longitude, setLongitude] = useState('');
+
   const handleLocationSelect = (latlng) => {
-      setLocation(latlng);
-      console.log('Localização selecionada:', latlng);
+    setLocation(latlng);
+    setLatitude(latlng.lat);
+    setLongitude(latlng.lng);
+    console.log('Localização selecionada:', latlng);
   };
 
   const onFinishFailed = () => {};
 
   const handleSubmit = async (values) => {
     try {
-      const { name, latitude, longitude, min, max} = values;
+      const { name, min, max, obj, z} = values;
 
       const data = 
         {
@@ -27,10 +36,10 @@ const SensorForm = () => {
           "latitude": parseFloat(latitude),
           "longitude": parseFloat(longitude),
           "params": {
-            "co2": {
+            [obj]: {
               "min": parseFloat(min),
               "max": parseFloat(max),
-              "z": 0
+              "z": parseFloat(z),
             },
           }
         }
@@ -86,8 +95,7 @@ const SensorForm = () => {
 
         {showMap ? (
           <div>
-            <MapComponent onLocationSelect={handleLocationSelect} />
-            <p>Latitude: {location.lat}, Longitude: {location.lng}</p>
+            <MapComponentWithNoSSR onLocationSelect={handleLocationSelect} />
           </div>
         ) : (
           <>
@@ -103,7 +111,7 @@ const SensorForm = () => {
                     },
                   ]}
                 >
-                  <Input className='w-full' />
+                  <Input className='w-full' onChange={(e) => setLatitude(e.target.value)}/>
                 </FormItem>
 
                 <p>Indique sua Longitude:</p>
@@ -116,12 +124,50 @@ const SensorForm = () => {
                     },
                   ]}
                 >
-                  <Input className='w-full' />
+                  <Input className='w-full' onChange={(e) => setLongitude(e.target.value)}/>
                 </FormItem>
               </div>
             }
           </>
         )}
+
+        <p>Esse sensor capta o que? </p>
+        <FormItem
+          name="obj"
+          rules={[
+            {
+              required: true,
+              message: 'Por favor, informe o tipo!',
+            },
+          ]}
+        >
+          <Select
+            initialvalues={{ name: "" }}
+            style={{ width: '100%' }}
+            options={[
+              {
+                value: 'CO2',
+                label: 'CO2',
+              },
+              {
+                value: 'CO',
+                label: 'CO',
+              },
+              {
+                value: 'NO2',
+                label: 'NO2',
+              },
+              {
+                value: 'MP10',
+                label: 'MP10',
+              },
+              {
+                value: 'MP25',
+                label: 'MP25',
+              },
+            ]}
+          />
+        </FormItem>
 
         <p>Insira o mínimo de captura do sensor:</p>
         <FormItem
@@ -151,11 +197,11 @@ const SensorForm = () => {
 
         <p>Insira intervalo de confiança:</p>
         <FormItem
-          name="max"
+          name="z"
           rules={[
             {
               required: true,
-              message: 'Por favor, insira o valor máximo do sensor',
+              message: 'Por favor, insira o intervalo de confiança',
             },
           ]}
         >

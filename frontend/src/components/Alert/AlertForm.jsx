@@ -3,7 +3,11 @@ import React, { useState } from 'react';
 import { Form, Input, Button, Select } from "antd";
 import axios from 'axios'; // Importe o Axios para fazer solicitações HTTP
 import FormItem from "antd/lib/form/FormItem";
-import MapComponent from '@/components/Map/Map';
+import dynamic from 'next/dynamic';
+
+const MapComponentWithNoSSR = dynamic(() => import('@/components/Map/Map'), {
+  ssr: false, // Desativa a renderização do lado do servidor para este componente
+});
 
 const Alert = () => {
   const [successMessage, setSuccessMessage] = useState("");
@@ -76,7 +80,7 @@ const Alert = () => {
 
         {showMap ? (
           <div>
-            <MapComponent onLocationSelect={handleLocationSelect} />
+            <MapComponentWithNoSSR onLocationSelect={handleLocationSelect} />
           </div>
         ) : (
           <>
@@ -123,7 +127,7 @@ const Alert = () => {
           ]}
         >
           <Select
-            defaultValue=""
+            initialvalues={{ name: "" }}
             style={{ width: '100%' }}
             options={[
               {
@@ -155,7 +159,7 @@ const Alert = () => {
             span: 16,
           }}
         >
-          <Button type="primary" id="submit" htmlType="submit" style={{ width: '100%', backgroundColor: '#FFA13A !important', color: 'black' }}>
+          <Button type="primary" id="submit" htmlType="submit" style={{ width: '100%', backgroundColor: '#FFA13A !important', color: 'white' }}>
             Enviar Alerta !
           </Button>
         </FormItem>

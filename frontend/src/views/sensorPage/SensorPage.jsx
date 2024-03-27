@@ -4,16 +4,8 @@ import { Col, Row, Button} from "antd";
 import SensorForm from '@/components/Sensor/SensorForm';
 import SensorText from '@/components/Sensor/SensorText';
 import FormItem from "antd/lib/form/FormItem";
-import MapComponent from '@/components/Map/Map';
 
 const SensorPage = ({ onFinish, onFinishFailed }) => {
-
-        const [location, setLocation] = useState({ lat: -23.55052, lng: -46.633308 });
-    
-        const handleLocationSelect = (latlng) => {
-            setLocation(latlng);
-            console.log('Localização selecionada:', latlng);
-        };
 
     return (
         <div className="bg-white flex flex-col justify-center items-center min-h-screen">
