@@ -32,7 +32,7 @@ const AlertPage = ({}) => {
           </p>
         </Col>
         <Col span={12}>
-          <h1 style={{ fontWeight: 'bold', fontSize: '2rem', fontFamily: "'Space Mono', monospace", marginBottom: '1rem', color: '#2E329B' }}>Adicione Novos Sensores</h1>
+          <h1 style={{ fontWeight: 'bold', fontSize: '2rem', fontFamily: "'Space Mono', monospace", marginBottom: '1rem', color: '#2E329B' }}>Crie seu Alerta</h1>
           {/* Passe a função handleSubmit como prop para o componente AlertForm */}
           <AlertForm/>
         </Col>

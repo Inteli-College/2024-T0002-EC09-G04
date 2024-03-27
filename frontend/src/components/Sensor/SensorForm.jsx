@@ -1,15 +1,34 @@
 import React, { useState } from 'react';
-import { Form, Input, Button } from "antd";
+import { Form, Input, Button, Select } from "antd";
 import axios from 'axios';
 import FormItem from "antd/lib/form/FormItem";
+import dynamic from 'next/dynamic';
+
+const MapComponentWithNoSSR = dynamic(() => import('@/components/Map/Map'), {
+  ssr: false, // Desativa a renderização do lado do servidor para este componente
+});
 
 const SensorForm = () => {
   const [successMessage, setSuccessMessage] = useState("");
+  const [showMap, setShowMap] = useState(false);
+
+  const [location, setLocation] = useState({ lat: -23.55052, lng: -46.633308 });
+
+  const [latitude, setLatitude] = useState('');
+  const [longitude, setLongitude] = useState('');
+
+  const handleLocationSelect = (latlng) => {
+    setLocation(latlng);
+    setLatitude(latlng.lat);
+    setLongitude(latlng.lng);
+    console.log('Localização selecionada:', latlng);
+  };
+
   const onFinishFailed = () => {};
 
   const handleSubmit = async (values) => {
     try {
-      const { name, latitude, longitude, min, max} = values;
+      const { name, min, max, obj, z} = values;
 
       const data = 
         {
@@ -17,36 +36,11 @@ const SensorForm = () => {
           "latitude": parseFloat(latitude),
           "longitude": parseFloat(longitude),
           "params": {
-            "co2": {
+            [obj]: {
               "min": parseFloat(min),
               "max": parseFloat(max),
-              "z": 0
+              "z": parseFloat(z),
             },
-            "co":{
-              "min": 0,
-              "max": 0,
-              "z": 0
-            },
-            "no2": {
-              "min": 0,
-              "max": 0,
-              "z": 0
-            },
-            "mp10": {
-              "min": 0,
-              "max": 0,
-              "z": 0
-            },
-            "mp25": {
-              "min": 0,
-              "max": 0,
-              "z": 0
-            },
-            "rad": {
-              "min": 0,
-              "max": 0,
-              "z": 0
-            }
           }
         }
 
@@ -95,30 +89,84 @@ const SensorForm = () => {
           <Input className='w-full' />
         </FormItem>
 
-        <p>Indique sua Latitude:</p>
-        <FormItem
-          name="latitude"
-          rules={[
-            {
-              required: true,
-              message: 'Por favor, insira sua latitude!',
-            },
-          ]}
-        >
-          <Input className='w-full' />
-        </FormItem>
+        {!showMap && <Button onClick={() => setShowMap(true)} style={{ marginBottom: 16 }}>Indicar Local</Button>}
+        
+        {showMap && <Button onClick={() => setShowMap(false)} style={{ marginBottom: 16 }}>Informar Valores</Button>}
 
-        <p>Indique sua Longitude:</p>
+        {showMap ? (
+          <div>
+            <MapComponentWithNoSSR onLocationSelect={handleLocationSelect} />
+          </div>
+        ) : (
+          <>
+            {
+              <div>
+                <p>Indique sua Latitude:</p>
+                <FormItem
+                  name="latitude"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Por favor, insira sua latitude!',
+                    },
+                  ]}
+                >
+                  <Input className='w-full' onChange={(e) => setLatitude(e.target.value)}/>
+                </FormItem>
+
+                <p>Indique sua Longitude:</p>
+                <FormItem
+                  name="longitude"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Por favor, digite sua longitude!',
+                    },
+                  ]}
+                >
+                  <Input className='w-full' onChange={(e) => setLongitude(e.target.value)}/>
+                </FormItem>
+              </div>
+            }
+          </>
+        )}
+
+        <p>Sensor que capta:</p>
         <FormItem
-          name="longitude"
+          name="obj"
           rules={[
             {
               required: true,
-              message: 'Por favor, digite sua longitude!',
+              message: 'Por favor, informe o tipo!',
             },
           ]}
         >
-          <Input className='w-full' />
+          <Select
+            initialvalues={{ name: "" }}
+            style={{ width: '100%' }}
+            options={[
+              {
+                value: 'CO2',
+                label: 'CO2',
+              },
+              {
+                value: 'CO',
+                label: 'CO',
+              },
+              {
+                value: 'NO2',
+                label: 'NO2',
+              },
+              {
+                value: 'MP10',
+                label: 'MP10',
+              },
+              {
+                value: 'MP25',
+                label: 'MP25',
+              },
+            ]}
+          />
         </FormItem>
 
         <p>Insira o mínimo de captura do sensor:</p>
@@ -141,6 +189,19 @@ const SensorForm = () => {
             {
               required: true,
               message: 'Por favor, insira o valor máximo do sensor',
+            },
+          ]}
+        >
+          <Input className='w-full' />
+        </FormItem>
+
+        <p>Insira intervalo de confiança:</p>
+        <FormItem
+          name="z"
+          rules={[
+            {
+              required: true,
+              message: 'Por favor, insira o intervalo de confiança',
             },
           ]}
         >

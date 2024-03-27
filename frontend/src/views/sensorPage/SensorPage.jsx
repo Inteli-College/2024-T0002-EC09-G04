@@ -2,12 +2,10 @@
 import React, { useState } from 'react';
 import { Col, Row, Button} from "antd";
 import SensorForm from '@/components/Sensor/SensorForm';
-import SensorForm2 from '@/components/Sensor/SensorForm2';
 import SensorText from '@/components/Sensor/SensorText';
 import FormItem from "antd/lib/form/FormItem";
 
 const SensorPage = ({ onFinish, onFinishFailed }) => {
-
 
     return (
         <div className="bg-white flex flex-col justify-center items-center min-h-screen">
