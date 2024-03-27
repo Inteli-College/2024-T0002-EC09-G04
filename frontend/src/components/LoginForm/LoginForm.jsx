@@ -1,10 +1,53 @@
-import React from 'react';
-import { Form, Input, Checkbox, Button, Row, Col } from "antd";
+'use client'
+import React, {useState} from 'react';
+import { Form, Input, Checkbox, Button, Row, Col, message } from "antd";
 import FormItem from "antd/lib/form/FormItem";
 import InputPassword from "antd/lib/input/Password";
 
 
-const LoginForm = ({ onFinish, onFinishFailed }) => {
+const LoginForm = ({ onFinishFailed }) => {
+  const [loading, setLoading] = useState(false);
+
+  const handleSignIn = async (values) => {
+    try {
+      console.log("Dados do formulário:", values);
+      const { email, password } = values;
+
+      const url = "http://localhost:8080/user/login";
+      const data = { email, password };
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) {
+        throw new Error("Problemas no Login");
+      }
+      const responseData = await response.json();
+      
+      // Verificar se o token existe
+      if (responseData.token) {
+        message.loading("Realizando Login...")
+        setLoading(true);
+        
+        setTimeout(() => {
+          message.success("Login Realizado com Sucesso");
+        }, 500); 
+
+      setTimeout(() => {
+        window.location.href = '/alert';
+      }, 2000); // 1000ms = 1 segundo
+      } else {
+        // Exibir mensagem de erro
+        message.error("Usuário não cadastrado, cadastre-se!");
+      }
+    } catch (error) {
+      console.error("Erro ao realizar login:", error);
+      throw error;
+    }
+  };
   return (
     <Col span={10}>
     <Form
@@ -16,14 +59,14 @@ const LoginForm = ({ onFinish, onFinishFailed }) => {
       initialValues={{
         remember: true,
       }}
-      onFinish={onFinish}
+      onFinish={handleSignIn}
       onFinishFailed={onFinishFailed}
       autoComplete="off"
     >
       <h4>Email:</h4>
       <FormItem
       id="Email"
-        name="Email"
+        name="email"
         rules={[
           {
             required: true,
