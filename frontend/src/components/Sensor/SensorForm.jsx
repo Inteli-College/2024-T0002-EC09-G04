@@ -131,7 +131,7 @@ const SensorForm = () => {
           </>
         )}
 
-        <p>Esse sensor capta o que? </p>
+        <p>Sensor que capta:</p>
         <FormItem
           name="obj"
           rules={[
