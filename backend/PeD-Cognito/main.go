@@ -117,6 +117,22 @@ func main() {
     cognitoClient := congnitoClient.NewCognitoClient(os.Getenv("COGNITO_CLIENT_ID"))
     r := gin.Default()
 
+      // Configuração do CORS
+      r.Use(func(c *gin.Context) {
+        c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
+        c.Writer.Header().Set("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, PATCH, DELETE")
+        c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
+
+        // Se a requisição for um OPTIONS, não continue com a cadeia de middleware
+        if c.Request.Method == "OPTIONS" {
+            c.AbortWithStatus(http.StatusOK)
+            return
+        }
+
+        c.Next()
+    })
+
+
 	r.POST("user", func(context *gin.Context) {
         err := CreateUser(context, cognitoClient)
         if err != nil {

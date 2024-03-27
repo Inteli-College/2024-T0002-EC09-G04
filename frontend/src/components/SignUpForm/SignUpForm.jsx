@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { Form, Input, Button, Row, Col, message, Modal } from "antd";
+import { Form, Input, Button, Row, Col, message, Modal, Space } from "antd";
 import { Amplify } from "aws-amplify"; // Importar o Auth do aws-amplify
 import { signUp } from "aws-amplify/auth";
 
@@ -214,13 +214,15 @@ const SignUpForm = () => {
           }}
           autoComplete="off"
         >
+          <Space direction="vertical">
+          <h5>Insira o Código de Verificação enviado para Seu Email:</h5>
           <Form.Item name="verificationCode">
-            <h5>Insira o Código de Verificação enviado para Seu Email:</h5>
             <Input
               placeholder="Digite o código de verificação"
               onChange={(e) => setVerificationCode(e.target.value)}
             />
           </Form.Item>
+          </Space>
         </Form>
       </Modal>
     </>
