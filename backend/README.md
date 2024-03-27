@@ -95,7 +95,7 @@ ok      github.com/Inteli-College/2024-T0002-EC09-G04/backend/test       152.771
 ```
 
 > [!NOTE]
-> A esteira de testes definida aqui é responsável popr testar as entitdade do ssistema e por realizar um teste de integração garantindo a entrega, e integridade e a frequência de envio dos dados, assim como o QoS da msg.
+> A esteira de testes definida aqui é responsável popr testar as entidade do sistema e por realizar um teste de integração garantindo a entrega, e integridade e a frequência de envio dos dados, assim como o QoS da msg.
 
 ### Rodar a visualização da cobertura de testes:
 
@@ -589,7 +589,7 @@ func (s *SensorRepositoryMongo) FindAllSensors() ([]*entity.Sensor, error) {
 
 ### Visualização:
 
-O Metabase é uma ferramenta de análise e visualização de dados de código aberto. Ele permite que usuários explorem, visualizem e compartilhem insights a partir de conjuntos de dados, sem a necessidade de conhecimento avançado em SQL ou programação. O Metabase facilita a criação de painéis interativos e consultas personalizadas, tornando a análise de dados mais acessível para uma variedade de usuários. Nesse projeto, ele é utilizado para a visualização das entidades presentes no banco de dados, criando gráficos, mapas e outros insights. Abaixo uma visão geral do dashboard criado: 
+Para a a bisualização de dados, foi utilizado a ferramenta de código aberto Metabase, que permite a análise e visualização de dados. Ele permite que usuários explorem, visualizem e compartilhem insights a partir de conjuntos de dados, sem a necessidade de conhecimento avançado em SQL ou programação. O Metabase facilita a criação de painéis interativos e consultas personalizadas, tornando a análise de dados mais acessível para uma variedade de usuários. Nesse projeto, ele é utilizado para a visualização das entidades presentes no banco de dados, criando gráficos, mapas e outros insights. Abaixo uma visão geral do dashboard criado: 
 
 ![metabase](https://github.com/Inteli-College/2024-T0002-EC09-G04/assets/89201795/10f484b4-0362-48f4-8689-833d9fc6c661)
 
