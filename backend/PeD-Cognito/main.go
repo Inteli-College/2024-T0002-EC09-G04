@@ -92,22 +92,22 @@ func GetUserByToken(c *gin.Context, cognito congnitoClient.CognitoInterface) (*U
 }
 
 // Não está implementado ainda, erro de chain providers AWS
-func UpdatePassword(c *gin.Context, cognito congnitoClient.CognitoInterface) error {
-  token := strings.TrimPrefix(c.GetHeader("Authorization"), "Bearer ")
-  if token == "" {
-    return errors.New("token not found")
-  }
-  var user congnitoClient.UserLogin
-  if err := c.ShouldBindJSON(&user); err != nil {
-    return errors.New("invalid json")
-  }
-  err := cognito.UpdatePassword(&user)
-  if err != nil {
-    fmt.Println(err)
-    return errors.New("could not update password")
-  }
-  return nil
-}
+// func UpdatePassword(c *gin.Context, cognito congnitoClient.CognitoInterface) error {
+//   token := strings.TrimPrefix(c.GetHeader("Authorization"), "Bearer ")
+//   if token == "" {
+//     return errors.New("token not found")
+//   }
+//   var user congnitoClient.UserLogin
+//   if err := c.ShouldBindJSON(&user); err != nil {
+//     return errors.New("invalid json")
+//   }
+//   err := cognito.UpdatePassword(&user)
+//   if err != nil {
+//     fmt.Println(err)
+//     return errors.New("could not update password")
+//   }
+//   return nil
+// }
 
 func main() {
     err := godotenv.Load()
@@ -173,18 +173,18 @@ r.GET("user", func(context *gin.Context) {
 })
 
 //Rota não funcional ainda, erro chain providers
-r.PATCH("user/password", func(context *gin.Context) {
-  err := UpdatePassword(context, cognitoClient)
-  if err != nil {
-      if err.Error() == "token not found" {
-          context.JSON(http.StatusUnauthorized, gin.H{"error": "token not found"})
-          return
-      }
-      context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-      return
-  }
-  context.JSON(http.StatusOK, gin.H{"message": "password updated"})
-})
+// r.PATCH("user/password", func(context *gin.Context) {
+//   err := UpdatePassword(context, cognitoClient)
+//   if err != nil {
+//       if err.Error() == "token not found" {
+//           context.JSON(http.StatusUnauthorized, gin.H{"error": "token not found"})
+//           return
+//       }
+//       context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+//       return
+//   }
+//   context.JSON(http.StatusOK, gin.H{"message": "password updated"})
+// })
 
     fmt.Println("Server is running on port 8080")
     err = r.Run(":8080")

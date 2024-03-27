@@ -119,17 +119,17 @@ func (c *cognitoClient) SignIn(user *UserLogin) (string, error) {
     return result, nil
 }
 
-func (c *cognitoClient) UpdatePassword(user *UserLogin) error {
-    input := &cognito.AdminSetUserPasswordInput{
-      UserPoolId: aws.String(os.Getenv("COGNITO_USER_POOL_ID")),
-      Username:   aws.String(user.Email),
-      Password:   aws.String(user.Password),
-      Permanent:  aws.Bool(true),
-    }
-    _, err := c.cognitoClient.AdminSetUserPassword(input)
-    if err != nil {
-      return err
-    }
-    return nil
-}
+// func (c *cognitoClient) UpdatePassword(user *UserLogin) error {
+//     input := &cognito.AdminSetUserPasswordInput{
+//       UserPoolId: aws.String(os.Getenv("COGNITO_USER_POOL_ID")),
+//       Username:   aws.String(user.Email),
+//       Password:   aws.String(user.Password),
+//       Permanent:  aws.Bool(true),
+//     }
+//     _, err := c.cognitoClient.AdminSetUserPassword(input)
+//     if err != nil {
+//       return err
+//     }
+//     return nil
+// }
 
