@@ -45,7 +45,7 @@ const SensorForm = () => {
         }
 
       console.log(data.params)
-      const response = await axios.post('http://localhost:8080/sensors', data);
+      const response = await axios.post('http://localhost:8000/sensors', data);
 
       if (response.status === 201) {
         setSuccessMessage('Sensor criado com sucesso!');
