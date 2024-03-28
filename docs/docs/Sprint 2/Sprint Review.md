@@ -4,7 +4,9 @@ sidebar_position: 5
 slug: /sprint-review2
 ---
 
-Durante a primeira sprint, nossa atenção esteve voltada para uma compreensão aprofundada do problema, abordando os seguintes elementos apresentados sequencialmente:
+# Sprint Review 2
+
+Durante a segunda sprint, nossa atenção esteve voltada para uma compreensão aprofundada do problema, abordando os seguintes elementos apresentados sequencialmente:
 
 1. **Contextualização:** Compreensão do contexto e ambiente relacionados ao problema.
 2. **Solução Proposta:** Discussão e elaboração de uma solução para o problema em questão.

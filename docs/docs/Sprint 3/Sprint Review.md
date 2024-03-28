@@ -4,7 +4,9 @@ sidebar_position: 6
 slug: /sprint-review3
 ---
 
-Durante a primeira sprint, nossa atenção esteve voltada para uma compreensão aprofundada do problema, abordando os seguintes elementos apresentados sequencialmente:
+# Sprint Review 3
+
+Durante a terceira sprint, nossa atenção esteve voltada para uma compreensão aprofundada do problema, abordando os seguintes elementos apresentados sequencialmente:
 
 1. **Hiperconectividade:** Planejamento acerca da infraestrutura do projeto.
 2. **Implementação de Testes:** Testes de funcionamento do sistema.
