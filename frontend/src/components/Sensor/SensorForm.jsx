@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Input, Button, Select } from "antd";
+import { Form, Input, Button, Select, message } from "antd";
 import axios from 'axios';
 import FormItem from "antd/lib/form/FormItem";
 import dynamic from 'next/dynamic';
@@ -48,7 +48,7 @@ const SensorForm = () => {
       const response = await axios.post('http://localhost:8000/sensors', data);
 
       if (response.status === 201) {
-        setSuccessMessage('Sensor criado com sucesso!');
+        message.success("Sensor criado com sucesso!");
       }
     } catch (error) {
       console.error('Erro ao criar sensor:', error);

@@ -38,11 +38,8 @@ const Alert = () => {
       const response = await axios.post('http://localhost:8000/alerts', data);
 
       // Verifica se a solicitação foi bem-sucedida
-      if (response.status === 200) {
-        message.success("Alerta Enviado com Sucesso !")
-
-        // Define a mensagem de sucesso no estado
-        // Faça qualquer outra ação necessária após o envio bem-sucedido
+      if (response.status === 201) {
+        message.success("Alerta criado com sucesso!");
       }
     } catch (error) {
       console.error('Erro ao enviar alerta:', error);
