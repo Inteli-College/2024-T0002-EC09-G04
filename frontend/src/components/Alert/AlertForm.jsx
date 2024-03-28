@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react';
-import { Form, Input, Button, Select } from "antd";
+import { Form, Input, Button, Select, message } from "antd";
 import axios from 'axios'; // Importe o Axios para fazer solicitações HTTP
 import FormItem from "antd/lib/form/FormItem";
 import dynamic from 'next/dynamic';
@@ -43,9 +43,8 @@ const Alert = () => {
       const response = await axios.post('http://localhost:8080/alerts', data);
 
       // Verifica se a solicitação foi bem-sucedida
-      if (response.status === 200) {
-        setSuccessMessage('Alerta enviado com sucesso!'); // Define a mensagem de sucesso no estado
-        // Faça qualquer outra ação necessária após o envio bem-sucedido
+      if (response.status === 201) {
+        message.success("Alerta criado com sucesso!");
       }
     } catch (error) {
       console.error('Erro ao enviar alerta:', error);
