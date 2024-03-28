@@ -10,13 +10,10 @@ const MapComponentWithNoSSR = dynamic(() => import('@/components/Map/Map'), {
 });
 
 const Alert = () => {
-  const [successMessage, setSuccessMessage] = useState("");
   const onFinishFailed = () => {}; // Defina onFinishFailed
 
   const [showMap, setShowMap] = useState(false);
-
   const [location, setLocation] = useState({ lat: -23.55052, lng: -46.633308 });
-
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
 
@@ -29,10 +26,8 @@ const Alert = () => {
 
   const handleSubmit = async (values) => {
     try {
-      // Extrai os valores do formulário
       const {Acidente } = values;
 
-      // Cria um objeto com os dados no formato esperado pelo backend
       const data = {
         "latitude": parseFloat(latitude),
         "longitude": parseFloat(longitude),
@@ -40,7 +35,7 @@ const Alert = () => {
       };
 
       // Envia os dados para o backend usando Axios
-      const response = await axios.post('http://localhost:8080/alerts', data);
+      const response = await axios.post('http://localhost:8000/alerts', data);
 
       // Verifica se a solicitação foi bem-sucedida
       if (response.status === 201) {
@@ -54,7 +49,6 @@ const Alert = () => {
 
   return (
     <div>
-      {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>} {/* Exibe a mensagem de sucesso se houver */}
       <Form
         name="basic"
         labelCol={{
@@ -158,7 +152,7 @@ const Alert = () => {
             span: 16,
           }}
         >
-          <Button type="primary" id="submit" htmlType="submit" style={{ width: '100%', backgroundColor: '#FFA13A !important', color: 'white' }}>
+          <Button id="submit" htmlType="submit" style={{ width: '100%', backgroundColor: '#FFA13A !important', color: 'white' }}>
             Enviar Alerta !
           </Button>
         </FormItem>

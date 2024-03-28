@@ -83,7 +83,7 @@ func main() {
 	router.Post("/alerts", alertHandlers.CreateAlertHandler)
 	router.Post("/sensors", sensorHandlers.CreateSensorHandler)
 
-	go http.ListenAndServe(":8080", router)
+	go http.ListenAndServe(":8000", router)
 
 	for msg := range msgChan {
 		dto := usecase.CreateSensorLogInputDTO{}

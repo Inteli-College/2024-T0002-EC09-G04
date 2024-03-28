@@ -195,11 +195,23 @@ const SignUpForm = () => {
       </Form>
       <Modal
         title="Verificação de Conta"
-        open={isModalOpen}
+        open={true}
         onOk={handleOk}
         onCancel={handleCancel}
-        okText= "Enviar Código"
-        cancelText="Cancelar"
+        footer={[
+          <Button 
+            type="Dashed"
+            key="back"
+            >
+            Cancelar
+          </Button>,
+          <Button 
+            key="submit"
+            style={{backgroundColor: '#FFA13A !important'}}
+          >
+            Enviar Código
+          </Button>,
+        ]}
       >
         <p>
           Seu registro foi criado com sucesso {user.name}, pedimos que você
