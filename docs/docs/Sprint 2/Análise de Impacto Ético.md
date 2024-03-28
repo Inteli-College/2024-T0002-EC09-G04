@@ -1,3 +1,8 @@
+---
+sidebar_position: 1
+slug: /ethichal-impact
+---
+
 # Análise de Impacto Ético 
 
 ## Introdução:

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 slug: /database
 ---
 
@@ -72,7 +72,7 @@ Um consumidor, ou consumer, é responsável por desenfileirar os dados do Rabbit
 
 O modelo lógico do banco de dados oferece uma representação organizada e eficiente das informações coletadas pelo sistema de monitoramento ambiental em São Paulo. Ele foi projetado para atender às necessidades de armazenamento, recuperação e análise de dados ambientais, fornecendo uma base sólida para tomada de decisões e ações por parte das autoridades responsáveis pelo meio ambiente.
 
-![Modelo_logico](../../../static/img/modelo_logico.jpeg)
+![Modelo_logico](../../static/img/modelo_logico.jpeg)
 
 ## Banco de Dados da Aplicação
 
