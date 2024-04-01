@@ -66,7 +66,41 @@ A utilização do AWS Cognito para autenticação proporciona uma camada robusta
 
 Além de proteger as rotas de login do usuário na nossa aplicação, a autenticação com o AWS Cognito pode ser estendida para proteger as rotas do backend de simulação de sensores. Esta medida é crucial para garantir que apenas usuários autenticados e autorizados possam acessar e manipular os dados sensíveis coletados pelos sensores. Ao restringir o acesso às rotas do backend de sensores, o sistema pode prevenir potenciais tentativas de manipulação ou adulteração dos dados, garantindo assim a integridade e a confiabilidade das informações ambientais coletadas.
 
+## Integração
+
+Para a integração com o frontend em Next.js da nossa aplicação, foi utilizada a API nativa do navegador, Fetch. A integração permite o envio de requisições HTTP do front-end para o backend, possibilitando operações como cadastro de usuários e confirmação de contas.
+
+### Passo a passo da integração
+
+1. **Definição do Formulário de Cadastro de Usuário:**
+
+O front-end Next.js inclui um formulário para cadastro de novos usuários, contendo campos para nome, e-mail, senha e confirmação de senha.
+
+2. **Tratamento do Evento de Envio do Formulário:**
+
+Quando o usuário preenche o formulário e clica em "Submit", é acionado o evento onFinish do formulário, que chama a função `handleSignUp`.
+
+3. **Envio da Requisição de Cadastro para o Backend:**
+
+A função `handleSignUp` é responsável por fazer uma requisição POST para o endpoint `/user` do backend, contendo os dados do novo usuário (nome, e-mail, senha). Assim, a requisição é realizada utilizando a função `fetch`, uma API nativa do navegador para fazer requisições HTTP. Para o envio das infirmações, o método utilizado é POST, e o corpo da requisição é um objeto JSON com os dados do usuário.
+
+4. **Tratamento da Resposta do Backend:**
+
+Se a requisição for bem-sucedida `(status 200 OK)`, o backend cria o usuário e retorna uma resposta com os dados do usuário recém-criado. Caso ocorra algum erro na requisição, como o e-mail já estar em uso, é lançada uma exceção que é capturada pelo bloco `catch`, onde é exibido um erro no console.
+
+5. **Modal de Verificação de Conta:**
+
+Após o cadastro do usuário ser realizado com sucesso, é exibido um modal de verificação de conta, solicitando que o usuário insira o código de verificação enviado para o seu e-mail.
+
+6. **Envio da Requisição de Confirmação para o Backend:**
+
+Ao clicar em "Enviar Código" no modal, é acionado o evento `onOk`, que chama a função `handleOk`. A função `handleOk` faz uma nova requisição POST para o endpoint `/user/confirmation` do backend, passando o e-mail do usuário e o código de verificação. Por fim, a requisição é feita utilizando a função `fetch`, com método POST e corpo da requisição em JSON.
+
+7. **Tratamento da Resposta do Backend:**
+
+Se a requisição de confirmação for bem-sucedida, o usuário é redirecionado para a página de login. Caso contrário, é exibida uma mensagem de erro no console.
+
 ## Conclusão
 
-Em suma, a implementação da autenticação com o AWS Cognito representa um passo fundamental na construção de sistemas seguros e confiáveis. Ao garantir a autenticidade dos usuários e proteger as rotas de acesso, o Cognito desempenha um papel crucial na preservação da integridade dos dados e na prevenção de acessos não autorizados. Além disso, ao estender essa proteção para o backend de sensores, o sistema assegura que apenas usuários autenticados possam acessar e manipular informações sensíveis, promovendo assim a confiabilidade dos dados ambientais coletados. Com isso, a vigilância ambiental na cidade de São Paulo é fortalecida, permitindo intervenções mais ágeis e eficazes para garantir a qualidade do ar e do ambiente, contribuindo para uma cidade mais saudável e sustentável para seus habitantes.
+Em suma, a implementação da autenticação com o AWS Cognito representa um passo fundamental na construção de sistemas seguros e confiáveis. Ao garantir a autenticidade dos usuários e proteger as rotas de acesso, o Cognito desempenha um papel crucial na preservação da integridade dos dados e na prevenção de acessos não autorizados. Além disso, ao estender essa proteção para o backend de sensores, o sistema assegura que apenas usuários autenticados possam acessar e manipular informações sensíveis, promovendo assim a confiabilidade dos dados ambientais coletados. Além disso, a integração do front-end Next.js com o backend usando Fetch permite que o front-end envie requisições HTTP para o backend e trate as respostas recebidas, possibilitando operações de cadastro de usuários e confirmação de contas. Com isso, a vigilância ambiental na cidade de São Paulo é fortalecida, permitindo intervenções mais ágeis e eficazes para garantir a qualidade do ar e do ambiente, contribuindo para uma cidade mais saudável e sustentável para seus habitantes.
 
