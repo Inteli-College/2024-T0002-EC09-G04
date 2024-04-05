@@ -207,6 +207,7 @@ const SignUpForm = () => {
           </Button>,
           <Button 
             key="submit"
+            onClick={handleOk}
             style={{backgroundColor: '#FFA13A !important'}}
           >
             Enviar Código
