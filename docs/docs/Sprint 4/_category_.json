@@ -3,6 +3,6 @@
     "position": 4,
     "link": {
         "type": "generated-index",
-        "description": "Sprint 4"
+        "description": "Para essa sprint nossas principais prioridades se focaram na criação e testes de um sistema de autenticação de usuários utilizando de serviços integrados. Além disso iniciamos a implementação de testes de carga com foco na avaliação de escalabilidade do sistema. Por fim, aprimoramos as interfaces de visualização de dados por meio do Dashboard e a nossa interface da Aplicação Web que se baseia nas interações e inserções de novos dados por parte dos usuários."
     }
 }
