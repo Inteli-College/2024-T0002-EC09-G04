@@ -1,8 +1,8 @@
 ---
-title: Plano de Comunicação
 sidebar_position: 4
 slug: /comunication-plan
 ---
+
 # Plano de Comunicação
 
 Um plano de comunicação é uma estratégia detalhada que delineia como uma organização ou projeto planeja transmitir informações importantes para seu público-alvo. É uma ferramenta essencial para garantir que as mensagens certas sejam entregues aos públicos certos, nos momentos certos e pelos canais certos. No contexto do projeto proposto para alertar a população de São Paulo sobre os níveis de poluição e aspectos ambientais urbanos, o plano de comunicação desempenha um papel fundamental na sensibilização e mobilização tanto da comunidade em geral quanto dos gestores públicos. Além disso, o plano de comunicação identifica o público-alvo, destacando quem são as principais audiências a serem alcançadas, para quem as mensagens serão adaptadas de acordo com suas necessidades e interesses. As mensagens-chave são os pontos centrais que serão comunicados. Os canais de comunicação referem-se aos meios pelos quais as mensagens serão transmitidas. Por fim, o cronograma estabelece os prazos e etapas para implementação do plano, garantindo que as mensagens sejam entregues nos momentos certos e pelos canais mais eficazes. Esses elementos se combinam para garantir que as informações certas sejam entregues aos públicos certos, de forma a alcançar os objetivos do projeto de maneira eficaz.
@@ -10,7 +10,6 @@ Um plano de comunicação é uma estratégia detalhada que delineia como uma org
 ## Definição do Propósito
 
 Espera-se que a população da cidade de São Paulo seja alertada acerca dos níveis de poluição e aspectos ambientais urbanos do momento a fim de preservar a saúde e bem estar dessa. Além disso, espera-se que gestores públicos monitorem constantemente a situação ambiental para que ações das secretarias públicas sejam mais específicas e efetivas objetivando dessa forma redução de gastos excessivos para resolver esses problemas relacionados ao ambiente urbano paulista. Adicionalmente, os acadêmicos que estudam essa temática desempenham um papel crucial no fornecimento de análises aprofundadas, pesquisas e soluções inovadoras. Seu envolvimento e contribuição para o desenvolvimento de políticas baseadas em evidências são fundamentais para enfrentar os desafios ambientais complexos da cidade, fornecendo insights valiosos e perspectivas especializadas que podem informar tanto a população quanto os gestores públicos em suas tomadas de decisão.
-
 
 ## Público alvo
 
@@ -42,7 +41,7 @@ Por meio da criação de uma aplicação com interface dashboard onde as informa
 
 6. Continuação das Campanhas de Marketing: Após o lançamento, manter as campanhas de marketing e comunicação para promover o uso contínuo da plataforma. Destacar casos de sucesso e incentivar a participação ativa dos cidadãos e das secretarias, garantindo a sustentabilidade e relevância contínua da iniciativa.
 
-![Cronograma](../../../assets/cronograma_pc.png)
+![Cronograma](../../../static/img/cronograma_pc.png)
 
 ## Conclusão
 

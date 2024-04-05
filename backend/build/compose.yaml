@@ -27,7 +27,7 @@ services:
       context: ..
       dockerfile: build/Dockerfile.app
     ports:
-      - "8080:8080"
+      - "8000:8000"
   migrations:
     container_name: migrations
     hostname: migrations

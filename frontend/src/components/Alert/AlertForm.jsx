@@ -1,32 +1,45 @@
 'use client'
 import React, { useState } from 'react';
-import { Form, Input, Button, Select } from "antd";
+import { Form, Input, Button, Select, message } from "antd";
 import axios from 'axios'; // Importe o Axios para fazer solicitações HTTP
 import FormItem from "antd/lib/form/FormItem";
+import dynamic from 'next/dynamic';
+
+const MapComponentWithNoSSR = dynamic(() => import('@/components/Map/Map'), {
+  ssr: false, // Desativa a renderização do lado do servidor para este componente
+});
 
 const Alert = () => {
-  const [successMessage, setSuccessMessage] = useState("");
   const onFinishFailed = () => {}; // Defina onFinishFailed
+
+  const [showMap, setShowMap] = useState(false);
+  const [location, setLocation] = useState({ lat: -23.55052, lng: -46.633308 });
+  const [latitude, setLatitude] = useState('');
+  const [longitude, setLongitude] = useState('');
+
+  const handleLocationSelect = (latlng) => {
+    setLocation(latlng);
+    setLatitude(latlng.lat);
+    setLongitude(latlng.lng);
+    console.log('Localização selecionada:', latlng);
+  };
 
   const handleSubmit = async (values) => {
     try {
-      // Extrai os valores do formulário
-      const { Latitude, Longitude, Acidente } = values;
+      const {Acidente } = values;
 
-      // Cria um objeto com os dados no formato esperado pelo backend
       const data = {
-        "latitude": parseFloat(Latitude),
-        "longitude": parseFloat(Longitude),
+        "latitude": parseFloat(latitude),
+        "longitude": parseFloat(longitude),
         "option": Acidente,
       };
 
       // Envia os dados para o backend usando Axios
-      const response = await axios.post('http://localhost:8080/alerts', data);
+      const response = await axios.post('http://localhost:8000/alerts', data);
 
       // Verifica se a solicitação foi bem-sucedida
-      if (response.status === 200) {
-        setSuccessMessage('Alerta enviado com sucesso!'); // Define a mensagem de sucesso no estado
-        // Faça qualquer outra ação necessária após o envio bem-sucedido
+      if (response.status === 201) {
+        message.success("Alerta criado com sucesso!");
       }
     } catch (error) {
       console.error('Erro ao enviar alerta:', error);
@@ -36,7 +49,6 @@ const Alert = () => {
 
   return (
     <div>
-      {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>} {/* Exibe a mensagem de sucesso se houver */}
       <Form
         name="basic"
         labelCol={{
@@ -51,35 +63,51 @@ const Alert = () => {
         initialValues={{
           remember: true,
         }}
-        onFinish={handleSubmit} // Use a função handleSubmit para lidar com o envio do formulário
+        onFinish={handleSubmit}
         onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
-        <p>Indique sua Latitude:</p>
-        <FormItem
-          name="Latitude"
-          rules={[
-            {
-              required: true,
-              message: 'Por favor, insira sua latitude!',
-            },
-          ]}
-        >
-          <Input name="Latitude" style={{ width: '100%' }} />
-        </FormItem>
 
-        <p>Indique sua Longitude:</p>
-        <FormItem
-          name="Longitude"
-          rules={[
+        {!showMap && <Button onClick={() => setShowMap(true)} style={{ marginBottom: 16 }}>Indicar Local</Button>}
+        {showMap && <Button onClick={() => setShowMap(false)} style={{ marginBottom: 16 }}>Informar Valores</Button>}
+
+        {showMap ? (
+          <div>
+            <MapComponentWithNoSSR onLocationSelect={handleLocationSelect} />
+          </div>
+        ) : (
+          <>
             {
-              required: true,
-              message: 'Por favor, digite sua longitude!',
-            },
-          ]}
-        >
-          <Input name="Longitude" style={{ width: '100%' }} />
-        </FormItem>
+              <div>
+                <p>Indique sua Latitude:</p>
+                <FormItem
+                  name="Latitude"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Por favor, insira sua latitude!',
+                    },
+                  ]}
+                >
+                  <Input name="Latitude" style={{ width: '100%' }} onChange={(e) => setLatitude(e.target.value)}/>
+                </FormItem>
+
+                <p>Indique sua Longitude:</p>
+                <FormItem
+                  name="Longitude"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Por favor, digite sua longitude!',
+                    },
+                  ]}
+                >
+                  <Input name="Longitude" style={{ width: '100%' }} onChange={(e) => setLongitude(e.target.value)} />
+                </FormItem>
+              </div>
+            }
+          </>
+        )}
 
         <p>Qual o tipo de alerta ? </p>
         <FormItem
@@ -92,7 +120,7 @@ const Alert = () => {
           ]}
         >
           <Select
-            defaultValue=""
+            initialvalues={{ name: "" }}
             style={{ width: '100%' }}
             options={[
               {
@@ -124,7 +152,7 @@ const Alert = () => {
             span: 16,
           }}
         >
-          <Button type="primary" id="submit" htmlType="submit" style={{ width: '100%', backgroundColor: '#FFA13A !important', color: 'white' }}>
+          <Button id="submit" htmlType="submit" style={{ width: '100%', backgroundColor: '#FFA13A !important', color: 'white' }}>
             Enviar Alerta !
           </Button>
         </FormItem>

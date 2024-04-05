@@ -1,8 +1,10 @@
 ---
 title: Sprint Review
 sidebar_position: 4
-slug: /sprint-review
+slug: /sprint-review1
 ---
+
+# Sprint Review 1
 
 Durante a primeira sprint, nossa atenção esteve voltada para uma compreensão aprofundada do problema, abordando os seguintes elementos apresentados sequencialmente:
 

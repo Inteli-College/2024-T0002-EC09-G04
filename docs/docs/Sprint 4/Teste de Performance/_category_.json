@@ -1,0 +1,8 @@
+{
+    "label": "Teste de performance do sistema",
+    "position": 4,
+    "link": {
+      "type": "generated-index",
+      "description": "Durante esta sprint, direcionamos nossos esforços para desenvolver um metódo de autenticação do usuário com a aplicação sendo desenvolvida. O desenvolvimento foi feito prototipando uma autenticação simples com AWS Cognito e a análise do impacto na segurança da aplicação e da implentação desta no projeto."
+    }
+  }
