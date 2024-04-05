@@ -1,10 +1,9 @@
 ---
-title: Banco de Dados
-sidebar_position: 3
+sidebar_position: 4
 slug: /database
 ---
 
-# Banco de Dados 
+# Banco de Dados
 
 ## Introdução
 
@@ -22,7 +21,7 @@ Esta tabela armazena informações sobre as estações de monitoramento, incluin
 |------|----|---------|
 |Id    | INT| Primary Key|
 |Latitude|FLOAT|Latitude da estação|
-|Longitude|FLOAT|Longitude da estação| 
+|Longitude|FLOAT|Longitude da estação|
 
 **2. Tabela `Gas`**
 
@@ -64,22 +63,22 @@ Esta tabela armazena os alertas recebidos da população sobre eventos ambientai
 
 ### Relação com o sistema
 
-Indubitavelmente, a relação do banco de dados com o restante do sistema é fundamental para garantir a integridade, persistência e acessibilidade dos dados coletados pelos sensores e alertas da população. Tendo isso em vista, é necessário compreender o fluxo das informações dentro do sistema para uma compreensão mais completa do funcionamento do sistema de armazenamento de dados atual. 
+Indubitavelmente, a relação do banco de dados com o restante do sistema é fundamental para garantir a integridade, persistência e acessibilidade dos dados coletados pelos sensores e alertas da população. Tendo isso em vista, é necessário compreender o fluxo das informações dentro do sistema para uma compreensão mais completa do funcionamento do sistema de armazenamento de dados atual.
 
-Primeiramente, os dados enviados pelos sensores são enfileirados no broker RabbitMQ utilizando o protocolo MQTT. O RabbitMQ atua como um intermediário eficiente para receber, armazenar temporariamente e encaminhar os dados para os consumidores. 
-Um consumidor, ou consumer, é responsável por desenfileirar os dados do RabbitMQ. Este consumidor é um componente do sistema desenvolvido em Golang para interação com o resto do sistema. O consumidor é responsável por retirar os dados da fila e processá-los para posterior armazenamento no banco de dados. Uma vez armazenados no banco de dados, os dados estão disponíveis para análise e visualização na AWS-RDS. Assim, após o consumo desses dados por dashboards, os usuários do sistema podem acessar essas informações para entender as condições ambientais em diferentes áreas da cidade de São Paulo ao longo do tempo. 
+Primeiramente, os dados enviados pelos sensores são enfileirados no broker RabbitMQ utilizando o protocolo MQTT. O RabbitMQ atua como um intermediário eficiente para receber, armazenar temporariamente e encaminhar os dados para os consumidores.
+Um consumidor, ou consumer, é responsável por desenfileirar os dados do RabbitMQ. Este consumidor é um componente do sistema desenvolvido em Golang para interação com o resto do sistema. O consumidor é responsável por retirar os dados da fila e processá-los para posterior armazenamento no banco de dados. Uma vez armazenados no banco de dados, os dados estão disponíveis para análise e visualização na AWS-RDS. Assim, após o consumo desses dados por dashboards, os usuários do sistema podem acessar essas informações para entender as condições ambientais em diferentes áreas da cidade de São Paulo ao longo do tempo.
 
 ### Modelo Lógico do Banco de dados
 
 O modelo lógico do banco de dados oferece uma representação organizada e eficiente das informações coletadas pelo sistema de monitoramento ambiental em São Paulo. Ele foi projetado para atender às necessidades de armazenamento, recuperação e análise de dados ambientais, fornecendo uma base sólida para tomada de decisões e ações por parte das autoridades responsáveis pelo meio ambiente.
 
-![Modelo_logico](../../../assets/modelo_logico.jpeg)
+![Modelo_logico](../../static/img/modelo_logico.jpeg)
 
 ## Banco de Dados da Aplicação
 
 O banco de dados da aplicação do Metabase é usado para armazenar diversas informações necessárias para o funcionamento da própria aplicação. Isso inclui configurações, dados de usuários, logs, histórico de consultas e outras informações relacionadas ao funcionamento do Metabase como um todo.
 
-Para isso, criamos um endpoint de um Banco de Dados Relacional no RDS da Amazon. Apenas para o armazenamento e configuração da interface do metabase se manter constante para podermos trabalhar na aplicação. 
+Para isso, criamos um endpoint de um Banco de Dados Relacional no RDS da Amazon. Apenas para o armazenamento e configuração da interface do metabase se manter constante para podermos trabalhar na aplicação.
 
 ### Funcionamento
 
@@ -93,7 +92,6 @@ Para isso, criamos um endpoint de um Banco de Dados Relacional no RDS da Amazon.
 
 5. Cache e Metadados de Consulta: O Metabase pode armazenar em cache resultados de consultas e metadados sobre as fontes de dados para melhorar o desempenho e a eficiência das consultas subsequentes.
 
-## Conclusão 
+## Conclusão
 
 A estrutura do banco de dados inicial foi projetada para armazenar eficientemente uma grande quantidade de dados, permitindo uma análise abrangente e ação rápida em resposta para integração com o sistema.
-
