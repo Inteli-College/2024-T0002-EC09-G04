@@ -3,6 +3,6 @@
     "position": 3,
     "link": {
       "type": "generated-index",
-      "description": "Sprint 3"
+      "description": "Nosos foco durante essa sprint foi na criação de uma interface de input de dados e autenticação para os usuários. Além disso focamos na melhor estruturação da nossa arquitetura de backend pensando em formas de otimizar nossos sistemas. Houve também uma dedicação no aprimoramento dos testes desenvolvidos."
     }
 }

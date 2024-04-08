@@ -195,7 +195,7 @@ const SignUpForm = () => {
       </Form>
       <Modal
         title="Verificação de Conta"
-        open={true}
+        open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}
         footer={[
@@ -207,6 +207,7 @@ const SignUpForm = () => {
           </Button>,
           <Button 
             key="submit"
+            onClick={handleOk}
             style={{backgroundColor: '#FFA13A !important'}}
           >
             Enviar Código

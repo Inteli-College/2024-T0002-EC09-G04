@@ -6,7 +6,7 @@ slug: /sprint-review4
 
 # Sprint Review 4
 
-Durante a quarta sprint, nossa atenção esteve voltada para uma compreensão aprofundada do problema, abordando os seguintes elementos apresentados sequencialmente:
+Durante a quarta sprint, nossa atenção esteve voltada para uma aprimoramento do produto desenvolvido, abordando os seguintes elementos apresentados sequencialmente:
 
 1. **Arquitetura da Solução:** Análise da engenharia de software e arquitetura do projeto.
 2. **Melhoria no Frontend:** Aprimoramento da interface de interação com o usuário.

@@ -29,7 +29,7 @@ A fim de rodar o teste específico que usamos, basta trocar as variáveis de amb
 Com isso, após os 10 segundos de duração do teste, o resultado esperado deve ser assim:
 
 **K6:**
-![Tela de Alertas](../../../static/img/k6.png)
+![Tela de Alertas](../../../static/img/k6.jpg)
 
 Nesse sentido, vale citar que se a conta em questão for gratuíta, algo sobre extrapolação deve aparecer na tela inicial do hivemq.
 
