@@ -195,7 +195,7 @@ const SignUpForm = () => {
       </Form>
       <Modal
         title="Verificação de Conta"
-        open={isModalOpen}
+        open={true}
         onOk={handleOk}
         onCancel={handleCancel}
         footer={[
