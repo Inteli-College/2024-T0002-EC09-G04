@@ -28,7 +28,7 @@ const LoginForm = ({ onFinishFailed }) => {
       const responseData = await response.json();
       
       // Verificar se o token existe
-      if (responseData.token) {
+      if (responseData) {
         message.loading("Realizando Login...")
         setLoading(true);
         
