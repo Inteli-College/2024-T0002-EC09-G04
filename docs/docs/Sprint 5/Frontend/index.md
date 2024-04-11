@@ -24,7 +24,7 @@ Organização Compacta dos Inputs: Redesenhamos a distribuição dos campos de e
 
 O usuário pode escolher a localização pelo mapa, todavia está presente a opção para inserção manual devido a um valor mais específico.
 
-![Gases - Sensor](../../../static/img/tipoSensor.png)
+![Gases - Sensor](../../../static/img/tipoSensores.png)
 
 Dessa maneira é possível criar um novo tipo de sensor e também removê-lo.
 
