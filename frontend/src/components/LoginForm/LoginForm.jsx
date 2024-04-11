@@ -13,7 +13,7 @@ const LoginForm = ({ onFinishFailed }) => {
       console.log("Dados do formulário:", values);
       const { email, password } = values;
 
-      const url = "http://localhost:8080/user/login";
+      const url = "http://localhost:8080/users/signin";
       const data = { email, password };
       const response = await fetch(url, {
         method: "POST",

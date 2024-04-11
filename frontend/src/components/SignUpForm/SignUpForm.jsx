@@ -39,7 +39,7 @@ const SignUpForm = () => {
     try {
       console.log("Código de Verificação:", code); // Exibe corretamente o código de verificação
       const { email } = user;
-      const url = "http://localhost:8080/user/confirmation";
+      const url = "http://localhost:8080/users/confirmation";
       const data = { email, code };
       const response = await fetch(url, {
         method: "POST",
@@ -78,7 +78,7 @@ const SignUpForm = () => {
         email,
       });
 
-      const url = "http://localhost:8080/user";
+      const url = "http://localhost:8080/users/signup";
       const data = { name, email, password };
       const response = await fetch(url, {
         method: "POST",
