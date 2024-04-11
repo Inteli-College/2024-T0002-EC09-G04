@@ -4,15 +4,13 @@ sidebar_position: 1
 slug: /arquitetura5
 ---
 
-## Conclusão do Projeto
-
 Este projeto abrange uma série de componentes interconectados que juntos formam uma solução robusta para gestão e análise de dados ambientais e de interação do usuário. A seguir, detalhamos as conclusões de cada componente fundamental do sistema.
 
 ### Camada de Segurança
 Essencial para a proteção integral do projeto, essa camada compreende todas as validações necessárias, gestão de redes e testes, assim como outros métodos de segurança que são fundamentais para a integridade e confiabilidade do sistema.
 
 ### Simulação
-Utiliza o protocolo MQTT para gerenciar a troca de dados entre diferentes sensores, incluindo sensores de qualidade do ar e luminosidade. O uso do broker HiveMQ Cloud assegura que o tráfego de dados seja eficiente e seguro.
+A simulação utiliza o protocolo MQTT para gerenciar a troca de dados entre diferentes sensores, incluindo sensores de qualidade do ar e luminosidade. No entanto, é importante ressaltar que a arquitetura atual permite uma flexibilidade de migração para diferentes provedores de nuvem, garantindo agnosticidade em relação aos serviços utilizados, como HiveMQ Cloud e Kafka.
 
 ### Aplicativo (APP)
 Serve como o núcleo para a lógica de negócios e a operação do servidor, empregando Kafka para mensageria através da Confluent Cloud e oferecendo APIs para criação de alertas e gestão de sensores. Além disso, é responsável pelo armazenamento de dados sensoriais, consolidando a base para análise e decisão.
@@ -29,4 +27,4 @@ Proporciona uma interação fluida e segura para os usuários finais do sistema,
 ### Fluxo de Dados
 O sistema inicia com a simulação de sensores que geram dados ambientais. Esses dados são então capturados pelo sistema MQTT, enviados para o sistema de mensageria Kafka e posteriormente armazenados em bancos de dados. O backend processa e disponibiliza esses dados para as interfaces de usuário, onde são visualizados e gerenciados.
 
-Em resumo, o projeto integra tecnologias avançadas e metodologias de desenvolvimento modernas para criar uma solução eficaz que não apenas atende às necessidades de monitoramento ambiental, mas também proporciona uma interação rica e segura para os usuários, demonstrando a flexibilidade e a capacidade do sistema de adaptar-se a variadas demandas e escalas de uso.
+Em resumo, o projeto integra tecnologias avançadas e metodologias de desenvolvimento modernas para criar uma solução eficaz que não apenas atende às necessidades de monitoramento ambiental, mas também proporciona uma interação rica e segura para os usuários, demonstrando a flexibilidade e a capacidade do sistema de adaptar-se a variadas demandas e escalas de uso. A arquitetura agnóstica em relação aos serviços em nuvem permite uma escalabilidade ainda maior, abrindo caminho para futuras migrações e integrações com diferentes provedores de nuvem.
