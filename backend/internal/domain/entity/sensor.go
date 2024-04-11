@@ -17,7 +17,7 @@ type SensorRepository interface {
 }
 
 type Sensor struct {
-	ID        string             `json:"_id"`
+	Sensor_ID        string             `json:"_id"`
 	Name      string             `json:"name"`
 	Latitude  float64            `json:"latitude"`
 	Longitude float64            `json:"longitude"`

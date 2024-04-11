@@ -29,7 +29,7 @@ func (f *FindAllSensorsUseCase) Execute() ([]FindAllSensorsOutputDTO, error) {
 	var output []FindAllSensorsOutputDTO
 	for _, sensor := range sensors {
 		output = append(output, FindAllSensorsOutputDTO{
-			ID:        sensor.ID,
+			ID:        sensor.Sensor_ID,
 			Name:      sensor.Name,
 			Latitude:  sensor.Latitude,
 			Longitude: sensor.Longitude,

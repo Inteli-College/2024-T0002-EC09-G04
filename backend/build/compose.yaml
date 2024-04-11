@@ -27,7 +27,7 @@ services:
       context: ..
       dockerfile: build/Dockerfile.app
     ports:
-      - "80:8080"
+      - "8080:8080"
   streamer:
     container_name: streamer
     hostname: streamer
