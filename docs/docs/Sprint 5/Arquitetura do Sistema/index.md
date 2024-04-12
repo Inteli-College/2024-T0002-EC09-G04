@@ -4,7 +4,7 @@ sidebar_position: 1
 slug: /arquitetura5
 ---
 
-Este projeto abrange uma série de componentes interconectados que juntos formam uma solução robusta para gestão e análise de dados ambientais e de interação do usuário. A seguir, detalhamos as conclusões de cada componente fundamental do sistema.
+Retomando a [Arquitetura do Sistema](https://inteli-college.github.io/2024-T0002-EC09-G04/solution-architecture-v3), este tópico abrange uma série de componentes interconectados que juntos formam uma solução robusta para gestão e análise de dados ambientais e de interação do usuário. A seguir, detalhamos as conclusões de cada componente fundamental do sistema.
 
 ### Camada de Segurança
 Essencial para a proteção integral do projeto, essa camada compreende todas as validações necessárias, gestão de redes e testes, assim como outros métodos de segurança que são fundamentais para a integridade e confiabilidade do sistema.
