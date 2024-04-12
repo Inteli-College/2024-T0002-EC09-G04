@@ -2,12 +2,12 @@ import { test, expect } from '@playwright/test';
 
 test('should not acess alert page without login', async ({ page }) => {
     await page.goto('http://localhost:3000/alert');
-    expect(page.url()).toBe('http://localhost:3000/login');
+    expect(page.url()).toBe('http://localhost:3000/');
 });
 
 test('should not acess sensor page without login', async ({ page }) => {
     await page.goto('http://localhost:3000/sensor');
-    expect(page.url()).toBe('http://localhost:3000/login');
+    expect(page.url()).toBe('http://localhost:3000/');
 });
 
 test('should access alert page after login', async ({ page }) => {

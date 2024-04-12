@@ -20,3 +20,13 @@ Diante do desafio de realizar nosso primeiro teste de carga, a equipe optou pelo
 Durante a quinta sprint, em uma tentativa de utilizar o Grafana para integração com o K6 e visualização de testes, o grupo descobriu duas possibilidades de contorno para as limitações da arquitetura: executar a arquitetura do sistema em ambiente local, com o HiveMQ e Kafka como contêineres Docker, e exibir os resultados dos testes no console, sem demonstração de gráficos. Por outro lado, se o grupo quisesse exibir esses resultados com a integração do Grafana, a forma de fazer isso poderia ser subir uma imagem do Grafana em um EC2 AWS, o que contornaria a limitação de 100 clientes imposta pelo Grafana.
 
 Em suma, a implementação desse teste de carga durante as duas últimas sprints teve foco na descoberta das melhores práticas de teste e das ferramentas utilizadas para realizá-lo. Isso se mostrou promissor para sprints que envolvem serviços de servidores para os próximos módulos e refinamento de arquiteturas que podem estar um pouco lentas ou sobrecarregadas.
+
+## Testes de Autenticação
+
+Com o intuito de apresentar uma solução segura e eficiente, o grupo realizou testes de autenticação para garantir a integridade do sistema. A autenticação é um processo fundamental para a segurança de sistemas, pois permite a verificação da identidade de usuários e dispositivos, garantindo que apenas usuários autorizados tenham acesso ao sistema. Para isso, o grupo implementou um sistema de autenticação baseado em JWT (JSON Web Token), que permite a autenticação de usuários por meio de tokens criptografados.
+
+O teste da autenticação foi realizado por meio de um script de teste automatizado, que simula o processo de autenticação de usuários no sistema. O script envia uma solicitação de autenticação para o servidor, que verifica as credenciais do usuário e retorna um token JWT válido. O token é então utilizado para autenticar o usuário em solicitações subsequentes, garantindo que apenas usuários autenticados tenham acesso aos recursos protegidos do sistema.
+
+Para isso, foi utilizado o framework de testes automatizados Playwright, que permite a automação de testes de interface de usuário em navegadores web. O script de teste foi desenvolvido para simular o processo de autenticação de usuários no sistema, verificando se o token JWT gerado pelo servidor é válido e se o usuário é autenticado corretamente. O script foi executado em um ambiente de teste isolado, garantindo a integridade dos resultados.
+
+Os testes estão disponíveis no repositório do grupo, no diretório `tests`, presentes na pasta `frontend`, podendo ser acessados pelo seguinte [link](https://github.com/Inteli-College/2024-T0002-EC09-G04/tree/main/frontend/tests)
