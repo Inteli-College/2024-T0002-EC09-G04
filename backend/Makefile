@@ -14,7 +14,7 @@ run:
 	@docker compose \
 		-f ./build/compose.yaml \
 		--env-file ./config/.env \
-		up simulation streamer app --build
+		up app metabase --build
 
 .PHONY: migrations
 migrations:

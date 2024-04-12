@@ -1,5 +1,5 @@
 ---
-title: Frontend da Aplicação 
+title: Frontend 
 sidebar_position: 5
 slug: /frontend5
 ---

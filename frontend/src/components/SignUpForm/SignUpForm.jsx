@@ -1,10 +1,10 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Form, Input, Button, Row, Col, message, Modal, Space } from "antd";
-import { Amplify } from "aws-amplify"; // Importar o Auth do aws-amplify
-import { signUp } from "aws-amplify/auth";
+// import { Amplify } from "aws-amplify"; // Importar o Auth do aws-amplify
+// import { signUp } from "aws-amplify/auth";
 
-import awsmobile from "../../aws-exports";
+// import awsmobile from "../../aws-exports";
 
 //Amplify.configure({
 //  Auth: {
@@ -76,6 +76,7 @@ const SignUpForm = () => {
       setUser({
         name,
         email,
+        password
       });
 
       const url = "http://localhost:8080/users/signup";

@@ -25,32 +25,15 @@ A integração entre HiveMQ e Kafka proporciona uma solução robusta e escaláv
 
 Os serviços do Kafka, Confluent e HiveMQ são disponibilizados por meio de interfaces criadas com foco na facilidade de conexões e experiência do usuário. Entretanto a utilização desses serviços desse modo implica em restrições de utilização, como os _free tiers_ por exemplo. 
 
-Pensando nisso, nosso desenvolvimento inicial foi aproveitando as limitações gratuitas de cada um deles, mas para o encerramento do projeto focamos em uma estrutura Cloud Agnostic Provider. 
+Pensando nisso, nosso desenvolvimento inicial foi aproveitando as limitações gratuitas de cada um deles, mas para o encerramento do projeto focamos em uma estrutura Cloud Agnostic Provider e verticalizamos a nossa infraestrutura e é possível rodar tudo o que estaria em serviços de nuvem localmente, o que posteriormente pode ser implantado em qualquer cloud provider.
 
 ## Rodando Localmente com Docker:
 
-Para garantir uma opção de utilização mais agnóstica do projeto, é possível configurar e rodar a arquitetura de mensageria localmente utilizando containers Docker. Siga as instruções abaixo:
+Para garantir uma opção de utilização mais agnóstica do projeto, é possível configurar e rodar a arquitetura de mensageria localmente utilizando containers Docker. Siga as instruções abaixo após entrar no diretório ```backend```:
 
-1. **Configuração do Ambiente Docker**:
-   - Certifique-se de ter o Docker instalado em sua máquina local. Você pode encontrar instruções de instalação no site oficial do Docker.
-
-2. **Preparação dos Contêineres**:
-   - Crie um arquivo `docker-compose.yml` para definir a configuração dos contêineres necessários, incluindo HiveMQ, Kafka e quaisquer outros componentes relevantes.
-   - No arquivo `docker-compose.yml`, defina as redes, volumes e outras configurações necessárias para garantir a comunicação adequada entre os contêineres.
-
-3. **Configuração da Integração**:
-   - Configure o HiveMQ para se conectar ao Kafka dentro do ambiente Docker. Certifique-se de utilizar os nomes dos serviços definidos no arquivo `docker-compose.yml` para referenciar os contêineres Kafka.
-
-4. **Execução dos Contêineres**:
-   - Execute o comando `docker-compose up` na raiz do seu projeto para iniciar todos os contêineres definidos no arquivo `docker-compose.yml`.
-   - Aguarde até que todos os contêineres estejam em execução e prontos para receber conexões.
-
-5. **Testes e Validação**:
-   - Após a inicialização bem-sucedida dos contêineres, realize testes de envio e recebimento de mensagens para validar o funcionamento adequado da integração entre HiveMQ e Kafka no ambiente Dockerizado.
-
-6. **Limpeza do Ambiente**:
-   - Quando não estiver mais utilizando o ambiente Dockerizado, execute o comando `docker-compose down` para desligar e remover os contêineres. Isso liberará os recursos da sua máquina e garantirá que nenhum contêiner esteja em execução desnecessariamente.
-
+```bash
+make infra
+```
 
 ## Conclusão:
 

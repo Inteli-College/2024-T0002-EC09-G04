@@ -1,9 +1,8 @@
 ---
-title: Testes
+title: Test Driven Development
 sidebar_position: 9
-slug: /tests5
+slug: /tdd5
 ---
-
 
 ## Testes de Carga
 

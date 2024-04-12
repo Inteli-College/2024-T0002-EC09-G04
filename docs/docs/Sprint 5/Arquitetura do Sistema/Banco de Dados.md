@@ -1,5 +1,5 @@
 ---
-title: Conclusão da Análise de Bancos de Dados
+title: Análise de Bancos de Dados
 sidebar_position: 2
 slug: /DB-conclusion
 ---
