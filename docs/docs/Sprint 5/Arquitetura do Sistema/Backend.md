@@ -10,6 +10,7 @@ A conclusão do nosso sistema é que ele representa uma solução abrangente e s
 
 Antes de continuar, é necessário instalar as dependências e criar os serviços listados para a execução dos comandos posteriores. Para isso siga as seguintes instruções:
 
+- Cognito AWS - [Create a new user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/tutorial-create-user-pool.html)
 - Cluster MongoDB - [MongoDB Atlas](https://www.mongodb.com/basics/clusters/mongodb-cluster-setup)
 - Instância PostgresSQL - [RDS](https://aws.amazon.com/getting-started/hands-on/create-connect-postgresql-db/) 
 - Docker engine - [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
