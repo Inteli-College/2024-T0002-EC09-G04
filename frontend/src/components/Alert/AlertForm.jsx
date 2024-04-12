@@ -35,7 +35,7 @@ const Alert = () => {
       };
 
       // Envia os dados para o backend usando Axios
-      const response = await axios.post('http://localhost:8000/alerts', data);
+      const response = await axios.post('http://localhost:8080/alerts', data);
 
       // Verifica se a solicitação foi bem-sucedida
       if (response.status === 201) {

@@ -14,7 +14,7 @@ run:
 	@docker compose \
 		-f ./build/compose.yaml \
 		--env-file ./config/.env \
-		up simulation app metabase --build
+		up simulation streamer app --build
 
 .PHONY: migrations
 migrations:
@@ -35,3 +35,16 @@ coverage: test
 .PHONY: env
 env: ./config/.env.develop.tmpl
 	cp ./config/.env.develop.tmpl ./config/.env
+
+.PHONY: app
+app:
+	@docker compose \
+		-f ./build/compose.yaml \
+		--env-file ./config/.env \
+		up app --build
+
+.PHONY: infra
+infra:
+	$(START_LOG)
+	@docker compose -f ./deployments/compose.yaml up --build
+	$(END_LOG)

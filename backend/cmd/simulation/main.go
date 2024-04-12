@@ -8,7 +8,6 @@ import (
 	"os"
 	"sync"
 	"time"
-
 	"github.com/Inteli-College/2024-T0002-EC09-G04/backend/internal/domain/entity"
 	"github.com/Inteli-College/2024-T0002-EC09-G04/backend/internal/usecase"
 	MQTT "github.com/eclipse/paho.mqtt.golang"
@@ -48,12 +47,7 @@ func main() {
 		log.Printf("Starting sensor: %v", sensor)
 		go func(sensor usecase.FindAllSensorsOutputDTO) {
 			defer wg.Done()
-			opts := MQTT.NewClientOptions().AddBroker(
-				fmt.Sprintf("ssl://%s:%s",
-					os.Getenv("BROKER_TLS_URL"),
-					os.Getenv("BROKER_PORT"))).SetUsername(
-				os.Getenv("BROKER_USERNAME")).SetPassword(
-				os.Getenv("BROKER_PASSWORD")).SetClientID(sensor.ID)
+			opts := MQTT.NewClientOptions().AddBroker(fmt.Sprintf("tcp://%s:%s", os.Getenv("BROKER_URL"), os.Getenv("BROKER_PORT"))).SetClientID(sensor.ID)
 			client := MQTT.NewClient(opts)
 			if session := client.Connect(); session.Wait() && session.Error() != nil {
 				log.Fatalf("Failed to connect to MQTT broker: %v", session.Error())

@@ -2,22 +2,17 @@ package main
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
+	"github.com/Inteli-College/2024-T0002-EC09-G04/backend/internal/infra/aws"
+	"github.com/Inteli-College/2024-T0002-EC09-G04/backend/internal/infra/repository"
+	"github.com/Inteli-College/2024-T0002-EC09-G04/backend/internal/infra/web"
+	"github.com/Inteli-College/2024-T0002-EC09-G04/backend/internal/usecase"
+	"github.com/rs/cors"
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 	"log"
 	"net/http"
 	"os"
-
-	"github.com/Inteli-College/2024-T0002-EC09-G04/backend/internal/usecase"
-	ckafka "github.com/confluentinc/confluent-kafka-go/v2/kafka"
-	"github.com/go-chi/chi/v5"
-	"github.com/Inteli-College/2024-T0002-EC09-G04/backend/internal/infra/kafka"
-	"github.com/Inteli-College/2024-T0002-EC09-G04/backend/internal/infra/repository"
-	"github.com/Inteli-College/2024-T0002-EC09-G04/backend/internal/infra/web"
-	_ "github.com/lib/pq"
-	"go.mongodb.org/mongo-driver/mongo"
-	"github.com/rs/cors"
-	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 func main() {
@@ -37,63 +32,36 @@ func main() {
 		log.Fatal(err)
 	}
 
-	msgChan := make(chan *ckafka.Message)
+	OAuth2Repository := aws.NewOAuth2RepositoryCognito(
+		os.Getenv("AWS_COGNITO_CLIENT_ID"),
+		os.Getenv("AWS_COGNITO_PASSWORD"),
+		os.Getenv("AWS_COGNITO_REGION"),
+		os.Getenv("AWS_COGNITO_POOL_ID"),
+	)
+	createUserUsecase := usecase.NewCreateUserUsecase(OAuth2Repository)
+	getUserUsecase := usecase.NewGetUserUsecase(OAuth2Repository)
+	userConfirmation := usecase.NewUserConfirmationUsecase(OAuth2Repository)
+	userSignInUsecase := usecase.NewUserSignInUsecase(OAuth2Repository)
+	userHandlers := web.NewUserHandlers(createUserUsecase, getUserUsecase, userConfirmation, userSignInUsecase)
 
-	configMap := &ckafka.ConfigMap{
-		"bootstrap.servers":  os.Getenv("CONFLUENT_BOOTSTRAP_SERVER_SASL"),
-		"sasl.mechanisms":    "PLAIN",
-		"security.protocol":  "SASL_SSL",
-		"sasl.username":      os.Getenv("CONFLUENT_API_KEY"),
-		"sasl.password":      os.Getenv("CONFLUENT_API_SECRET"),
-		"session.timeout.ms": 6000,
-		"group.id":           "orbit-city",
-		"auto.offset.reset":  "latest",
-	}
-
-	kafkaRepository := kafka.NewKafkaConsumer(configMap, []string{os.Getenv("CONFLUENT_KAFKA_TOPIC_NAME")})
-	go func() {
-		if err := kafkaRepository.Consume(msgChan); err != nil {
-			log.Printf("Error consuming kafka queue: %v", err)
-		}
-	}()
-
-	sensorsLogRepository := repository.NewSensorLogRepositoryMongo(client, "mongodb", "sensors_log")
-	createSensorLogUseCase := usecase.NewCreateSensorLogUseCase(sensorsLogRepository)
 	sensorsRepository := repository.NewSensorRepositoryMongo(client, "mongodb", "sensors")
 	createSensorUseCase := usecase.NewCreateSensorUseCase(sensorsRepository)
 	sensorHandlers := web.NewSensorHandlers(createSensorUseCase)
-	
+
 	alertRepository := repository.NewAlertRepositoryMongo(client, "mongodb", "alerts")
 	createAlertUseCase := usecase.NewCreateAlertUseCase(alertRepository)
 	findAllAlertsUseCase := usecase.NewFindAllAlertsUseCase(alertRepository)
 	alertHandlers := web.NewAlertHandlers(createAlertUseCase, findAllAlertsUseCase)
 
-	corsOptions := cors.New(cors.Options{
-		AllowedOrigins:   []string{"*"}, // Permitir todas as origens
-		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
-		AllowedHeaders:   []string{"*"},
-		AllowCredentials: true,
-	})
-
-	//TODO: this is the best way to do this? need to refactor or find another way to start the server
-	router := chi.NewRouter()
-	router.Use(corsOptions.Handler) // Use o middleware CORS
-	router.Get("/sensors", sensorHandlers.CreateSensorHandler)
-	router.Get("/alerts", alertHandlers.CreateAlertHandler)
-	router.Post("/alerts", alertHandlers.CreateAlertHandler)
-	router.Post("/sensors", sensorHandlers.CreateSensorHandler)
-
-	go http.ListenAndServe(":8000", router)
-
-	for msg := range msgChan {
-		dto := usecase.CreateSensorLogInputDTO{}
-		err := json.Unmarshal(msg.Value, &dto)
-		if err != nil {
-			log.Fatalf("Failed to unmarshal JSON: %v", err)
-		}
-		err = createSensorLogUseCase.Execute(dto)
-		if err != nil {
-			log.Fatalf("Failed to create sensor log: %v", err)
-		}
-	}
+	mux := http.NewServeMux()
+	mux.HandleFunc("GET /users", userHandlers.ValidateHandler)
+	mux.HandleFunc("POST /users/signup", userHandlers.CreateUserHandler)
+	mux.HandleFunc("POST /users/confirmation", userHandlers.UserConfirmationHandler)
+	mux.HandleFunc("POST /users/signin", userHandlers.UserSignInHandler)
+	mux.HandleFunc("GET /sensors", sensorHandlers.CreateSensorHandler)
+	mux.HandleFunc("GET /alerts", alertHandlers.CreateAlertHandler)
+	mux.HandleFunc("POST /alerts", alertHandlers.CreateAlertHandler)
+	mux.HandleFunc("POST /sensors", sensorHandlers.CreateSensorHandler)
+	handler := cors.Default().Handler(mux)
+	http.ListenAndServe(":8080", handler)
 }

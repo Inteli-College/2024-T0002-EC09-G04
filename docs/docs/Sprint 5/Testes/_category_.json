@@ -1,0 +1,7 @@
+{
+    "label": "Testes",
+    "position": 1,
+    "link": {
+      "type": "generated-index",
+      "description": "Nesta seção, são abordados aspectos cruciais do processo de testes de performance realizados durante as sprints 4 e 5. Os testes tiveram foco na capacidade da infraestrutura frente a um número de clientes muito alto." }
+  }

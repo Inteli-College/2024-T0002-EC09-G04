@@ -27,7 +27,18 @@ services:
       context: ..
       dockerfile: build/Dockerfile.app
     ports:
-      - "8000:8000"
+      - "8080:8080"
+  streamer:
+    container_name: streamer
+    hostname: streamer
+    restart: always
+    depends_on:
+      - simulation
+    env_file:
+      - ../config/.env
+    build:
+      context: ..
+      dockerfile: build/Dockerfile.streamer
   migrations:
     container_name: migrations
     hostname: migrations
