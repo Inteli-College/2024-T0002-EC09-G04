@@ -241,7 +241,7 @@ func (c *KafkaConsumer) Consume(msgChan chan *ckafka.Message) error {
 ```
 
 ### Servidor WEB:
-O servidor contém rotas de criação de sensores, criação de alertas e para pegar todos os alertas do banco de dados. Essa implementação utiliza o mux que é um roteador nativo do Golang idiomático e combinável para construir serviços Go HTTP.
+O servidor contém rotas de criação de sensores, criação de alertas e para pegar todos os alertas do banco de dados. Essa implementação utiliza o mux que é um roteador nativo do Golang idiomático e combinável para construir serviços Go HTTP. Além disso, estão presentes abaixo as rotas de autenticação.
 
 ```golang
 createUserUsecase := usecase.NewCreateUserUsecase(OAuth2Repository)
